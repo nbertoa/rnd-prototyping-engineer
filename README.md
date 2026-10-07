@@ -5,6 +5,8 @@ This repository tracks my development as an **R&D / Prototyping Engineer**, with
 My working style combines **Unreal Engine, C++, Blueprints, BertaDevKit, third-party plugins, and AI as a constant engineering companion** for research, exploration, implementation, debugging, documentation, and communication.
 
 > See [ROLE.md](ROLE.md) for the operational definition of the role, the R&D workflow, public evidence strategy, and the relationship between professional work, BertaDevKit, and personal R&D projects.
+>
+> See [RND-LAB-ARCHITECTURE.md](RND-LAB-ARCHITECTURE.md) for the current architecture connecting client R&D, BertaDevKit, Logic Driver as a potential orchestration layer, and the personal storytelling R&D laboratory.
 
 ## Core Positioning
 
