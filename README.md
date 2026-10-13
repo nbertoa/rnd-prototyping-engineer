@@ -7,6 +7,8 @@ My working style combines **Unreal Engine, C++, Blueprints, BertaDevKit, third-p
 > See [ROLE.md](ROLE.md) for the operational definition of the role, the R&D workflow, public evidence strategy, and the relationship between professional work, BertaDevKit, and personal R&D projects.
 >
 > See [RND-LAB-ARCHITECTURE.md](RND-LAB-ARCHITECTURE.md) for the current architecture connecting client R&D, BertaDevKit, Logic Driver as a potential orchestration layer, and the personal storytelling R&D laboratory.
+>
+> See [UNREAL-RND-TOOLKIT.md](UNREAL-RND-TOOLKIT.md) for the current reusable Unreal toolkit, plugin responsibilities, overlaps, gaps, and near-term integration experiments.
 
 ## Core Positioning
 
