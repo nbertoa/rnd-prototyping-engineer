@@ -45,7 +45,7 @@ Examples:
 
 - how to prototype narrative experiences quickly;
 - how to integrate commercial Unreal plugins without creating fragile dependencies;
-- how to orchestrate dialogue, inspection, cameras, audio, cinematics, UI, gameplay state, and interaction;
+- how to orchestrate dialogue, inspection, cameras, audio, cinematics, UI, gameplay state, weather, visual presentation, inventory, and interaction;
 - how to build reusable authoring and diagnostic tools;
 - how to decide what should stay project-specific and what deserves promotion into BertaDevKit;
 - how AI can accelerate research, authoring, testing, and documentation.
@@ -74,7 +74,7 @@ Personal experiments can safely act as proving grounds for reusable tooling befo
 
 # Logic Driver as a Potential Orchestration Layer
 
-Logic Driver Pro is not currently considered a replacement for StateTree, Narrative Tales, GAS, or any other domain-specific system.
+Logic Driver Pro is not currently owned and is not considered a replacement for StateTree, Narrative Tales, GAS, or any other domain-specific system.
 
 Its potentially valuable role is different:
 
@@ -95,7 +95,11 @@ Third-party systems
     ├── Black Eye Camera
     ├── Ultimate Gameplay Camera
     ├── Narrative Tales
-    └── Inspection System Pro
+    ├── Inspection System Pro
+    ├── Inventory System Pro
+    ├── Ultra Dynamic Sky
+    ├── Chameleon
+    └── Dragon IK
              │
              ▼
 Optional BertaDevKit integration layers
@@ -203,7 +207,9 @@ Examples:
 - verify an Inspection System discovery survives the intended lifecycle;
 - start a Narrative Tales dialogue and validate resulting world state;
 - grant a GAS ability, activate it, inspect tags/effects, and assert expected state;
-- execute a camera transition and validate completion / configuration.
+- execute a camera transition and validate completion / configuration;
+- change Ultra Dynamic Sky weather and validate narrative / environmental state;
+- equip an Inventory System item and validate resulting gameplay state.
 
 ### Diagnostic Wizard
 
@@ -249,10 +255,16 @@ Preferred responsibilities:
 
 - Narrative Tales → dialogue, branching narrative, quests;
 - Inspection System Pro → inspectable objects, documents, discoveries, environmental storytelling;
+- Nice Interaction System V2 → generic player-to-world interaction;
+- Inventory System Pro → items, equipment, weapons, containers, loot, crafting, vendors;
 - StateTree + State Tree Tools → NPC / AI behavior and state-driven gameplay where appropriate;
 - GAS + GAS Companion → abilities, effects, attributes, tags;
 - Combo Graph → combo / combat flow where required;
 - Menu System Pro + CommonUI → UI and navigation;
+- Map / Minimap / Marker systems → spatial navigation when required;
+- Ultra Dynamic Sky → environment, weather, time-of-day, atmosphere;
+- Chameleon → post-process language, perception states, visual mood;
+- Dragon IK → procedural character adaptation / IK when it accelerates the prototype;
 - Black Eye Camera / Ultimate Gameplay Camera / Sequencer → cameras and cinematic presentation;
 - BertaDevKit → reusable R&D capabilities, diagnostics, integration, and tooling.
 
@@ -269,7 +281,9 @@ Wait for Discovery
   ↓
 Start Dialogue
   ↓
-Change Lighting
+Change Weather / Lighting
+  ↓
+Change Visual State
   ↓
 Play Sequence
   ↓
@@ -296,55 +310,98 @@ Only create these when a real prototype needs them. Possible examples:
 - Wait For Gameplay Tag
 - Play Voice Over
 - Trigger Narrative Event
+- Set Weather / Time Of Day
+- Set Post Process State
+- Wait For Item / Equipment State
 - Validate Integration State
 
 The purpose is not to create a giant node library speculatively. Nodes should emerge from repeated real needs.
 
 ---
 
-# Current Storytelling R&D Stack
+# Current Storytelling / Prototyping R&D Stack
 
-## Already Available
+For the detailed capability map, overlaps, gaps, and suggested experiments, see [UNREAL-RND-TOOLKIT.md](UNREAL-RND-TOOLKIT.md).
+
+## Already Available / Owned
+
+### Core R&D / authoring
 
 - BertaDevKit
-- Menu System Pro
 - State Tree Tools
-- GAS Companion
-- Combo Graph
-- Black Eye Camera
-- Ultimate Gameplay Camera
 - Blueprint Assist
 - Electronic Nodes
 
-## High-Priority Candidates
+### Narrative / interaction / items
 
-### Inspection System Pro
+- Narrative Tales
+- Inspection System Pro
+- Nice Interaction System V2
+- Inventory System Pro
 
-Strong fit for environmental storytelling, documents, objects, discoveries, and short interactive experiences. It is especially attractive because it integrates directly with Menu System Pro.
+### UI / navigation
 
-### Narrative Tales
+- Menu System Pro
+- Map / Minimap / Marker systems
 
-Strong candidate for authored dialogue, branching narrative, quests, narrative events, conditions, and cinematic storytelling.
+### Gameplay
+
+- GAS Companion
+- Combo Graph
+
+### Cameras / presentation
+
+- Black Eye Camera
+- Ultimate Gameplay Camera
+- Ultra Dynamic Sky
+- Chameleon Post Process
+
+### Character animation / procedural adaptation
+
+- Dragon IK
+
+## High-Priority Candidate
 
 ### Logic Driver Pro
 
-Conditional R&D purchase. Its value is not primarily another gameplay state machine; it is the possibility of becoming an extensible visual orchestration / authoring layer for BertaDevKit and for cross-plugin workflows.
+Logic Driver remains the clearest major candidate that could add a new layer rather than simply another isolated gameplay feature.
 
-Before treating it as infrastructure, validate it against StateTree + State Tree Tools on at least one real orchestration problem.
+Its value is not primarily another gameplay state machine. The hypothesis is that it could become an extensible visual orchestration / authoring layer for BertaDevKit and for cross-plugin workflows.
 
-## Lower-Priority / Requirement-Driven Purchases
+It is not currently owned. Do not purchase or adopt it solely because it is powerful; validate the need against StateTree + State Tree Tools on a real orchestration problem, or acquire it when the combination of price and expected use makes the experiment reasonable.
 
-### Save System
+## Requirement-Driven / Intentionally Deferred
 
-A dedicated save framework is useful when project state and session length justify it. A 20–30 minute experience may only need native Unreal SaveGame or minimal persistence.
+### Dedicated AI framework
 
-### Map System
+No dedicated general-purpose AI plugin is currently justified. Unreal-native AI, StateTree, Behavior Trees, EQS, Smart Objects, and existing tools should be the baseline.
 
-Useful when spatial navigation is genuinely part of the problem. Do not add a map by default when level design, lighting, landmarks, audio, and environmental guidance can orient the player naturally.
+Products such as Smart AI, AI Behavior Toolkit, or Wise Feline should only be reconsidered when a concrete prototype exposes a real need.
 
-### Inventory System
+### Advanced Save System
 
-Useful only when the player must possess, consume, equip, combine, trade, or count items. A discovery / artifact collection does not automatically require a traditional inventory.
+Menu System Pro already provides save-game capabilities and Unreal provides native `SaveGame`. A dedicated persistence framework should only be added when actual world-state complexity, session requirements, versioning, cloud, or serialization needs justify it.
+
+### Traversal / movement framework
+
+Do not buy a large movement framework speculatively. Evaluate one when traversal itself becomes a central requirement.
+
+---
+
+# Current Integration Priority
+
+The stack is now broad enough that the main R&D value should come from **using and integrating it**, not continuing to accumulate plugins.
+
+Near-term experiments should answer practical questions:
+
+1. How quickly can a narrative interaction move from Nice Interaction → Inspection → Narrative Tales?
+2. How cleanly can Inventory System Pro connect world interaction, equipment, and persistence?
+3. Can Ultra Dynamic Sky + Chameleon + camera systems create rapid atmospheric narrative transitions without fragile glue?
+4. Where does Dragon IK materially outperform or accelerate Unreal-native IK workflows?
+5. Which repeated integration friction deserves a BertaDevKit adapter, diagnostic, or reusable helper?
+6. Does cross-system orchestration become complex enough to justify Logic Driver Pro?
+
+These experiments are more valuable than buying another plugin without a concrete requirement.
 
 ---
 
@@ -359,6 +416,7 @@ For every system in the laboratory:
 5. Use Logic Driver only when visual orchestration / authoring provides measurable value.
 6. Promote reusable capabilities into BertaDevKit only after they prove useful in real experiments.
 7. Keep product-specific narrative/content logic in the product repository.
+8. Treat discounts as an opportunity to acquire a justified capability, not as justification by themselves.
 
 The desired outcome is a reinforcing loop:
 
