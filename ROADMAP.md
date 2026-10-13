@@ -82,6 +82,34 @@ Evidence:
 - One architecture review of an existing subsystem or plugin
 - One documented refactor with a clear reason for the change
 
+### 3. Validate the current Unreal R&D toolkit
+
+The current stack is already broad enough that additional plugin acquisition is not the main priority. The immediate value should come from learning where the owned systems genuinely save time, where they overlap, and what integration friction remains.
+
+Current toolkit details: [UNREAL-RND-TOOLKIT.md](UNREAL-RND-TOOLKIT.md).
+
+Priority experiments:
+
+- Narrative interaction: Nice Interaction → Inspection System → Narrative Tales
+- Items / equipment: world interaction → Inventory System Pro → equip / unequip → persistence
+- Atmospheric storytelling: Narrative event → Ultra Dynamic Sky → Chameleon → camera / Sequencer
+- Character adaptation: compare Unreal-native IK against Dragon IK on a concrete problem
+- Cross-system orchestration: implement one flow with StateTree / standard Blueprint orchestration and use the result as the benchmark for a future Logic Driver evaluation
+
+Questions to answer:
+
+- Which plugins materially reduce prototype time?
+- Which integrations are clean and which create coupling?
+- Which systems should remain project-local?
+- Which repeated glue, diagnostics, or validation should become optional BertaDevKit tooling?
+- Does Logic Driver Pro add enough orchestration value to justify becoming part of the lab stack?
+
+Evidence:
+
+- At least one small cross-plugin vertical slice
+- One written integration / architecture note
+- One concrete decision about what should or should not move into BertaDevKit
+
 ---
 
 ## Q1 2027 — Gameplay Systems
@@ -141,6 +169,7 @@ Priorities:
 - Device-specific constraints
 - Performance and usability considerations
 - Fast evaluation of unfamiliar XR requirements
+- Evaluate where Dragon IK meaningfully accelerates full-body / procedural-body prototyping compared with native Unreal solutions
 
 Evidence:
 
