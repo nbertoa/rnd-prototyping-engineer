@@ -9,6 +9,8 @@ My working style combines **Unreal Engine, C++, Blueprints, BertaDevKit, third-p
 > See [RND-LAB-ARCHITECTURE.md](RND-LAB-ARCHITECTURE.md) for the current architecture connecting client R&D, BertaDevKit, Logic Driver as a potential orchestration layer, and the personal storytelling R&D laboratory.
 >
 > See [UNREAL-RND-TOOLKIT.md](UNREAL-RND-TOOLKIT.md) for the current reusable Unreal toolkit, plugin responsibilities, overlaps, gaps, and near-term integration experiments.
+>
+> See [PLUGIN-INVENTORY.md](PLUGIN-INVENTORY.md) for the current owned plugin stack, wishlist candidates, purchase status, and the role each tool is expected to play in R&D.
 
 ## Core Positioning
 
