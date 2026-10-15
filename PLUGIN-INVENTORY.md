@@ -139,6 +139,13 @@ Role: combo / combat flow for projects that genuinely need combo-driven gameplay
 
 Role: additional tooling around Unreal StateTree workflows.
 
+### Ninja Input
+**Status:** owned.
+
+Role: structured layer on top of Enhanced Input with centralized input management, reusable handlers, runtime remapping support, user settings, animation-based input buffering, and deep Gameplay Ability System integration.
+
+Potential R&D value is highest in projects where input orchestration becomes complex or GAS-driven. Do not enable it automatically for simple prototypes: GAS Companion and Unreal Enhanced Input already cover part of the same problem space, and Ninja Input should be introduced when its separation of concerns, remapping, handlers, or buffering materially reduce glue code.
+
 ---
 
 ## Runtime audio
@@ -216,6 +223,28 @@ Decision: genuinely new capability, but expensive and has a meaningful learning 
 Potential role: runtime facial / lip-sync animation for dynamically generated dialogue, especially in combination with runtime audio / TTS / AI-driven NPC experiments.
 
 Decision: currently too expensive without a concrete dynamic-dialogue prototype. Re-evaluate during a strong sale or when that use case becomes real.
+
+---
+
+## Easy Multi Save
+
+**Status:** wishlist — wait for sale.
+
+Potential role: production-oriented persistence beyond the current Menu System Pro / native SaveGame baseline, including actor/world persistence, components, persistent data, versioning, backup/recovery, diagnostics, World Partition and cloud-save-oriented workflows.
+
+It is explicitly compatible with Menu System Pro, so it is a plausible future extension rather than a replacement for the existing UI stack.
+
+Decision: do not purchase at full price without a persistence-heavy prototype. Re-evaluate during a meaningful sale or when native SaveGame / current Menu System Pro persistence becomes limiting.
+
+---
+
+## VR Hands Procedural Grab Pro
+
+**Status:** wishlist — wait for stronger sale or concrete VR work.
+
+Potential role: procedural VR hands, physical grabbing and interaction workflows for future XR prototypes.
+
+Decision: relevant to long-term VR/XR growth, but there is no current professional VR requirement. Current ~30% discount is not enough to justify a speculative purchase; prefer ~50% or a real VR project.
 
 ---
 
