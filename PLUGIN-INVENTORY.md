@@ -2,7 +2,7 @@
 
 This file tracks the current Unreal Engine plugin / asset stack relevant to R&D and prototyping.
 
-The goal is to prevent duplicate research and purchases, make capability gaps visible, and distinguish **owned tools** from **wishlist candidates**.
+The goal is to prevent duplicate research and purchases, make capability gaps visible, and distinguish **owned tools**, **immediate test candidates**, and **wishlist candidates**.
 
 Last updated: 2026-10-15.
 
@@ -173,9 +173,35 @@ Role: Blueprint graph readability and presentation.
 
 ---
 
+# Immediate test candidates
+
+## Audio Tracing
+
+**Status:** free candidate to test. Unreal Engine 5.8 support verified on Fab by the user in October 2026.
+
+Role: hardware-accelerated ray-traced audio propagation, reflection and occlusion integrated with Unreal's existing Sound system, including Sound Cues and MetaSounds.
+
+Hardware requirement: DirectX 12 GPU with hardware ray tracing support. An RTX 4080 comfortably satisfies this requirement; the vendor lists an RTX 4060 as part of the development reference hardware.
+
+Important distinction: the acoustic calculations are automatic once integrated, but setup is not literally zero-configuration. Existing sounds require minimal integration with the plugin's attenuation/audio path, meshes participating in propagation need to be visible to ray tracing, and optional Sound Materials can define absorption, reflection and scattering per surface.
+
+The most valuable R&D test is an A/B scene with an existing spatial sound source behind walls / doors / geometry, first using default acoustic behavior and then adding Sound Materials only if the default result justifies deeper integration.
+
+---
+
 # Wishlist / wait for stronger sale or concrete need
 
 These are not missing requirements. They are candidates with enough potential value to monitor, but purchasing should wait for a stronger discount or a real prototype requirement.
+
+## SteamCore PRO
+
+**Status:** wishlist — wait for sale. Unreal Engine 5.8 support verified on Fab by the user in October 2026.
+
+Potential role: mature Steamworks integration for future PC/Steam projects, including achievements, statistics, friends, lobbies/matchmaking, Workshop, inventory, cloud, networking and related Steam platform services.
+
+Decision: do not purchase while no active Steam integration work is required. Keep as the mature reference candidate and buy when a meaningful sale aligns with an actual Steam-bound prototype or game.
+
+---
 
 ## Logic Driver Pro
 
