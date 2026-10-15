@@ -143,6 +143,8 @@ It is best treated as a prototyping and presentation accelerator rather than fou
 
 Important constraint: many effects depend on deferred-rendering buffers, so its value may be lower in Forward Rendering / VR scenarios.
 
+Detailed R&D notes, architecture, priority effects, Recipes, and integration decisions: [`research/plugins/chameleon-post-process.md`](research/plugins/chameleon-post-process.md).
+
 ### Black Eye Camera
 
 **Role:** existing camera capability for projects where its approach fits the required presentation.
