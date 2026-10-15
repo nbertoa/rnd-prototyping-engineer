@@ -228,23 +228,56 @@ Decision: currently too expensive without a concrete dynamic-dialogue prototype.
 
 ## Easy Multi Save
 
-**Status:** wishlist — wait for sale.
+**Status:** wishlist — purchase only during a meaningful sale or when persistence becomes a real project requirement.
 
-Potential role: production-oriented persistence beyond the current Menu System Pro / native SaveGame baseline, including actor/world persistence, components, persistent data, versioning, backup/recovery, diagnostics, World Partition and cloud-save-oriented workflows.
+Potential role: production-oriented persistence beyond the current Menu System Pro / native SaveGame baseline, including actor/world persistence, components, persistent data, versioning, backup/recovery, World Partition and cloud-save-oriented workflows.
 
 It is explicitly compatible with Menu System Pro, so it is a plausible future extension rather than a replacement for the existing UI stack.
 
-Decision: do not purchase at full price without a persistence-heavy prototype. Re-evaluate during a meaningful sale or when native SaveGame / current Menu System Pro persistence becomes limiting.
+Decision: keep on wishlist. Do not purchase at full price while current prototypes remain small and their persistence needs are simple.
 
 ---
 
 ## VR Hands Procedural Grab Pro
 
-**Status:** wishlist — wait for stronger sale or concrete VR work.
+**Status:** wishlist — buy only with a strong sale or an actual VR/XR requirement.
 
 Potential role: procedural VR hands, physical grabbing and interaction workflows for future XR prototypes.
 
-Decision: relevant to long-term VR/XR growth, but there is no current professional VR requirement. Current ~30% discount is not enough to justify a speculative purchase; prefer ~50% or a real VR project.
+Current context: there is no active professional VR requirement, so buying it now would be speculative.
+
+Decision: current ~30% discount is insufficient. Preferred purchase threshold is approximately **50–70% off**, unless a real VR project appears first.
+
+---
+
+## Blockout Tools Plugin
+
+**Status:** wishlist — sale-only purchase.
+
+Potential role: rapid greyboxing and level-layout validation using purpose-built primitives, grid materials and fast dimension editing.
+
+Current context: most prototypes so far have been built with existing art/environment assets, which reduces the immediate value of a dedicated blockout tool.
+
+Decision: keep on wishlist, but purchase only during a worthwhile sale or when repeated layout/greyboxing work creates measurable friction.
+
+---
+
+## MeshPack
+
+**Status:** wishlist — conditional optimization tool, not a priority purchase.
+
+Potential role: automatically reduce Actor / Component overhead in large scenes by reorganizing repeated meshes into more efficient instancing structures.
+
+Current context: existing prototypes are generally small and have not encountered meaningful performance problems from large Actor / Component counts. For those projects, MeshPack is unlikely to provide enough value to justify buying or integrating it.
+
+Best future use case:
+
+- receiving a very large city / marketplace environment / externally authored level;
+- profiling reveals excessive Actor / Component overhead;
+- the scene contains very large numbers of repeated static meshes;
+- optimization time matters more than manually restructuring the scene.
+
+Decision: keep it available as an **optimization option for large inherited scenes**, not as default R&D infrastructure. Purchase when discounted and preferably when a concrete large-scene optimization problem appears.
 
 ---
 
@@ -257,5 +290,11 @@ The stack is already broad enough that new purchases should normally satisfy at 
 3. solve a repeated pain point observed in real prototypes;
 4. provide mature, well-maintained infrastructure that is cheaper to integrate than rebuild;
 5. be tied to a concrete experiment rather than a speculative future need.
+
+For wishlist tools, distinguish between:
+
+- **sale-driven candidates:** useful enough to buy opportunistically at a strong discount;
+- **requirement-driven candidates:** only worth buying when a concrete project exposes the need;
+- **hybrid candidates:** buy on a strong sale if broadly reusable, otherwise wait for a real requirement.
 
 A sale is useful for timing a purchase, but is not sufficient justification by itself.
