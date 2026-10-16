@@ -4,7 +4,7 @@ This file tracks the current Unreal Engine plugin / asset stack relevant to R&D 
 
 The goal is to prevent duplicate research and purchases, make capability gaps visible, and distinguish **owned tools**, **immediate test candidates**, and **wishlist candidates**.
 
-Last updated: 2026-10-15.
+Last updated: 2026-10-16.
 
 ---
 
@@ -170,6 +170,16 @@ Role: faster and cleaner Blueprint graph authoring.
 **Status:** owned.
 
 Role: Blueprint graph readability and presentation.
+
+### Animation Tools Bundle
+**Status:** owned — integrated into the Unreal Engine 5.8 `Sandbox Prototype` in October 2026.
+
+Role: animation-focused editor tooling / workflow acceleration. Evaluate the individual tools through real prototype needs before treating any part of the bundle as standard infrastructure.
+
+### Auto Size Comments
+**Status:** owned — integrated into the Unreal Engine 5.8 `Sandbox Prototype` in October 2026.
+
+Role: Blueprint editor productivity by automatically keeping comment boxes sized around their contained nodes, reducing manual graph-layout maintenance.
 
 ---
 
