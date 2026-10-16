@@ -10,48 +10,62 @@ The goal is to reduce integration risk, understand dependencies and interoperabi
 
 - Unreal Engine 5.8.
 - First-person playable baseline is working.
-- Character, GameMode, and PlayerController may remain Blueprint-based while the goal is plugin integration and validation. Move logic to C++ only when there is a concrete architectural or reuse benefit.
+- Character, GameMode, and PlayerController remain Blueprint-based while the goal is plugin integration and validation. Move logic to C++ only when there is a concrete architectural or reuse benefit.
 - BertaDevKit is integrated.
 - Third-party plugins are being integrated and validated incrementally.
 
 ---
 
-## Moonville integration
+## Moonville stack
 
-Configure **Menu System Pro first**, then integrate the other Moonville systems against the same project-level UI/input configuration.
+Detailed reproducible setup, decisions, validation results, troubleshooting notes, and current integration progress are maintained in:
+
+**[Moonville Stack Integration — UE 5.8 Sandbox](../research/plugins/moonville-stack-integration.md)**
+
+Current status:
+
+- **Menu System Pro V2 Common UI** — integrated and fully validated, including Windows Development packaged-build testing.
+- **Inventory System Pro** — present; combined Menu + Inventory + Inspection integration in progress.
+- **Inspection System Pro** — present; combined Menu + Inventory + Inspection integration in progress.
+- **Map System Pro** — present; dedicated integration not started yet.
+
+The current strategy is to use Menu System Pro as the shared Common UI / Enhanced Input foundation and integrate Inventory and Inspection against that known-good baseline before moving to Map System Pro.
 
 ### Required Unreal plugins
 
-For the current Moonville setup, enable:
+For the current Moonville setup:
 
 - HTTP, JSON and WebSocket Networking
 - JSON Blueprint Utilities
 - Common UI
+- Enhanced Input
 
-`Enhanced Input` is also required by the stack, but in Unreal Engine 5.8 it is available/enabled by default in the current project baseline.
+`HTTP, JSON and WebSocket Networking` is one Unreal plugin. `Enhanced Input` is required by the stack and is already available/enabled in the current Unreal Engine 5.8 baseline.
 
-Keep these dependencies documented as part of the Moonville reference configuration so a fresh project can reproduce the setup without rediscovering them.
+---
 
-### Menu System Pro — intended simplification
+## Menu System Pro — deferred product customization
 
-Graphics settings should expose only:
+A simplified player-facing configuration has been discussed for future concrete products:
 
 - Display Mode
 - Resolution
 - Quality Preset (Low / Medium / High / Epic)
+- remove individual graphics controls
+- English only while no other language is supported
+- remove Moonville branding
+- keep Unreal branding
+- remove game-name text from the Menu System UI
+- use a black background until final key art exists
 
-Remove the individual graphics controls from the player-facing settings UI.
-
-Localization/UI decisions for the current prototype baseline:
-
-- English only for now; hide the language selector while there is only one supported language.
-- Remove Moonville branding/node from the Start Screen.
-- Keep only Unreal branding on the Start Screen.
-- Remove the game-name text from the Menu System UI; final branding should come from the background/key art.
-- Use a black background temporarily until final art exists.
+These changes are **not part of the current Sandbox baseline**. The Sandbox currently keeps the vendor base substantially intact so it remains useful as a reference integration project.
 
 ---
 
 ## Validation rule
 
-Do not treat a plugin as fully integrated merely because it compiles or opens in the editor. For each system, verify its minimum runtime workflow in PIE and record any project settings, input mappings, components, interfaces, or cross-plugin assumptions required to reproduce the setup.
+Do not treat a plugin as fully integrated merely because it compiles or opens in the editor.
+
+For each system, verify its minimum runtime workflow and record any project settings, input mappings, components, interfaces, cross-plugin assumptions, troubleshooting results, and packaged-build requirements needed to reproduce the setup.
+
+The detailed Moonville record should be updated at each validated milestone so integration knowledge does not remain only in chat history.
