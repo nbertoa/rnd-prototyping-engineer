@@ -24,9 +24,7 @@ Configure **Menu System Pro first**, then integrate the other Moonville systems 
 
 For the current Moonville setup, enable:
 
-- HTTP
-- JSON
-- WebSocket Networking
+- HTTP, JSON and WebSocket Networking
 - JSON Blueprint Utilities
 - Common UI
 
