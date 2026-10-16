@@ -181,6 +181,11 @@ Role: animation-focused editor tooling / workflow acceleration. Evaluate the ind
 
 Role: Blueprint editor productivity by automatically keeping comment boxes sized around their contained nodes, reducing manual graph-layout maintenance.
 
+### Global Search Pro
+**Status:** owned.
+
+Role: editor search and navigation productivity. Validate its practical value in `Sandbox Prototype` and keep it as part of the reusable editor-tooling stack if it materially reduces time spent locating assets, references, or project content.
+
 ---
 
 # Immediate test candidates
