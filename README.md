@@ -12,6 +12,10 @@ My working style combines **Unreal Engine, C++, Blueprints, BertaDevKit, third-p
 >
 > See [PLUGIN-INVENTORY.md](PLUGIN-INVENTORY.md) for the current owned plugin stack, wishlist candidates, purchase status, and the role each tool is expected to play in R&D.
 >
+> See [projects/sandbox-prototype.md](projects/sandbox-prototype.md) for the Unreal Engine 5.8 plugin integration sandbox and its current validation state.
+>
+> See [research/plugins/moonville-stack-integration.md](research/plugins/moonville-stack-integration.md) for the reproducible Moonville Menu + Inventory + Inspection + Map integration record, including project settings, Blueprint integration, input unification, troubleshooting, runtime validation, and packaged-build evidence.
+>
 > See [projects/biblical-sanctuary-prototype.md](projects/biblical-sanctuary-prototype.md) for the current candidate first biblical storytelling prototype: a compact first-person Sanctuary reconstruction experience designed to validate plugin integration, exploration, inspection, narrative progression, map guidance, atmosphere, and Steam-ready production constraints.
 
 ## Core Positioning
