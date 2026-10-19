@@ -8,7 +8,7 @@ The goal is to reduce integration risk, understand dependencies and interoperabi
 
 ## Rebuild 2026-10-19 — plugin inventory and verification
 
-A fresh **UE 5.8 Blank C++** Sandbox was created after the GAS Companion Third Person template failed to create successfully. Plan: add the stock Unreal **Third Person** Feature Pack (not GAS Companion's template), then integrate and test plugins incrementally with restore points. **Moonville is postponed until the other selected plugins are validated.** The new Sandbox's installed/working plugin list has **not** been verified yet.
+A fresh **UE 5.8 Blank C++** Sandbox was created after the GAS Companion Third Person template failed to create successfully. Plan: add the stock Unreal **Third Person** Feature Pack (not GAS Companion's template), then integrate and test plugins incrementally with restore points. **Moonville is postponed until the other selected plugins are validated.** The user subsequently reported that all 21 non-Moonville items were added to the new Sandbox, but their runtime/packaging validation remains unverified.
 
 ### User-reported plugins available to consider
 
@@ -37,6 +37,14 @@ The user named the following plugins on 2026-10-19. **This is an inventory of pl
 Also previously confirmed in the former Sandbox: **BertaDevKit**, the user's own toolkit. **Nice Interaction System V2** was also discussed for this Sandbox and is separate from Moonville, but was not included in this particular 19-item inventory. The four Moonville systems remain on the future integration list: Menu System Pro V2, Inventory System Pro, Inspection System Pro and Map System Pro. **2026-10-19 confirmation:** the user reports that **all four are still missing/not yet added to the new Blank C++ Sandbox**. This is distinct from their previously documented state in the former Sandbox below.
 
 **Important naming distinction:** the vendor plugin name reported above, **HTTP JSON and WebSocket Blueprint Plugin**, must not automatically be conflated with Unreal's **HTTP, JSON and WebSocket Networking** prerequisite or with JSON Blueprint Utilities. Check each actual plugin descriptor before recording equivalence.
+
+### Current reported installation state — 2026-10-19
+
+The user confirms that **all 21 items on the working list** (the 19 individually reported third-party/tools plus **BertaDevKit** and **Nice Interaction System V2**) have now been **added to the new UE 5.8 Blank C++ Sandbox**. No remaining items from that non-Moonville list were reported missing.
+
+**Do not conflate added/installed with runtime validation:** compilation, PIE behavior, editor restart, inter-plugin compatibility, packaging and restore-point creation are not yet independently confirmed for this rebuilt Sandbox.
+
+**Still not added:** all four Moonville systems — Menu System Pro V2, Inventory System Pro, Inspection System Pro, and Map System Pro. Keep the planned integration order one-at-a-time after confirming a usable current baseline.
 
 ### Suggested progress states
 
