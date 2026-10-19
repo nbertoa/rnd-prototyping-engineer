@@ -50,18 +50,41 @@ The user confirms that **all original 21 items on the working list** (the 19 ori
 
 **Still not added:** all four Moonville systems — Menu System Pro V2, Inventory System Pro, Inspection System Pro, and Map System Pro. Keep the planned integration order one-at-a-time after confirming a usable current baseline.
 
-### Third Person and environment test — 2026-10-19
+### Third Person baseline and environment test — 2026-10-19
 
-- User added Unreal's standard **Third Person Blueprint Feature Pack** to the new **Blank C++** Sandbox; the Third Person gameplay works in Editor (user-confirmed).
-- **Windows packaged build completed successfully and the packaged game ran correctly outside the Editor** (user-confirmed 2026-10-19). Build configuration unspecified; do not infer Development/Shipping.
-- **Full-project restore-point backup `01_ThirdPerson_Baseline` completed** (user-confirmed 2026-10-19), after successful packaged build and before sky/fog modifications.
-- Next environment experiment: duplicate `ThirdPersonMap` to `L_EnvironmentTest` (proposed name, not yet confirmed created).
-- **Ultra Dynamic Sky initial integration confirmed working in Editor (2026-10-19):** duplicated `ThirdPersonMap` as `L_EnvironmentTest`, removed the existing DirectionalLight, SkyLight, SkyAtmosphere, ExponentialHeightFog and VolumetricCloud actors from the duplicate, then added `Ultra_Dynamic_Sky`. User confirmed sky/lighting functional; no environment-specific packaged-build test yet.
-- **Screen Space Fog Scattering functional smoke test (2026-10-19):** user confirmed the `Height Fog` component exists in `Ultra_Dynamic_Sky` and visual output changes when toggling `r.SSFS 0` / `r.SSFS 1`. Difference is subtle under current lighting/fog. Next single-variable check: `r.SSFS.Intensity 2.0` (vendor default `1.0`), with the underlying fog unchanged. Intensity result and packaged-test are not yet confirmed.
+**Stable baseline**
 
-- References: https://www.ultradynamicsky.com/ and https://dmkarpukhin.com/docs/ssfs/ ; internal notes: [Screen Space Fog Scattering](../research/plugins/screen-space-fog-scattering.md).
+- User imported the stock Unreal **Third Person Blueprint Feature Pack** into the new **UE 5.8 Blank C++** Sandbox.
+- Third Person gameplay passed in the Editor and in a **Windows packaged executable** (user-confirmed; exact package configuration not recorded).
+- The untouched **full-project backup `01_ThirdPerson_Baseline` was completed before environmental edits** (user-confirmed).
 
- - **Fog visibility validated in the enclosed Third Person environment (2026-10-19):** In `Ultra_Dynamic_Sky`, `Fog = 1.0`; `Use Volumetric Fog` was already enabled; `Min Fog Start Distance` and `Max Fog Start Distance` were set to `0` (only a slight improvement). Doubling `Base Fog Density` from its then-current value made the fog clearly visible indoors (user-confirmed; the exact resulting numeric value has not been recorded). **Validated visual A/B test (user-confirmed 2026-10-19):** with the denser fog, switching `r.SSFS 0` / `r.SSFS 1` produces a perceptible difference in the enclosed Third Person scene. Ultra Dynamic Sky + SSFS are visually functioning **in Editor**; packaged-build behavior on `L_EnvironmentTest` is not yet validated. **Next:** ensure `L_EnvironmentTest` is the launch map/included in cooking, then produce and test a new packaged build.
+**Environment scene — implemented in the Editor**
+
+- Created `L_EnvironmentTest` as a duplicate of `ThirdPersonMap` (the original was preserved).
+- Removed the original `DirectionalLight`, `SkyLight`, `SkyAtmosphere`, `ExponentialHeightFog`, and `VolumetricCloud` actors in the duplicate only.
+- Added the `Ultra_Dynamic_Sky` actor; the sky, clouds and lighting were confirmed working.
+- Confirmed its existing fog component is named `Height Fog`; `Use Volumetric Fog` was already enabled.
+- Indoor-fog test: `Fog = 1.0`, both `Min Fog Start Distance` and `Max Fog Start Distance = 0`, then doubled `Base Fog Density` from the prior project value. **The density change made indoor fog clearly visible.** Exact before/after density values were not recorded.
+- `r.SSFS 0` / `r.SSFS 1` visibly changed the scattering in the Editor; the effect was subtle with the initial thin fog, and **perceptible after increasing UDS fog density**.
+- These checks validate the combined visual behavior **in Editor only**. No environment-specific packaged-build success has been reported.
+
+**Documentation — check these sources first when continuing**
+
+- [Ultra Dynamic Sky — our exact Sandbox setup and test notes](../research/plugins/ultra-dynamic-sky.md)
+  - [Official UDS documentation index by release](https://www.ultradynamicsky.com/)
+  - [UDS 9.4 manual used for this research](https://www.ultradynamicsky.com/Documentation/V9/9-4)
+  - The **actual installed UDS version remains unknown**; use the in-editor **UDS Documentation** button to select the version-matched manual before making further changes.
+- [Screen Space Fog Scattering — our Sandbox findings and CVars](../research/plugins/screen-space-fog-scattering.md)
+  - [Official SSFS documentation](https://dmkarpukhin.com/docs/ssfs/)
+  - Documentation shows plugin version 1.32 for UE 5.8; the locally installed plugin version is unverified.
+
+**Packaging gate in progress**
+
+- User reports a **new package is being built** with environmental changes; **result pending**. Do not confuse this with the earlier successful package of the stock Third Person baseline.
+- `Game Default Map = L_EnvironmentTest` was requested in Project Settings → Maps & Modes; the actual saved project setting / cooked map selection is not yet confirmed.
+- When the new packaged executable is tested, verify the correct map launches and that UDS lighting, fog and SSFS are visible. Only then label the *environment* milestone packaged-tested and create the **next** backup.
+
+**Preferred workflow:** Integrate one change → playtest → package at checkpoints → document confirmed outcome → backup → next change. Separate official documentation from project-specific observations, and do not guess exact Blueprint properties or numeric settings.
 
 ### Suggested progress states
 
