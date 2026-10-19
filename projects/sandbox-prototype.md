@@ -54,7 +54,7 @@ The user confirms that **all original 21 items on the working list** (the 19 ori
 
 - User added Unreal's standard **Third Person Blueprint Feature Pack** to the new **Blank C++** Sandbox; the Third Person gameplay works in Editor (user-confirmed).
 - **Windows packaged build completed successfully and the packaged game ran correctly outside the Editor** (user-confirmed 2026-10-19). Build configuration unspecified; do not infer Development/Shipping.
-- **Next gate: create an untouched full-project backup** named `01_ThirdPerson_Baseline` before changing level atmosphere/lighting. Backup creation still pending user confirmation.
+- **Full-project restore-point backup `01_ThirdPerson_Baseline` completed** (user-confirmed 2026-10-19), after successful packaged build and before sky/fog modifications.
 - Next environment experiment: duplicate `ThirdPersonMap` to `L_EnvironmentTest` (proposed name, not yet confirmed created).
 - Integrate **Ultra Dynamic Sky first**, replacing the duplicate map's stock sky/lighting/fog actors according to the installed UDS version's documentation. Integrate **Screen Space Fog Scattering second** and A/B compare via `r.SSFS 0` and `r.SSFS 1`. No environment edits have yet been confirmed.
 - References: https://www.ultradynamicsky.com/ and https://dmkarpukhin.com/docs/ssfs/ ; internal notes: [Screen Space Fog Scattering](../research/plugins/screen-space-fog-scattering.md).
