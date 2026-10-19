@@ -597,8 +597,9 @@ Official references:
 - Activated the **Invert** effect in the Chameleon actor Details: **visible and working in the Editor viewport**.
 - With the effect enabled, pressed Play and moved/looked around: **Invert continues working in PIE**, user-confirmed.
 - While Invert was active in PIE, A/B-tested **`r.SSFS 0` versus `r.SSFS 1`**. User confirmed the difference **remains perceptible**. This is initial evidence of compatibility of **Chameleon + Ultra Dynamic Sky fog + Screen Space Fog Scattering** in Editor/PIE.
-- **Not yet tested/confirmed:** Chameleon in a packaged executable; final effect selection/preset; scalability/performance; a new Chameleon backup. The last completed backup is `02_Environment_UDS_SSFS`.
-- **Next:** configure `L_ChameleonTest` as `Game Default Map` for a targeted package and validate the visible Invert effect in the executable. Once confirmed, return to a neutral visual state and record the milestone.
+- **Packaged executable validated by user report (2026-10-19):** configured `Game Default Map = L_ChameleonTest`, completed packaging, and confirmed the resulting build works. This closes the packaged-build milestone for the Chameleon test level.
+- **Not yet tested/confirmed:** SSFS-specific A/B in the packaged executable; final production effect/preset; scalability/performance; new Chameleon backup. The last completed restore point is `02_Environment_UDS_SSFS`.
+- **Next:** create and confirm a full-project restore-point backup (suggested `03_Chameleon_Validated`) before advancing to another plugin. For future neutral visuals, disable Invert intentionally after preserving the tested setup.
 
 **Documentation:** use [SUMFX Getting Started](https://sumfx.net/docs/chameleon/general-chameleon/getting-started/) and the [Sandbox status](../../projects/sandbox-prototype.md) before changing properties. Do not assume an effect's parameter name across plugin versions.
 
