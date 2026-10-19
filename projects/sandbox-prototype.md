@@ -34,7 +34,7 @@ The user named the following plugins on 2026-10-19. **This is an inventory of pl
 18. Screen Space Fog Scattering
 19. HTTP JSON and WebSocket Blueprint Plugin *(user identifies this as the plugin previously called 'UForge' in discussion; verify exact asset name in the editor)*
 
-Also previously confirmed in the former Sandbox: **BertaDevKit**, the user's own toolkit. **Nice Interaction System V2** was also discussed for this Sandbox and is separate from Moonville, but was not included in this particular 19-item inventory. The four Moonville systems remain on the future integration list: Menu System Pro V2, Inventory System Pro, Inspection System Pro and Map System Pro.
+Also previously confirmed in the former Sandbox: **BertaDevKit**, the user's own toolkit. **Nice Interaction System V2** was also discussed for this Sandbox and is separate from Moonville, but was not included in this particular 19-item inventory. The four Moonville systems remain on the future integration list: Menu System Pro V2, Inventory System Pro, Inspection System Pro and Map System Pro. **2026-10-19 confirmation:** the user reports that **all four are still missing/not yet added to the new Blank C++ Sandbox**. This is distinct from their previously documented state in the former Sandbox below.
 
 **Important naming distinction:** the vendor plugin name reported above, **HTTP JSON and WebSocket Blueprint Plugin**, must not automatically be conflated with Unreal's **HTTP, JSON and WebSocket Networking** prerequisite or with JSON Blueprint Utilities. Check each actual plugin descriptor before recording equivalence.
 
