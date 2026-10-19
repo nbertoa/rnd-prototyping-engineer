@@ -151,7 +151,7 @@ For now:
 - **Doubling UDS `Base Fog Density` from the original value** made fog clearly visible indoors. The exact resulting numeric value was **not recorded**.
 - With the denser underlying fog, the same `r.SSFS 0` / `r.SSFS 1` A/B showed a **perceptible difference**, confirmed by the user.
 - `r.SSFS.Intensity 2.0` was suggested/explored, but the final **persistent value is unverified**. Do not treat it as a required setting or recorded final preset.
-- **Validated:** visually in Editor. **Pending:** package the new environment level and validate the bundled executable. The initial Third Person package (before environment edits) had already passed; do not misattribute that pass to SSFS.
+- **Validated visually in Editor** through SSFS 0/1 A/B. **Packaging update 2026-10-19:** the user confirmed the **new environment-stage build worked perfectly**. The packaged-build gate passed by user report, but an SSFS-specific 0/1 A/B **inside the packaged executable has not been explicitly reported**. A previous packaged build also passed for the stock Third Person baseline.
 
 **Practical diagnostic:** if SSFS changes little, first verify there is enough **underlying Unreal/UDS fog in the visible depth range**. SSFS enhances light scattering; it does not replace fog-density controls. Changing many variables at once obscures the cause.
 
