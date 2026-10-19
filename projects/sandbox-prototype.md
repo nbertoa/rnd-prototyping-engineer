@@ -61,6 +61,8 @@ The user confirms that **all original 21 items on the working list** (the 19 ori
 
 - References: https://www.ultradynamicsky.com/ and https://dmkarpukhin.com/docs/ssfs/ ; internal notes: [Screen Space Fog Scattering](../research/plugins/screen-space-fog-scattering.md).
 
+ - **Fog visibility validated in the enclosed Third Person environment (2026-10-19):** In `Ultra_Dynamic_Sky`, `Fog = 1.0`; `Use Volumetric Fog` was already enabled; `Min Fog Start Distance` and `Max Fog Start Distance` were set to `0` (only a slight improvement). Doubling `Base Fog Density` from its then-current value made the fog clearly visible indoors (user-confirmed; the exact resulting numeric value has not been recorded). **Next check:** compare `r.SSFS 0` and `r.SSFS 1` with this denser fog, before declaring the combined effect validated or packaging.
+
 ### Suggested progress states
 
 Track each plugin separately as **available / installed / enabled / smoke-tested / packaged-tested**, and record test date, version, integrations changed, issues and restore-point name. Do not mark a test passed merely because the editor opens.
