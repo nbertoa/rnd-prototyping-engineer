@@ -12,7 +12,7 @@ A fresh **UE 5.8 Blank C++** Sandbox was created after the GAS Companion Third P
 
 ### User-reported plugins available to consider
 
-The user named the following plugins on 2026-10-19. **This is an inventory of plugins they report having, not proof they are installed, enabled, or working in the new Sandbox**. Keep the reported names rather than silently equating similar products.
+The user named or confirmed the following plugins on 2026-10-19. **This is the full reported inventory, not proof that every item is enabled or working in the new Sandbox**. Keep the reported names rather than silently equating similar products.
 
 1. Animation Tools Bundle
 2. Dragon IK
@@ -33,14 +33,18 @@ The user named the following plugins on 2026-10-19. **This is an inventory of pl
 17. PCGEx (PCG Extended Toolkit) *(confirmed in follow-up; earlier referred to as PCG Extension)*
 18. Screen Space Fog Scattering
 19. HTTP JSON and WebSocket Blueprint Plugin *(user identifies this as the plugin previously called 'UForge' in discussion; verify exact asset name in the editor)*
+20. BertaDevKit
+21. Nice Interaction System V2 *(not a Moonville product)*
+22. Chameleon
+23. Ultra Dynamic Sky
 
-Also previously confirmed in the former Sandbox: **BertaDevKit**, the user's own toolkit. **Nice Interaction System V2** was also discussed for this Sandbox and is separate from Moonville, but was not included in this particular 19-item inventory. The four Moonville systems remain on the future integration list: Menu System Pro V2, Inventory System Pro, Inspection System Pro and Map System Pro. **2026-10-19 confirmation:** the user reports that **all four are still missing/not yet added to the new Blank C++ Sandbox**. This is distinct from their previously documented state in the former Sandbox below.
+BertaDevKit was previously confirmed in the former Sandbox. Nice Interaction System V2 was present on the 21-item working list and is separate from Moonville; it is now explicitly included in the numbered inventory. Chameleon and Ultra Dynamic Sky were added to the inventory following the user's correction; their installation/validation status in the new Sandbox has not been independently reconfirmed. The four Moonville systems remain on the future integration list: Menu System Pro V2, Inventory System Pro, Inspection System Pro and Map System Pro. **2026-10-19 confirmation:** the user reports that **all four are still missing/not yet added to the new Blank C++ Sandbox**. This is distinct from their previously documented state in the former Sandbox below.
 
 **Important naming distinction:** the vendor plugin name reported above, **HTTP JSON and WebSocket Blueprint Plugin**, must not automatically be conflated with Unreal's **HTTP, JSON and WebSocket Networking** prerequisite or with JSON Blueprint Utilities. Check each actual plugin descriptor before recording equivalence.
 
 ### Current reported installation state — 2026-10-19
 
-The user confirms that **all 21 items on the working list** (the 19 individually reported third-party/tools plus **BertaDevKit** and **Nice Interaction System V2**) have now been **added to the new UE 5.8 Blank C++ Sandbox**. No remaining items from that non-Moonville list were reported missing.
+The user confirms that **all original 21 items on the working list** (the 19 originally reported third-party/tools plus **BertaDevKit** and **Nice Interaction System V2**) have been **added to the new UE 5.8 Blank C++ Sandbox**. Two additional plugins, **Chameleon** and **Ultra Dynamic Sky**, have since been named as omissions from the inventory; whether they are already installed in the new Sandbox remains to be confirmed. The complete reported inventory now has **23 non-Moonville items**.
 
 **Do not conflate added/installed with runtime validation:** compilation, PIE behavior, editor restart, inter-plugin compatibility, packaging and restore-point creation are not yet independently confirmed for this rebuilt Sandbox.
 
