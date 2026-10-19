@@ -56,7 +56,8 @@ The user confirms that **all original 21 items on the working list** (the 19 ori
 - **Windows packaged build completed successfully and the packaged game ran correctly outside the Editor** (user-confirmed 2026-10-19). Build configuration unspecified; do not infer Development/Shipping.
 - **Full-project restore-point backup `01_ThirdPerson_Baseline` completed** (user-confirmed 2026-10-19), after successful packaged build and before sky/fog modifications.
 - Next environment experiment: duplicate `ThirdPersonMap` to `L_EnvironmentTest` (proposed name, not yet confirmed created).
-- Integrate **Ultra Dynamic Sky first**, replacing the duplicate map's stock sky/lighting/fog actors according to the installed UDS version's documentation. Integrate **Screen Space Fog Scattering second** and A/B compare via `r.SSFS 0` and `r.SSFS 1`. No environment edits have yet been confirmed.
+- **Ultra Dynamic Sky initial integration confirmed working in Editor (2026-10-19):** duplicated `ThirdPersonMap` as `L_EnvironmentTest`, removed the existing DirectionalLight, SkyLight, SkyAtmosphere, ExponentialHeightFog and VolumetricCloud actors from the duplicate, then added `Ultra_Dynamic_Sky`. User confirmed sky/lighting functional; no environment-specific packaged-build test yet.
+- **Screen Space Fog Scattering next:** inspect whether `Ultra_Dynamic_Sky` contains an `ExponentialHeightFog` component before tuning the fog. Once verified, test SSFS by A/B comparison with `r.SSFS 0` and `r.SSFS 1`. Do not add a duplicate fog actor without evidence of need.
 - References: https://www.ultradynamicsky.com/ and https://dmkarpukhin.com/docs/ssfs/ ; internal notes: [Screen Space Fog Scattering](../research/plugins/screen-space-fog-scattering.md).
 
 ### Suggested progress states
