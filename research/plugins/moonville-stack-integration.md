@@ -2,6 +2,9 @@
 
 ## Purpose
 
+> **Documentation rule (2026-10-19):** Before returning to this historical Moonville integration record, consult the [official documentation index for all 27 Sandbox plugins](plugin-documentation-index.md), especially the four vendor-authored Moonville Google Docs and the supplied PDF names. This document primarily records the **previous First Person Sandbox** integration. In the **new Blank C++ + Third Person Sandbox**, Moonville has **not yet been reinstalled**. Do not treat old Blueprint screenshots/settings as proven for the new assets.
+
+
 This document is the reproducible integration record for the Moonville systems currently being validated in **Sandbox Prototype**.
 
 It captures the project-level setup, integration sequence, configuration decisions, validation results, troubleshooting notes, and the exact point reached in the combined Menu + Inventory + Inspection integration.
