@@ -42,10 +42,10 @@ Procedure executed and user-confirmed:
 ## Status and next validation gate
 
 - UDS runtime visualization **verified in Editor**, in `L_EnvironmentTest`.
-- The original packaged executable only validates the **pre-environment Third Person baseline**.
-- A **new package including the atmosphere/fog level** was underway as of the latest 2026-10-19 user report; **outcome not yet reported**.
-- `Project Settings → Maps & Modes → Game Default Map = L_EnvironmentTest` was requested as preparation, but **the saved setting has not been independently confirmed**.
-- Verify new packaged executable launches the correct level and displays UDS fog + SSFS, then save a new restore point **only after the packaged test passes**.
+- The original packaged executable validates the **pre-environment Third Person baseline**.
+- **New packaged build (2026-10-19):** user reports it **worked perfectly** after the UDS/SSFS environment changes. Mark the packaged-build gate **passed by user report**; exact executable settings and SSFS on/off comparison in the packaged version are not separately documented.
+- `Project Settings → Maps & Modes → Game Default Map = L_EnvironmentTest` was requested as preparation, but the exact saved setting has not been separately confirmed.
+- **Next:** create a new full-project restore-point backup, suggested `02_Environment_UDS_SSFS`; not yet reported completed.
 - Profile performance/scalability before calling the look production-ready: the UDS manual warns that Unreal's low/medium Shadow Quality scalability may disable volumetric fog, which makes Editor vs packaged settings relevant.
 
 ## Workflow reminder
