@@ -86,7 +86,8 @@ The user confirms that **all original 21 items on the working list** (the 19 ori
 
 - The user confirmed **the new environment-stage build worked perfectly**. Record as **packaged-build checkpoint passed**; do not conflate with the earlier baseline build.
 - `Game Default Map = L_EnvironmentTest` was requested in Project Settings → Maps & Modes. The precise saved setting and SSFS console A/B in the executable have not been separately confirmed.
-- **Next checkpoint:** create a new **full-project restore-point backup** after this successful build (suggested label: `02_Environment_UDS_SSFS`). This new backup is **not yet reported completed**. After backup, continue integrating systems one at a time.
+- **Backup completed (user-confirmed 2026-10-19):** full-project restore point `02_Environment_UDS_SSFS` was created after the successful environment-stage build. The exact folder name was proposed; user confirmed completion in immediate response. **Validated environment checkpoint is closed.** Proceed with one candidate at a time, preserving `L_EnvironmentTest`.
+- **Next suggested candidate:** Chameleon Post Process in a duplicated map (e.g. `L_PostProcessTest`), test one effect and compatibility with existing UDS + SSFS before adding other visual systems. Follow [the official Chameleon getting-started guide](https://sumfx.net/docs/chameleon/general-chameleon/getting-started/) first. Other candidates: Nice Interaction System V2, a single camera solution (Black Eye **or** Ultimate Gameplay Camera), PCGEx in separate procedural level. Moonville remains deferred.
 
 **Preferred workflow:** Integrate one change → playtest → package at checkpoints → document confirmed outcome → backup → next change. Separate official documentation from project-specific observations, and do not guess exact Blueprint properties or numeric settings.
 
