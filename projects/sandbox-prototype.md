@@ -70,7 +70,7 @@ The user confirms that **all original 21 items on the working list** (the 19 ori
 - Confirmed its existing fog component is named `Height Fog`; `Use Volumetric Fog` was already enabled.
 - Indoor-fog test: `Fog = 1.0`, both `Min Fog Start Distance` and `Max Fog Start Distance = 0`, then doubled `Base Fog Density` from the prior project value. **The density change made indoor fog clearly visible.** Exact before/after density values were not recorded.
 - `r.SSFS 0` / `r.SSFS 1` visibly changed the scattering in the Editor; the effect was subtle with the initial thin fog, and **perceptible after increasing UDS fog density**.
-- These checks validate the combined visual behavior **in Editor only**. No environment-specific packaged-build success has been reported.
+- **Packaging update (user report 2026-10-19):** after the UDS/SSFS adjustments, the user confirmed the **new build worked perfectly**. This is a **successful environment-stage packaged-build checkpoint by user report**, separate from the earlier Third Person baseline. The exact build configuration, saved Game Default Map, and independent A/B test of SSFS inside the packaged executable were **not separately reported**.
 
 **Documentation — check these sources first when continuing**
 
@@ -82,11 +82,11 @@ The user confirms that **all original 21 items on the working list** (the 19 ori
   - [Official SSFS documentation](https://dmkarpukhin.com/docs/ssfs/)
   - Documentation shows plugin version 1.32 for UE 5.8; the locally installed plugin version is unverified.
 
-**Packaging gate in progress**
+**Packaging gate — user-confirmed success (2026-10-19)**
 
-- User reports a **new package is being built** with environmental changes; **result pending**. Do not confuse this with the earlier successful package of the stock Third Person baseline.
-- `Game Default Map = L_EnvironmentTest` was requested in Project Settings → Maps & Modes; the actual saved project setting / cooked map selection is not yet confirmed.
-- When the new packaged executable is tested, verify the correct map launches and that UDS lighting, fog and SSFS are visible. Only then label the *environment* milestone packaged-tested and create the **next** backup.
+- The user confirmed **the new environment-stage build worked perfectly**. Record as **packaged-build checkpoint passed**; do not conflate with the earlier baseline build.
+- `Game Default Map = L_EnvironmentTest` was requested in Project Settings → Maps & Modes. The precise saved setting and SSFS console A/B in the executable have not been separately confirmed.
+- **Next checkpoint:** create a new **full-project restore-point backup** after this successful build (suggested label: `02_Environment_UDS_SSFS`). This new backup is **not yet reported completed**. After backup, continue integrating systems one at a time.
 
 **Preferred workflow:** Integrate one change → playtest → package at checkpoints → document confirmed outcome → backup → next change. Separate official documentation from project-specific observations, and do not guess exact Blueprint properties or numeric settings.
 
