@@ -145,6 +145,6 @@ La documentación primaria es la versión **Common UI** de Menu System Pro y los
 
 - **Instalado:** el usuario confirmó los 23 no-Moonville en el nuevo Sandbox.
 - **Base jugable:** Third Person y su primera build empaquetada funcionaron; backup `01_ThirdPerson_Baseline` completado.
-- **UDS + SSFS:** validados visualmente en `L_EnvironmentTest` en Editor. Packaging del nivel ambiental todavía no confirmado.
+- **UDS + SSFS:** validados visualmente en `L_EnvironmentTest` en Editor. **Nueva build ambiental reportada como funcionando perfectamente por el usuario (2026-10-19)**; sin A/B específico de SSFS dentro del ejecutable documentado.
 - **Moonville:** cuatro sistemas pendientes.
-- **Próxima acción:** terminar el packaged test ambiental, documentar resultado y crear otro backup antes de integrar sistemas adicionales.
+- **Próxima acción:** crear un **nuevo backup completo** del Sandbox tras el packaged build exitoso (nombre sugerido `02_Environment_UDS_SSFS`), y confirmar su realización antes de integrar nuevos sistemas.
