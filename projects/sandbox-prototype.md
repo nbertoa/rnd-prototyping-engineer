@@ -57,7 +57,8 @@ The user confirms that **all original 21 items on the working list** (the 19 ori
 - **Full-project restore-point backup `01_ThirdPerson_Baseline` completed** (user-confirmed 2026-10-19), after successful packaged build and before sky/fog modifications.
 - Next environment experiment: duplicate `ThirdPersonMap` to `L_EnvironmentTest` (proposed name, not yet confirmed created).
 - **Ultra Dynamic Sky initial integration confirmed working in Editor (2026-10-19):** duplicated `ThirdPersonMap` as `L_EnvironmentTest`, removed the existing DirectionalLight, SkyLight, SkyAtmosphere, ExponentialHeightFog and VolumetricCloud actors from the duplicate, then added `Ultra_Dynamic_Sky`. User confirmed sky/lighting functional; no environment-specific packaged-build test yet.
-- **Screen Space Fog Scattering next:** inspect whether `Ultra_Dynamic_Sky` contains an `ExponentialHeightFog` component before tuning the fog. Once verified, test SSFS by A/B comparison with `r.SSFS 0` and `r.SSFS 1`. Do not add a duplicate fog actor without evidence of need.
+- **Screen Space Fog Scattering functional smoke test (2026-10-19):** user confirmed the `Height Fog` component exists in `Ultra_Dynamic_Sky` and visual output changes when toggling `r.SSFS 0` / `r.SSFS 1`. Difference is subtle under current lighting/fog. Next single-variable check: `r.SSFS.Intensity 2.0` (vendor default `1.0`), with the underlying fog unchanged. Intensity result and packaged-test are not yet confirmed.
+
 - References: https://www.ultradynamicsky.com/ and https://dmkarpukhin.com/docs/ssfs/ ; internal notes: [Screen Space Fog Scattering](../research/plugins/screen-space-fog-scattering.md).
 
 ### Suggested progress states
