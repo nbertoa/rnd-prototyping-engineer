@@ -135,6 +135,12 @@ La documentación primaria es la versión **Common UI** de Menu System Pro y los
 6. Si un enlace oficial cambia o queda obsoleto, buscar la nueva URL desde el fabricante/Fab y actualizar **este archivo** antes de dar indicaciones.
 7. No copiar PDFs o documentación propietaria al repositorio sin verificar permisos; mantener enlaces a la fuente y nuestras notas experimentales originales.
 
+## Estado de archivos adjuntos al proyecto (declaración del usuario, 2026-10-19)
+
+- El usuario informó que **agregó dos archivos** al proyecto de ChatGPT. No se pudo identificar/confirmar todavía sus nombres mediante el listado de archivos accesible en esta conversación; **no inventar títulos ni afirmar que estén incorporados al repositorio**. Verificar su disponibilidad en el proyecto al momento de utilizarlos.
+- **Ultimate Gameplay Camera:** el desarrollador publica su documentación como **sitio web Coda/Superhuman**. No registrar un PDF oficial como si existiera ni solicitarlo innecesariamente; consultar la web/documentación en vivo y, de necesitarlo, exportar/imprimir una copia de referencia privada si la página lo permite.
+- **Animation Tools Bundle:** el usuario confirmó que **no ofrece manual escrito**; la documentación disponible es mediante **videos del desarrollador** (separados para Anim Mod Tool y RM Fix Tool). Mantener enlaces a fichas y tutoriales del proveedor; no catalogar videos como manuales PDF.
+
 ## Política de validación
 
 - **Instalado:** el usuario confirmó los 23 no-Moonville en el nuevo Sandbox.
