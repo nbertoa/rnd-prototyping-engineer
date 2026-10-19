@@ -87,9 +87,17 @@ The user confirms that **all original 21 items on the working list** (the 19 ori
 - The user confirmed **the new environment-stage build worked perfectly**. Record as **packaged-build checkpoint passed**; do not conflate with the earlier baseline build.
 - `Game Default Map = L_EnvironmentTest` was requested in Project Settings → Maps & Modes. The precise saved setting and SSFS console A/B in the executable have not been separately confirmed.
 - **Backup completed (user-confirmed 2026-10-19):** full-project restore point `02_Environment_UDS_SSFS` was created after the successful environment-stage build. The exact folder name was proposed; user confirmed completion in immediate response. **Validated environment checkpoint is closed.** Proceed with one candidate at a time, preserving `L_EnvironmentTest`.
-- **Next suggested candidate:** Chameleon Post Process in a duplicated map (e.g. `L_PostProcessTest`), test one effect and compatibility with existing UDS + SSFS before adding other visual systems. Follow [the official Chameleon getting-started guide](https://sumfx.net/docs/chameleon/general-chameleon/getting-started/) first. Other candidates: Nice Interaction System V2, a single camera solution (Black Eye **or** Ultimate Gameplay Camera), PCGEx in separate procedural level. Moonville remains deferred.
+- **Next active candidate (user decision 2026-10-19):** Chameleon Post Process in a duplicate named `L_ChameleonTest`, one effect at a time, preserving UDS + SSFS. GAS Companion gameplay foundation, Nice Interaction, cameras and Moonville are deferred.
 
 **Preferred workflow:** Integrate one change → playtest → package at checkpoints → document confirmed outcome → backup → next change. Separate official documentation from project-specific observations, and do not guess exact Blueprint properties or numeric settings.
+
+### Next active experiment — Chameleon Post Process (2026-10-19)
+
+**User decision:** continue with the visual stack first. Chameleon is already installed in the UE 5.8 Sandbox. **Do Chameleon before starting the GAS Companion character foundation, Nice Interaction System V2 or camera plugins.** GAS is postponed, not rejected.
+
+**Isolation plan:** duplicate the validated `L_EnvironmentTest` level as `L_ChameleonTest`, keeping `L_EnvironmentTest` and backup `02_Environment_UDS_SSFS` untouched. Verify the duplicated level opens and plays with UDS + SSFS intact. Then, **one step at a time**, follow official [SUMFX Chameleon Getting Started](https://sumfx.net/docs/chameleon/general-chameleon/getting-started/): locate `Chameleon/Chameleon` Blueprint in Content Browser, drag the Chameleon actor into the test level, and use its actor Details to toggle **one** post-process effect. By default the actor is global (`Chameleon Settings → Unbound`). A/B-test effect off/on and check UDS/SSFS compatibility before packaging. No Chameleon functional validation has been reported yet.
+
+**After visual milestone:** evaluate GAS Companion integrated into a derivative of the stock Third Person character (native Move/Look, Jump via ability, optional Sprint/attributes), then Nice Interaction / one camera plugin. Do not reparent the original validated character in place.
 
 ### Suggested progress states
 
