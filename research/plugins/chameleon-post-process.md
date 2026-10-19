@@ -589,6 +589,21 @@ Official references:
 
 ---
 
+## Sandbox Prototype validation — 2026-10-19
+
+**Project:** UE 5.8 Blank C++ Sandbox with Third Person Feature Pack. **Test level:** `L_ChameleonTest`, duplicated from validated `L_EnvironmentTest` (with Ultra Dynamic Sky and SSFS).
+
+- User confirmed the `Chameleon` Blueprint actor was added to `L_ChameleonTest`.
+- Activated the **Invert** effect in the Chameleon actor Details: **visible and working in the Editor viewport**.
+- With the effect enabled, pressed Play and moved/looked around: **Invert continues working in PIE**, user-confirmed.
+- While Invert was active in PIE, A/B-tested **`r.SSFS 0` versus `r.SSFS 1`**. User confirmed the difference **remains perceptible**. This is initial evidence of compatibility of **Chameleon + Ultra Dynamic Sky fog + Screen Space Fog Scattering** in Editor/PIE.
+- **Not yet tested/confirmed:** Chameleon in a packaged executable; final effect selection/preset; scalability/performance; a new Chameleon backup. The last completed backup is `02_Environment_UDS_SSFS`.
+- **Next:** configure `L_ChameleonTest` as `Game Default Map` for a targeted package and validate the visible Invert effect in the executable. Once confirmed, return to a neutral visual state and record the milestone.
+
+**Documentation:** use [SUMFX Getting Started](https://sumfx.net/docs/chameleon/general-chameleon/getting-started/) and the [Sandbox status](../../projects/sandbox-prototype.md) before changing properties. Do not assume an effect's parameter name across plugin versions.
+
+---
+
 ## Current conclusion
 
 Chameleon is valuable not because every included effect is individually important, but because it provides a broad, configurable visual toolbox that drastically lowers the cost of testing a visual idea.
