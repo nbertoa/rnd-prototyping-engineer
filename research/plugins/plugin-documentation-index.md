@@ -96,6 +96,9 @@
 
 ## Cómo recuperar documentación que el navegador web no puede abrir
 
+**Prueba de exportación a PDF (2026-10-19):** el documento oficial **Global Variable System v1.9** pudo exportarse mediante Google Drive a PDF (8 páginas, 3.7 MB) y quedó disponible como adjunto de la conversación ChatGPT. En cambio, **Black Eye v2.0** es legible desde el conector pero **el propietario/Google impidió la exportación PDF (HTTP 403)**. No ofrecer un enlace de descarga de Black Eye como si se hubiera probado. Para ese caso, usar el documento original legible o solicitar al autor una copia descargable. Los cuatro PDFs de Moonville **ya los tiene el usuario**; no hace falta reconseguirlos.
+
+
 - **Google Docs de fabricantes:** primero usar el **conector Google Drive** conectado, acción `fetch`, pasando la **URL completa** del documento. Método comprobado con Black Eye v2.0 y Global Variable System v1.9 el 2026-10-19. No se necesita exportación ni descarga manual cuando funciona.
 - **Coda/Superhuman Docs (Ultimate Gameplay Camera):** buscar secciones oficiales indexadas para consultas concretas (por ejemplo FAQ); si hace falta el manual entero, abrirlo en el navegador con JavaScript, exportar/imprimir PDF *si está permitido* y adjuntarlo al chat; si no hay permiso, pedir al fabricante una exportación o enlace accesible.
 - **Tutoriales de Animation Tools Bundle:** abrir las fichas independientes de Anim Mod Tool y RM Fix Tool en Fab y seguir los tutoriales en video enlazados por Attaku. Documentar la versión que aparece en esos tutoriales antes de aplicarlos.
