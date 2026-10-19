@@ -10,6 +10,10 @@ The goal is to reduce integration risk, understand dependencies and interoperabi
 
 A fresh **UE 5.8 Blank C++** Sandbox was created after the GAS Companion Third Person template failed to create successfully. Plan: add the stock Unreal **Third Person** Feature Pack (not GAS Companion's template), then integrate and test plugins incrementally with restore points. **Moonville is postponed until the other selected plugins are validated.** The user subsequently reported that all 21 non-Moonville items were added to the new Sandbox, but their runtime/packaging validation remains unverified.
 
+### Official documentation for every plugin
+
+**Before researching or editing any integration, consult [the central documentation index for all 27 plugins](../research/plugins/plugin-documentation-index.md).** It lists the manufacturer's technical manual when available, source repositories, Fab/product documentation, access limitations, the four Moonville Google Docs and vendor-version caveats. **Do not ask the user to hunt for properties until the version-appropriate official guide has been checked.**
+
 ### User-reported plugins available to consider
 
 The user named or confirmed the following plugins on 2026-10-19. **This is the full reported inventory, not proof that every item is enabled or working in the new Sandbox**. Keep the reported names rather than silently equating similar products.
