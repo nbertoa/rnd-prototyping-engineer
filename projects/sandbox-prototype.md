@@ -122,6 +122,12 @@ The user confirms that **all original 21 items on the working list** (the 19 ori
 
 **User confirmed 2026-10-19:** `GA_Jump` with `Wait Input Release` → `Stop Jumping` → `End Ability` is working; earlier reported failure was user setup error, not a verified system fault. The user has been following GSC Ability Input Binding, Modular PlayerController and `IA_Jump` binding walkthrough, but *do not claim independent packaging/network checks*. Next separately validate landing notifications (`BP_ThirdPersonCharacter → Event OnLanded`), then decide whether to send `Berta.Event.Movement.Landed` only if there is a listener/consumer. The authoritative source for `Berta.State.Movement.InAir`/`Jumping` remains CharacterMovement and need not share the ability's lifetime. Avoid unnecessary longer-running ability just to model airborne state.
 
+### CharacterMovement-derived airborne state — 2026-10-19
+
+**User-confirmed runtime PIE:** `BP_ThirdPersonCharacter → Event On Movement Mode Changed → Branch(Is Falling)` now correctly adds `Berta.State.Movement.InAir` as an ASC loose tag on True and removes it on False. An earlier report that the tag remained after landing was due to the False execution pin not being connected; user fixed it and reports correct behavior. The native `OnLanded`-based removal workaround is **not needed** and should not coexist as a second removal route. Only local PIE behavior confirmed; initial state on possession, replication, non-Falling airborne modes, and packaging have not been validated.
+
+**Next step (not yet confirmed):** define `Berta.State.Movement.Jumping` as the deliberate jump's accepted takeoff-through-landing interval (not every fall). Add this tag on the character's native `Event On Jumped`, and remove it on the existing False branch of `On Movement Mode Changed → Is Falling` (after removal of `InAir`). Avoid putting this state in `GA_Jump` Activation Owned Tags because `Wait Input Release` ends the ability before landing; keep its movement-derived lifetime independent. Test normal jump, early key release, falling off a ledge, and landing. Do not emit additional Gameplay Events/cues until a consumer is identified.
+
 ### Suggested progress states
 
 Track each plugin separately as **available / installed / enabled / smoke-tested / packaged-tested**, and record test date, version, integrations changed, issues and restore-point name. Do not mark a test passed merely because the editor opens.
