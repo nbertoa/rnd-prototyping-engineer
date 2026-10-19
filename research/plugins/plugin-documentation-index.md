@@ -31,7 +31,7 @@
 | 19 | **HTTP JSON and WebSocket Blueprint Plugin (UForge)** | [Abrir](https://doc.uforge.co.uk/) | [Abrir](https://www.fab.com/listings/0056a97e-71c9-4870-a82c-53fe1fce94b2) | V |
 | 20 | **BertaDevKit** | [Abrir](https://github.com/nbertoa/ue5-bertadevkit) | [Abrir](https://github.com/nbertoa/ue5-bertadevkit/blob/main/README.md) | V |
 | 21 | **Nice Interaction System V2** | [Abrir](https://niceshadow.gitbook.io/nice-interaction-system/integration-in-your-project) | [Abrir](https://niceshadow.gitbook.io/nice-interaction-system/llms.txt) | V |
-| 22 | **Chameleon Post Process** | [Abrir](https://sumfx.net/docs/chameleon/general-chameleon/changelog/) | [Nota interna](chameleon-post-process.md) | V |
+| 22 | **Chameleon Post Process** | [Getting Started oficial](https://sumfx.net/docs/chameleon/general-chameleon/getting-started/) | [Changelog / compatibilidad](https://sumfx.net/docs/chameleon/general-chameleon/changelog/) / [Nota interna](chameleon-post-process.md) | V |
 | 23 | **Ultra Dynamic Sky** | [Abrir](https://www.ultradynamicsky.com/) | [Nota interna](ultra-dynamic-sky.md) | V |
 | 24 | **Menu System Pro V2 (Moonville)** | [Abrir](https://docs.google.com/document/d/1t620HabwpmJ3j1maY2d80kn2S--YwJhn54Ji3jEbeqI/edit) | [Abrir](https://www.fab.com/listings/899d8fd6-ce40-4c4e-aa82-3fce041fe3ce) | V |
 | 25 | **Inventory System Pro (Moonville)** | [Abrir](https://docs.google.com/document/d/1kVBGdLoGC5TSId-vMn4MVcGxwhZMgGMi-1zH08NgvwU/edit) | [Abrir](https://www.fab.com/listings/17bbe89c-45d0-43d4-aa6d-e030771a0f13) | V |
