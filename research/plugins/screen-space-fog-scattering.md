@@ -6,7 +6,11 @@ This document captures the practical R&D conclusions for **Screen Space Fog Scat
 
 It is not a replacement for the vendor documentation. Exact CVars, version compatibility, and implementation details should be verified against the current documentation when needed.
 
-Official documentation: https://dmkarpukhin.com/docs/ssfs/
+**Official documentation (quickstart, CVar reference, compatibility, troubleshooting, changelog):** https://dmkarpukhin.com/docs/ssfs/
+
+**Official product page:** https://dmkarpukhin.com/ssfs/
+
+**Documentation verification (2026-10-19):** The official docs list SSFS version 1.32 as compatible with Unreal Engine 5.8. The exact version installed in this Sandbox has **not** been checked. Check the actual installed plugin version if UI/options differ.
 
 ---
 
@@ -135,6 +139,21 @@ For now:
 - use Chameleon for authored perception / stylization states.
 
 ---
+
+## Sandbox Prototype — validated UDS + SSFS workflow (2026-10-19)
+
+**Project:** UE 5.8 Blank C++ Sandbox with stock Third Person Blueprint Feature Pack. **Level:** `L_EnvironmentTest` copied from `ThirdPersonMap`. [UDS source/steps](ultra-dynamic-sky.md) and [Sandbox progress](../../projects/sandbox-prototype.md).
+
+- Existing sky/light/fog actors on the duplicated map were removed and `Ultra_Dynamic_Sky` was placed in the map.
+- UDS' fog component is named **`Height Fog`** (confirmed in the installed Blueprint's Components panel). SSFS works on that system without adding a second Exponential Height Fog actor.
+- Initial test `r.SSFS 0` vs `r.SSFS 1` showed a subtle but visible change. This **verified the effect operates in the Editor**.
+- The enclosed Third Person playground had almost no visible near-camera fog. In UDS, `Fog = 1.0`, `Use Volumetric Fog` was already enabled, and `Min Fog Start Distance = 0`, `Max Fog Start Distance = 0` made only a small improvement.
+- **Doubling UDS `Base Fog Density` from the original value** made fog clearly visible indoors. The exact resulting numeric value was **not recorded**.
+- With the denser underlying fog, the same `r.SSFS 0` / `r.SSFS 1` A/B showed a **perceptible difference**, confirmed by the user.
+- `r.SSFS.Intensity 2.0` was suggested/explored, but the final **persistent value is unverified**. Do not treat it as a required setting or recorded final preset.
+- **Validated:** visually in Editor. **Pending:** package the new environment level and validate the bundled executable. The initial Third Person package (before environment edits) had already passed; do not misattribute that pass to SSFS.
+
+**Practical diagnostic:** if SSFS changes little, first verify there is enough **underlying Unreal/UDS fog in the visible depth range**. SSFS enhances light scattering; it does not replace fog-density controls. Changing many variables at once obscures the cause.
 
 ## Current status
 
