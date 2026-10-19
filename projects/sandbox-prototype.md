@@ -21,7 +21,7 @@ The user named the following plugins on 2026-10-19. **This is an inventory of pl
 5. Ultimate Gameplay Camera
 6. Auto Size Comments
 7. Blueprint Assist
-8. Electronic Notes *(user's wording; verify whether this is **Electronic Nodes**)*
+8. Electronic Nodes *(confirmed in follow-up; earlier voice transcription appeared as "Electronic Notes")*
 9. Global Search Pro
 10. Graph Printer
 11. Combo Graph
@@ -30,7 +30,7 @@ The user named the following plugins on 2026-10-19. **This is an inventory of pl
 14. Low Entry Extended Standard Library
 15. Narrative Tales
 16. State Tree Tools
-17. PCG Extension *(user's wording; verify exact plugin identity before treating it as PCGEx)*
+17. PCGEx (PCG Extended Toolkit) *(confirmed in follow-up; earlier referred to as PCG Extension)*
 18. Screen Space Fog Scattering
 19. HTTP JSON and WebSocket Blueprint Plugin *(user identifies this as the plugin previously called 'UForge' in discussion; verify exact asset name in the editor)*
 
