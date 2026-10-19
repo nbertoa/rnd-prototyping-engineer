@@ -50,6 +50,14 @@ The user confirms that **all original 21 items on the working list** (the 19 ori
 
 **Still not added:** all four Moonville systems — Menu System Pro V2, Inventory System Pro, Inspection System Pro, and Map System Pro. Keep the planned integration order one-at-a-time after confirming a usable current baseline.
 
+### Third Person and environment test — 2026-10-19
+
+- User added Unreal's standard **Third Person Blueprint Feature Pack** to the new **Blank C++** Sandbox; the Third Person gameplay works in Editor (user-confirmed).
+- A packaged build is being tested; **result not yet confirmed**.
+- Next environment experiment: duplicate `ThirdPersonMap` to `L_EnvironmentTest` (proposed name, not yet confirmed created).
+- Integrate **Ultra Dynamic Sky first**, replacing the duplicate map's stock sky/lighting/fog actors according to the installed UDS version's documentation. Integrate **Screen Space Fog Scattering second** and A/B compare via `r.SSFS 0` and `r.SSFS 1`. No environment edits have yet been confirmed.
+- References: https://www.ultradynamicsky.com/ and https://dmkarpukhin.com/docs/ssfs/ ; internal notes: [Screen Space Fog Scattering](../research/plugins/screen-space-fog-scattering.md).
+
 ### Suggested progress states
 
 Track each plugin separately as **available / installed / enabled / smoke-tested / packaged-tested**, and record test date, version, integrations changed, issues and restore-point name. Do not mark a test passed merely because the editor opens.
