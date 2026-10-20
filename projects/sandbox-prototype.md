@@ -146,6 +146,14 @@ The user confirms that **all original 21 items on the working list** (the 19 ori
 
 **User-confirmed:** Stamina regeneration is working and the existing stepped visual bar update is acceptable for this Sandbox iteration. **Decision:** do not implement visual interpolation/smoothing, do not modify GAS Companion's vendor `WB_HUD_Minimalist` to smooth it, and do not assume a custom duplicate widget was created. Continue using the current HUD as-is. Stamina-cost and HUD interaction details beyond regeneration were not separately revalidated in this turn. Windows Development packaging and restore point `04_GASCompanion_Jump_Validated` remain pending; do not mark complete until tested.
 
+### Sprint ability (new milestone, started 2026-10-20)
+
+The user asked to continue after the Windows Development packaging and `04_GASCompanion_Jump_Validated` backup instructions but did **not explicitly confirm either completed**. Keep both as pending verification; do not label them successful. The next feature is sustained sprint using GAS Companion and the existing `GSCAttributeSet.Stamina`, without custom movement framework.
+
+**Next manual one-step task (creation not yet confirmed):** create `/Game/Gameplay/Abilities/GA_Sprint` deriving `GSCGameplayAbility`, set **Asset Tags** `Berta.Ability.Movement.Sprint`, **Activation Owned Tags** `Berta.State.Movement.Sprinting`, and `Instancing Policy = Instanced Per Actor`. Activation-owned Sprinting is appropriate if and only if sprint Ability lifetime matches accepted sprint motion; ensure robust `EndAbility`/cancellation and speed restoration. Reference: [Epic UE5.8 Gameplay Abilities](https://dev.epicgames.com/documentation/unreal-engine/using-gameplay-abilities-in-unreal-engine) and [GAS Companion quick start](https://gascompanion.github.io/quick-start/).
+
+**Subsequent validations (not yet instructed):** configure `IA_Sprint` (Left Shift) in existing `IMC_Default`, add `GA_Sprint` to GSC Granted Abilities + Input Action, activate and maintain via `Wait Input Release`, change native `CharacterMovement.MaxWalkSpeed` for test, revert on normal end **and cancellation**, add stamina drain using a separate periodic Gameplay Effect only after baseline works, stop sprint automatically at zero stamina, verify `Berta.State.Movement.Sprinting` lifetime and packaged behavior. Prefer native CharacterMovement; consider effect-backed speed modifier as an architectural option later. Avoid claiming any new step implemented until user confirms.
+
 ### Suggested progress states
 
 Track each plugin separately as **available / installed / enabled / smoke-tested / packaged-tested**, and record test date, version, integrations changed, issues and restore-point name. Do not mark a test passed merely because the editor opens.
