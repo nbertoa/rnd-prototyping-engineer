@@ -162,6 +162,12 @@ The user asked to continue after the Windows Development packaging and `04_GASCo
 
 **Next separate validation:** test idle regen vs while-held stamina drain vs release; sprint effect pauses on release/cancel and re-enables when tag returns. **Important pending rule:** ending sprint and restoring speed when Stamina reaches 0 is NOT implemented by this effect; add a native WaitForAttributeChangeWithComparison threshold ability task or equivalent to cancel/end `GA_Sprint`, with one reliable speed reset for both release and cancellation and a guard against sprint beginning when empty. Do not claim zero-stamina stop or packaged behavior yet.
 
+### Sprint start cost / insufficient-stamina activation — 2026-10-20
+
+**Explanation to user:** `Commit Ability` performs native GAS cost and cooldown checks **only for configured ability costs**; the passive `GE_Sprint_Drain` assigned through character Granted Effects is independent and does not make `Commit Ability` reject zero Stamina. Reference: [GAS Companion Quick Start](https://gascompanion.github.io/quick-start/), [Epic Using Gameplay Abilities](https://dev.epicgames.com/documentation/unreal-engine/using-gameplay-abilities-in-unreal-engine), [GSC Loosely Check Ability Cost](https://gascompanion.github.io/ignore-ability-cost/).
+
+**Proposed minimal gate (not yet user-confirmed):** create `GE_Sprint_StartCost` as **Instant** Stamina **Add -1**, assign to `GA_Sprint → Cost Gameplay Effect Class`, ensure `bLooselyCheckAbilityCost = false`, use existing `Commit Ability → Branch Return Value` and start sprint only on success; failure exits ability. This rejects activation below 1 Stamina but adds a **real 1-point upfront cost** on top of the periodic drain, a tradeoff clearly disclosed to the user. If zero startup cost is desired, use an explicit native GAS availability check/attribute-aware condition instead; do not invent a non-spending 'cost GE'. In either design, still implement **stop sprint and restore movement speed when Stamina reaches zero while active** (separate step). No implementation or runtime test confirmed yet.
+
 ### Suggested progress states
 
 Track each plugin separately as **available / installed / enabled / smoke-tested / packaged-tested**, and record test date, version, integrations changed, issues and restore-point name. Do not mark a test passed merely because the editor opens.
