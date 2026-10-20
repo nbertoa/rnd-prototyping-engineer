@@ -216,6 +216,12 @@ The user asked to continue after the Windows Development packaging and `04_GASCo
 
 **Next required project quality gate (pending):** Package Windows Development using the configured test level with cube + campfire and run the .exe. Confirm that both interactions work via E and gamepad Square, and **GAS Companion Jump/Sprint, Stamina drain/regen, and HUD** are unaffected. If all pass, create a full-project **`06_NiceInteraction_Validated`** restore point (recommended next chronological number after existing `04` Jump and `05` JumpSprint backups), then progress to evaluating Black Eye and Ultimate Gameplay Camera. Don't call Nice Interaction `packaged-tested` or claim the `06` backup exists until user reports completion. Optional cosmetic glyph/outline work should not slow down integration research.
 
+### Nice Interaction V2 — packaging and backup 06 confirmed (2026-10-20)
+
+**User-confirmed:** Windows Development packaging completed successfully, with Nice Interaction V2 functioning correctly in the packaged build. User subsequently confirmed creating the full-project backup **`06_NiceInteraction_Validated`** (number/label as planned; the local folder path was not independently inspected). This supersedes older sections that marked packaging and checkpoint 06 as pending. Nice Interaction's current minimal integration stage is **closed**. Deferred optional input-glyph switching remains out of scope.
+
+**Next research/integration:** adopt **Ultimate Gameplay Camera (UGC)** as the first gameplay-camera prototype, preserving the existing Third Person Character, GAS Companion PlayerController, Nice Interaction and Enhanced Input. Compare three *Camera Data Asset* presets (close/medium/far) through existing `BertaUltimateGameplayCameraExt` cycle tooling only after the primary UGC manager is confirmed working. No camera runtime/packaging validation is claimed yet; Black Eye cinematic integration follows separately.
+
 ### Suggested progress states
 
 Track each plugin separately as **available / installed / enabled / smoke-tested / packaged-tested**, and record test date, version, integrations changed, issues and restore-point name. Do not mark a test passed merely because the editor opens.
