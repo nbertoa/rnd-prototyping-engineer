@@ -248,6 +248,18 @@ The user asked to continue after the Windows Development packaging and `04_GASCo
 
 **Next BertaDevKit work to delegate:** improve the **read-only UGC Editor Audit** to check that the manager's configured **Default Camera Data** belongs to the existing `UBertaUGCCameraCycleComponent::CameraPresets` by actual asset identity, including correctly reading a Blueprint-derived manager's default configuration. Audit already checks global GameMode, Controller manager class, cycle presets, and selected preset properties, but not this contract. The user intends to pass the research/problem to the separate BertaDevKit ChatGPT project, which will prepare an implementation prompt for Codex. This is **a proposed improvement, not implemented**. Separately improve runtime `success=false` diagnostics later.
 
+### Ultimate Gameplay Camera — UGC Dynamic Spring Arm and corner avoidance verified in PIE (2026-10-20)
+
+**User-confirmed follow-up performed after backup 07:** the existing `BP_ThirdPersonCharacter` initially had native Unreal `CameraBoom` (`SpringArmComponent`) with Arm Length 400, offsets zero, `UsePawnControlRotation`, `InheritPitch/Yaw/Roll`, `DoCollisionTest` enabled, Probe Size 12, Probe Channel Camera, and Camera Lag off. `FollowCamera` used **Parent Socket = `SpringEndpoint`**. These values were observed in a user screenshot.
+
+A **`BP_UGCSpringArmComponent`** from UGC was added as a sibling under `CapsuleComponent`, given the same baseline arm/rotation/collision properties and left with its UGC-specific collision defaults. `FollowCamera` was reparented from native `CameraBoom` to the UGC Spring Arm, retaining **`Parent Socket = SpringEndpoint`** and zero relative Location/Rotation.
+
+**Important pitfall:** with **both** Spring Arms temporarily present, the camera appeared too centered on the player and the Near/Medium/Far distance changes were barely visible. The user **deleted the old `CameraBoom`** and confirmed that the camera/presets **worked correctly again**. This strongly suggests conflicting Spring Arm identification/settings, but the precise internal cause was **not traced with a before/after `Berta.UGC.Dump`**. For this Sandbox setup, leave **only one UGC Spring Arm**; do not leave the old native boom in place. Do not call a specific UGC component-resolution path proven.
+
+**Functional PIE evidence:** the camera now **interpolates/smoothly adjusts** when near a wall and the user noticed it **anticipating the corner** during slow rotation. This supports successful visual predictive avoidance, but not a measured feeler trace or performance test.
+
+**Validation boundary:** earlier **Windows packaging and backup 07 were completed before this Spring Arm replacement**. **A new packaged build after this change has not yet been confirmed**; no post-change checkpoint is confirmed. No change to BertaDevKit C++ runtime code was made during this UI migration. Full procedure, screenshots provenance, hierarchy and socket details: [UGC integration report — Dynamic Spring Arm](../research/plugins/ultimate-gameplay-camera-sandbox-integration.md#update--dynamic-spring-arm-migration-and-predictive-collision-2026-10-20).
+
 ### Suggested progress states
 
 Track each plugin separately as **available / installed / enabled / smoke-tested / packaged-tested**, and record test date, version, integrations changed, issues and restore-point name. Do not mark a test passed merely because the editor opens.
