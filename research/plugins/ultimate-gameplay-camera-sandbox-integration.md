@@ -168,6 +168,29 @@ Estado atribuible con certeza:
 - Los límites min/max de distancia y FOV no representan necesariamente la longitud/FOV exactos del POV actual. El manager/modifiers, normalizaciones y SpringArm determinan el resultado. Para probar de forma controlada conviene distinguir **preset activo** de **valor final observado** con `Berta.UGC.Dump`.
 - Son tres **estilos de una cámara jugable**, no tres cámaras físicas. No está decidida todavía la UX final; no se agregaron botones.
 
+### Receta rápida para reproducir exactamente esta comparación
+
+En `/Game/Gameplay/Camera` (ruta de trabajo propuesta), crear `DA_Camera_Medium` como **`UGC_CameraDataAssetBase`**, duplicarlo para `DA_Camera_Near` y `DA_Camera_Far` y **modificar solamente Min/Max Arm Length y Min/Max FOV** de la tabla anterior. Conservar **Arm Range Blend Time y FOVRange Blend Time en 0.5**. No alterar offsets, colisión, Focus ni movimiento para esta comparación.
+
+Configurar el **hijo de `BP_UGCCameraManager`** usado en el PlayerController existente con **`Default Camera Data = DA_Camera_Medium`**, y este orden de `CameraPresets` en `BertaUGCCameraCycleComponent`:
+
+```text
+CameraPresets[0] = DA_Camera_Medium  ← mismo asset inicial del Camera Manager
+CameraPresets[1] = DA_Camera_Near
+CameraPresets[2] = DA_Camera_Far
+```
+
+Prueba desde consola durante PIE:
+
+```text
+Berta.UGC.Dump        # comprobar Manager / ActivePreset / CycleActiveIndex
+Berta.UGC.Next        # Medium -> Near
+Berta.UGC.Next        # Near -> Far
+Berta.UGC.Previous    # Far -> Near (aún pendiente de confirmación explícita)
+```
+
+**Evidencia:** dos cambios por Next fueron confirmados visualmente. El orden concreto de las transiciones es el **esperado para la configuración propuesta**, no una captura del log final. Los valores Near y Far son un **ejemplo de tuning propuesto**, no un preset oficial ni mediciones del POV final. Este ejemplo también figura en la [documentación MkDocs de BertaUltimateGameplayCameraExt](https://nbertoa.github.io/ue5-bertadevkit/bertaultimategameplaycameraext/).
+
 ## 5. Procedimiento reproducible (nuevo proyecto con el mismo stack)
 
 ### A. Infraestructura
