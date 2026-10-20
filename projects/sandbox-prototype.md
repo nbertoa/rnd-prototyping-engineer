@@ -242,6 +242,12 @@ The user asked to continue after the Windows Development packaging and `04_GASCo
 
 **Next research:** compare UGC's native Dynamic Spring Arm/predictive collision, Focus, Yaw/Pitch Follow, Camera Animation and data-driven state camera with what `BertaUltimateGameplayCameraExt` already provides (cycling, Dump, audit, preset diff). Focus on a small Sandbox experiment and only promote a reusable extension where repeated value exists. Proposed candidates, not committed implementation: SpringArm collision smoke test; GAS Sprint-driven camera preset with safe restoration; Focus on a target; diagnostic/audit warning when default camera asset is outside `CameraPresets`. Distinguish commercial UGC base features from separately sold add-ons.
 
+### Ultimate Gameplay Camera — restore point 07 confirmed (2026-10-20)
+
+**User-confirmed:** after UGC preset-cycle integration and successful Windows packaging, the user **created the complete-project backup 07**. The checkpoint was recommended as `07_UGC_CameraPresets_Validated`; **the exact local folder spelling and path were not independently inspected**. This supersedes the previous note marking checkpoint 07 as pending. Backup 06 remains the separate Nice Interaction baseline.
+
+**Next BertaDevKit work to delegate:** improve the **read-only UGC Editor Audit** to check that the manager's configured **Default Camera Data** belongs to the existing `UBertaUGCCameraCycleComponent::CameraPresets` by actual asset identity, including correctly reading a Blueprint-derived manager's default configuration. Audit already checks global GameMode, Controller manager class, cycle presets, and selected preset properties, but not this contract. The user intends to pass the research/problem to the separate BertaDevKit ChatGPT project, which will prepare an implementation prompt for Codex. This is **a proposed improvement, not implemented**. Separately improve runtime `success=false` diagnostics later.
+
 ### Suggested progress states
 
 Track each plugin separately as **available / installed / enabled / smoke-tested / packaged-tested**, and record test date, version, integrations changed, issues and restore-point name. Do not mark a test passed merely because the editor opens.
