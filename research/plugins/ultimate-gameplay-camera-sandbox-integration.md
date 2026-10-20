@@ -280,3 +280,94 @@ The user confirmed that **packaging completed and the packaged application works
 
 **Next technical experiments to discuss:** enable and test current `BP_UGCSpringArmComponent` collision in a controlled obstacle course; map GAS Sprint state to UGC presets without fighting manual cycling and with correct teardown; independently validate Focus/lock-on and return to player look. In BertaDevKit prioritize auditing `Default Camera Data` against `CameraPresets` and improving the diagnostic reason for `success=false`, rather than reimplementing native UGC camera modifiers. These are candidates only.
 
+**Postscript:** the Dynamic Spring Arm experiment was subsequently carried out in PIE; see the later migration section below. The packaged success referred to in this older entry predates this migration.
+
+
+---
+
+## Update — Dynamic Spring Arm migration and predictive collision (2026-10-20)
+
+**Validation scope:** steps below were carried out **in PIE after checkpoint 07 and the earlier packaged UGC baseline**. The user has **not yet reported a new packaged-build verification after replacing the Spring Arm**. This section supersedes the older **"not yet inspected/replaced"** status of the default Character Spring Arm and the "collision predictive pending" notes above; those were accurate *at the time* and are retained as history.
+
+### A. Before the change — confirmed original component
+
+User-provided screenshot of the existing **`BP_ThirdPersonCharacter` → `CameraBoom`** showed the native Unreal **`SpringArmComponent`**, with these visible values:
+
+| Native CameraBoom property | Observed value |
+| --- | --- |
+| Target Arm Length | `400` |
+| Socket Offset | `(0, 0, 0)` |
+| Target Offset | `(0, 0, 0)` |
+| Use Pawn Control Rotation | Enabled |
+| Inherit Pitch / Yaw / Roll | Enabled / Enabled / Enabled |
+| Do Collision Test | Enabled |
+| Probe Size | `12` |
+| Probe Channel | `Camera` |
+| Enable Camera Lag | Disabled |
+| Enable Camera Rotation Lag | Disabled |
+
+The user's `FollowCamera` originally had **Parent Socket = `SpringEndpoint`** under `CameraBoom`; this socket is critical and must be explicitly preserved when reparenting.
+
+**Important:** `Target Arm Length = 400` on the component is the editable baseline in the Blueprint, **not a measurement of final runtime camera distance**; UGC Camera Data Assets can drive distances/FOV through the active manager.
+
+### B. How the Spring Arm was migrated — executed steps
+
+1. In the existing `BP_ThirdPersonCharacter` (parent still `GSCModularCharacter`), **Add Component → `BP_UGCSpringArmComponent`**, from the licensed UGC plugin.
+2. Initially **retain `CameraBoom` and `FollowCamera`** to make the migration reversible; the new UGC Spring Arm was placed under the same parent (`CapsuleComponent`), not attached to `CameraBoom`.
+3. Copy/replicate the important baseline properties from the native Spring Arm to the new UGC Spring Arm: Arm Length 400, offsets zero, Use Pawn Control Rotation true, Inherit Pitch/Yaw/Roll true, Do Collision Test true, Probe Size 12, Probe Channel Camera, both Camera Lags disabled. **Leave UGC-specific predictive-collision settings at their initial values** for the first experiment.
+4. **Move `FollowCamera`** from the old `CameraBoom` to the **new UGC Spring Arm**. Crucially, in `FollowCamera` Details choose **Parent Socket = `SpringEndpoint`** *again*, even though this was already selected under the old arm; check its **relative Location/Rotation = `(0,0,0)`**. The socket name was explicitly confirmed in the user discussion.
+5. Compile and save.
+
+Temporary topology during migration:
+
+```text
+BP_ThirdPersonCharacter
+└── CapsuleComponent
+    ├── CameraBoom                      (native SpringArm; old)
+    └── BP_UGCSpringArmComponent        (UGC Spring Arm; new)
+        └── FollowCamera                (Parent Socket = SpringEndpoint)
+```
+
+### C. Issue discovered: two simultaneous Spring Arms
+
+**Actual observation:** with both arms present and `FollowCamera` attached to the new one, the user reported that the framing suddenly looked **more centered on the character** and that cycling Near/Medium/Far changed distance **very little** compared to before. No `Berta.UGC.Dump` output identifying UGC's `GetOwnerSpringArmComponent()` was captured at this point.
+
+**Reasoned hypothesis, not a proved internal cause:** the UGC manager might still have found/manipulated `CameraBoom` (the old native arm), or multiple arm references might have made UGC's applied offsets/ranges inconsistent with the actual camera attachment. It would be an overclaim to assert a specific internal selection algorithm without a before/after Dump or source-level runtime trace.
+
+**What actually fixed the visible symptoms:** the **user deleted `CameraBoom`**, leaving **only `BP_UGCSpringArmComponent`** with `FollowCamera` under `SpringEndpoint`. The user then reported **"funciona bien"**; camera framing and preset differences became correct again.
+
+Final intended component topology:
+
+```text
+BP_ThirdPersonCharacter  (GSCModularCharacter)
+└── CapsuleComponent
+    └── BP_UGCSpringArmComponent      (only Spring Arm)
+        └── FollowCamera
+            Parent Socket: SpringEndpoint
+            Relative Location: (0, 0, 0)
+            Relative Rotation: (0, 0, 0)
+```
+
+**Reproducible operational rule for this tested Sandbox configuration:** **do not leave the old `CameraBoom` in place after the migration.** This project was visually incorrect with two Spring Arms and improved after deleting the old one. Do not generalize that two Spring Arms are *always* invalid in every Unreal Pawn without further evidence. Preserve the original baseline in **backup 07**, rather than recreating the obsolete boom inside the final Character.
+
+### D. PIE smoke test performed — what passed and what is still inferred
+
+After the user removed `CameraBoom`:
+- **General camera and existing preset switching:** user reported the camera **works well** again.
+- **Obstacle response:** user moved near a wall and rotated the view; observed **smoother/interpolated movement** while collision adjusted the camera. Confirmed perceptually in PIE; no numeric timing captured.
+- **Predictive corner avoidance:** user repeated a slow camera rotation near the **corner of a wall** and explicitly reported **camera anticipation of the corner**. This is good **visual functional evidence** for UGC's predictive avoidance in the configured setup, but is not a technical trace of specific feeler sweeps or a performance benchmark.
+- No additional manual changes to predictive feeler settings were reported; leave default settings as tested.
+- **Not yet demonstrated:** an instrumented trace of feelers (`TraceTag CameraPen`), exhaustive concave/convex corners, occlusion materials/dithering, 30/60/120 FPS benchmark, gamepad regression after the change, or the **packaged application rebuilt after the Spring Arm replacement**.
+
+### E. Recommended checklist to reproduce in another project
+
+1. Validate a working UGC Player Camera Manager and cycle (initial `Default Camera Data` must be one of the assets listed in `CameraPresets`); see section 5 above.
+2. Inspect/document the actual native `CameraBoom` settings and the `FollowCamera` parent socket.
+3. Add `BP_UGCSpringArmComponent` as a new component alongside the old one for the short migration phase, preserving rotation/collision settings and the UGC-specific defaults.
+4. Reparent the existing `FollowCamera` to the new component, explicitly restoring **`Parent Socket = SpringEndpoint`** and relative Location/Rotation `(0,0,0)`.
+5. **Remove old `CameraBoom` before accepting the migration**. Verify the Character has **one effective Spring Arm** supporting the camera; if a native inherited component cannot be deleted from a Blueprint, stop and inspect the parent-class ownership rather than creating a competing camera setup.
+6. Compile/save. Test Near/Medium/Far distances and vertical composition, collision against a wall and anticipation at a corner; record evidence with `Berta.UGC.Dump` if helpful.
+7. Perform post-change regressions of Jump/Sprint/stamina, Nice Interaction E/Square, mouse/gamepad Look and UI; then **repackage Windows** to validate the change before creating any new packaged checkpoint. Existing checkpoint 07 is the *pre-SpringArm-migration* baseline.
+
+**BertaDevKit documentation:** [`BertaUltimateGameplayCameraExt` MkDocs](https://github.com/nbertoa/ue5-bertadevkit/blob/main/docs/bertaultimategameplaycameraext/index.md) contains the portable setup notes. These steps configure the **vendor's native Spring Arm Blueprint**; they are **not** evidence of a new BertaDevKit runtime camera feature or a change to the extension's C++ code.
+
