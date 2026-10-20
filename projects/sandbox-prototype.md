@@ -234,6 +234,14 @@ The user asked to continue after the Windows Development packaging and `04_GASCo
 
 **Still pending:** retest `Berta.UGC.Previous`, post-switch regressions of GAS and Nice Interaction, UGC current Dynamic Spring Arm/collision configuration, Focus/dithering if required, Windows Development **with UGC presets**, and next full-project camera checkpoint (07 **not created or confirmed**). Black Eye cinematic integration is separate and not yet started.
 
+### Ultimate Gameplay Camera — Windows packaging confirmed; backup 07 next (2026-10-20)
+
+**User-confirmed:** after successful PIE switching with `Berta.UGC.Next`, the user packaged the Sandbox and reported **the packaged application works correctly**. This advances the UGC integration beyond the earlier PIE-only stage. The precise build configuration and a per-feature regression checklist were not independently logged; avoid presenting all optional UGC modifiers as tested.
+
+**Next full-project restore point recommended:** `07_UGC_CameraPresets_Validated`, saved alongside the existing **`06_NiceInteraction_Validated`** as a separate backup, without overwriting 06. **Backup 07 is not yet user-confirmed as created.** No absolute local backup directory has been observed.
+
+**Next research:** compare UGC's native Dynamic Spring Arm/predictive collision, Focus, Yaw/Pitch Follow, Camera Animation and data-driven state camera with what `BertaUltimateGameplayCameraExt` already provides (cycling, Dump, audit, preset diff). Focus on a small Sandbox experiment and only promote a reusable extension where repeated value exists. Proposed candidates, not committed implementation: SpringArm collision smoke test; GAS Sprint-driven camera preset with safe restoration; Focus on a target; diagnostic/audit warning when default camera asset is outside `CameraPresets`. Distinguish commercial UGC base features from separately sold add-ons.
+
 ### Suggested progress states
 
 Track each plugin separately as **available / installed / enabled / smoke-tested / packaged-tested**, and record test date, version, integrations changed, issues and restore-point name. Do not mark a test passed merely because the editor opens.
