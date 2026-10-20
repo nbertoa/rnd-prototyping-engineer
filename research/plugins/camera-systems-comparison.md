@@ -2,6 +2,8 @@
 
 **Investigación R&D — 20 de octubre de 2026.** Proyecto: Sandbox Prototype, Unreal Engine 5.8. Alcance: arquitectura, sustitución, coexistencia y plan de validación. No se modificó ni ejecutó el proyecto Unreal.
 
+> **Actualización de estado — 2026-10-20 (posterior a esta investigación):** el usuario ya **integró Ultimate Gameplay Camera**, validó en PIE el cambio entre Near/Medium/Far, confirmó un **packaging Windows funcional** y creó un **backup 07**. En una prueba **posterior al backup**, reemplazó el Spring Arm nativo `CameraBoom` por `BP_UGCSpringArmComponent`, reparentó `FollowCamera` al mismo **`SpringEndpoint`** y eliminó el `CameraBoom` anterior. Con **dos Spring Arms** presentes el encuadre y las distancias de presets se comportaban mal; con **solo el UGC Spring Arm** se normalizaron. El usuario vio interpolación de colisión contra paredes y anticipación en esquinas **en PIE**. Falta una **nueva prueba de packaging tras este último cambio**; el packaging anterior no cubre la nueva configuración. El presente informe conserva su marco de investigación histórica; para los pasos reales ver [Integración UGC en el Sandbox](ultimate-gameplay-camera-sandbox-integration.md#update--dynamic-spring-arm-migration-and-predictive-collision-2026-10-20).
+
 ## 1. Decisión
 
 **Recomiendo B: Ultimate Gameplay Camera como único sistema de cámara del Sandbox, sujeto a superar una validación funcional y de packaging.** Es una decisión de arquitectura sustentada en documentación; todavía no es una certificación de integración.
