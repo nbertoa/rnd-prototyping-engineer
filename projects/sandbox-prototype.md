@@ -176,6 +176,12 @@ The user asked to continue after the Windows Development packaging and `04_GASCo
 
 **Docs:** https://dev.epicgames.com/documentation/en-us/unreal-engine/API/Plugins/GameplayAbilities/UAbilityTask_WaitAttributeChange-_1 ; https://dev.epicgames.com/documentation/en-us/unreal-engine/API/Plugins/GameplayAbilities/UGameplayAbility .
 
+### Sprint complete PIE behavior validation — 2026-10-20
+
+**User-confirmed:** all four Sprint tests pass in PIE: (1) holding Shift/L3 raises movement speed and drains Stamina, (2) releasing input restores walking speed and regeneration resumes, (3) Stamina exhaustion ends Sprint and removes `Berta.State.Movement.Sprinting`, and (4) after Stamina recovers the ability can activate again. The final depleted-stamina listener uses `Wait for Attribute Change` with an explicit current Stamina `<= 0` check, rather than ending on any callback. This validates the desired Jump + Sprint + GAS Companion minimalist HUD workflows in PIE but **not** packaged runtime. Do not add cooldown or HUD interpolation; those were deferred.
+
+**Next gate (pending):** create a fresh **Windows Development** package, using `L_EnvironmentTest` as the configured Game Default Map, and verify **outside Editor**: Move/Look, Jump with Stamina cost + InAir reactivation block, Sprint via Shift/L3 with speed gain, stamina drain and forced stop at zero, and the built-in Health/Mana/Stamina HUD with regen. Only after the executable passes, create a full-project restore point named `04_GASCompanion_JumpSprint_Validated` (supersedes the earlier proposed `04_GASCompanion_Jump_Validated` name, which was not confirmed created). Document failures before proceeding to other plugins.
+
 ### Suggested progress states
 
 Track each plugin separately as **available / installed / enabled / smoke-tested / packaged-tested**, and record test date, version, integrations changed, issues and restore-point name. Do not mark a test passed merely because the editor opens.
