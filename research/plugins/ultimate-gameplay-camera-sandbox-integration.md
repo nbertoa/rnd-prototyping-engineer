@@ -269,3 +269,14 @@ La existencia de campos de `Penetration Avoidance Feelers`, `Dithering`, `Yaw/Pi
 - [UGC Camera Modifiers y presets — documentación del proveedor](https://docs.superhuman.com/@aurora-devs/documentation-ultimate-gameplay-camera/camera-modifiers-5).
 - [UGC System Setup — documentación del proveedor](https://docs.superhuman.com/@aurora-devs/documentation-ultimate-gameplay-camera/system-setup-3).
 - [UGC Dynamic Spring Arm — documentación del proveedor](https://docs.superhuman.com/@aurora-devs/documentation-ultimate-gameplay-camera/new-dynamic-spring-arm-36).
+
+---
+
+## Update — successful packaged build and next checkpoint (2026-10-20)
+
+The user confirmed that **packaging completed and the packaged application works correctly** after the two successful camera-cycle transitions in PIE. This supersedes this document's earlier **UGC packaging pending** entries; those older entries are preserved as historical descriptions of what was pending at the time. Build variant was not supplied, and we have no full packaged-build feature checklist or saved logs.
+
+**Recommended backup:** create a new complete-project restore point **`07_UGC_CameraPresets_Validated`** alongside `06_NiceInteraction_Validated`, not overwriting an earlier snapshot. **Not yet confirmed as created.** The user's local absolute backup path was never inspected.
+
+**Next technical experiments to discuss:** enable and test current `BP_UGCSpringArmComponent` collision in a controlled obstacle course; map GAS Sprint state to UGC presets without fighting manual cycling and with correct teardown; independently validate Focus/lock-on and return to player look. In BertaDevKit prioritize auditing `Default Camera Data` against `CameraPresets` and improving the diagnostic reason for `success=false`, rather than reimplementing native UGC camera modifiers. These are candidates only.
+
