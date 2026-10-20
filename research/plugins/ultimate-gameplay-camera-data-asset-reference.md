@@ -1,10 +1,10 @@
 # Ultimate Gameplay Camera — referencia de campos del Camera Data Asset (UE 5.8)
 
-**Registro:** 2026-10-20 · Sandbox Prototype UE 5.8 · fuente: cinco fotografías del panel **Details** del asset `DA_Camera_Medium` compartidas por el usuario en la conversación.  
+**Registro:** 2026-10-20 · Sandbox Prototype UE 5.8 · fuente: cinco fotografías iniciales y cinco capturas de pantalla directas posteriores del panel **Details** del asset `DA_Camera_Medium` compartidas por el usuario en la conversación. Las segundas imágenes permitieron confirmar valores previamente ambiguos.  
 **Clase seleccionada al crear el asset:** `UGC_CameraDataAssetBase`.  
 **Ruta de trabajo acordada:** `/Game/Gameplay/Camera/DA_Camera_Medium` (ruta indicada en la conversación; **no inspeccionada** directamente en los archivos del proyecto).
 
-> **Alcance y certeza.** Esto es una **transcripción visual de la interfaz de la versión instalada**, no una lista de valores por defecto certificados del fabricante, ni una inspección de source/reflection, ni una garantía de que las funciones estén activas en runtime. Los valores corresponden a lo mostrado en pantalla en las capturas, con cambios previos del usuario desconocidos. Las opciones atenuadas se registran igualmente y no se asume que surtan efecto. `None` significa referencia/selector vacío; `[colapsado]` significa que no se ven subcampos. Cualquier cifra dudosa se indica como lectura no confirmada. **No extrapolar propiedades no visibles.**
+> **Alcance y certeza.** Esto es una **transcripción visual de la interfaz de la versión instalada**, no una lista de valores por defecto certificados del fabricante, ni una inspección de source/reflection, ni una garantía de que las funciones estén activas en runtime. Los valores corresponden a lo mostrado en pantalla en las capturas, con cambios previos del usuario desconocidos. Las opciones atenuadas se registran igualmente y no se asume que surtan efecto. `None` significa referencia/selector vacío; `[colapsado]` significa que no se ven subcampos. Se conservaron como aproximados únicamente los decimales de los límites angulares que siguen siendo demasiado pequeños para certificar su valor exacto. **No extrapolar propiedades no visibles.**
 
 ## 1. Camera Arm
 
@@ -12,17 +12,17 @@
 | Propiedad exacta en Details | Valor visible |
 | --- | --- |
 | Min Arm Length | `100.0` |
-| Max Arm Length | `250.0` (lectura probable; confirmar en Editor antes de usar como valor contractual) |
+| Max Arm Length | `250.0` (confirmado en captura nueva) |
 | Arm Range Blend Time | `0.5` |
 | Arm Range Blend Curve | `None` |
 
 ### Arm Offset Settings
 | Propiedad | Valor visible |
 | --- | --- |
-| Arm Socket Offset | Vector (X `0.0`, Y `40.0` o `-40.0`, Z `0.0`); **signo de Y no legible con certeza** |
+| Arm Socket Offset | Vector (X `0.0`, Y `40.0`, Z `0.0`); **Y positivo confirmado** |
 | Arm Socket Offset Blend Time | `0.5` |
 | Arm Socket Offset Blend Curve | `None` |
-| Arm Target Offset | Vector (X `0.0`, Y `0.0`, Z aparentemente `80.0`); **confirmar Z en Editor** |
+| Arm Target Offset | Vector (X `0.0`, Y `0.0`, Z `58.0`); **Z confirmado en captura nueva** |
 | Arm Target Offset Blend Time | `0.5` |
 | Arm Target Offset Blend Curve | `None` |
 
@@ -124,8 +124,8 @@ La captura 2 continúa al comienzo de la 3. **No afirmar dithering funcional:** 
 | --- | --- |
 | Constrain Pitch | desactivado |
 | Pitch Constraint Tolerance | `10.0` |
-| Local Min Pitch | aproximadamente `-89.99999` (**decimales no legibles con certeza; editar solo tras consultar Editor**) |
-| Local Max Pitch | aproximadamente `89.99999` (**decimales no legibles con certeza**) |
+| Local Min Pitch | aproximadamente `-90` grados (el campo muestra un valor cercano a `-89.99999`; decimales exactos no certificados) |
+| Local Max Pitch | aproximadamente `90` grados (el campo muestra un valor cercano a `89.99999`; decimales exactos no certificados) |
 | Pitch Constraints Blend Time | `0.5` |
 | Pitch Constraints Blend Curve | `None` |
 
@@ -135,7 +135,7 @@ La captura 2 continúa al comienzo de la 3. **No afirmar dithering funcional:** 
 | Constrain Yaw | desactivado |
 | Yaw Constraint Tolerance | `10.0` |
 | Local Min Yaw | `0.0` |
-| Local Max Yaw | aproximadamente `359.99999` (**decimales no legibles con certeza**) |
+| Local Max Yaw | aproximadamente `360` grados (el campo muestra un valor cercano a `359.99999`; decimales exactos no certificados) |
 | Yaw Constraints Blend Time | `0.5` |
 | Yaw Constraints Blend Curve | `None` |
 
@@ -182,7 +182,7 @@ No se desplegaron tipos/clases de elementos porque la lista está vacía.
 - En PIE el movimiento y el control de cámara siguen funcionando; el usuario observó mejora subjetiva de la cámara.
 - Comprobó con `Berta.UGC.Dump` que el Camera Manager activo es el de UGC; no se copió el texto completo del dump.
 - Agregó `BertaUGCCameraCycleComponent` al mismo PlayerController.
-- Creó `DA_Camera_Medium`, basado en `UGC_CameraDataAssetBase`, y compartió las cinco capturas.
+- Creó `DA_Camera_Medium`, basado en `UGC_CameraDataAssetBase`, y compartió primero cinco fotografías y luego cinco capturas directas más nítidas; las segundas confirmaron **Max Arm Length 250.0**, **Arm Socket Offset Y +40.0** y **Arm Target Offset Z 58.0**.
 - Nice Interaction v2: Windows Development y backup completo `06_NiceInteraction_Validated` confirmados.
 
 **Pendiente:** colocar `DA_Camera_Medium` en `CameraPresets` del `BertaUGCCameraCycleComponent`; activarlo mediante `Berta.UGC.Next` y verificar que la vista cambia realmente. Luego comparar variantes `DA_Camera_Close` / `DA_Camera_Far` modificando preferentemente Arm Length y/o FOV, sin tocar la lógica de GAS ni duplicar `CameraComponent`. Confirmar el SpringArm UGC requerido por la documentación vigente para comportamiento de colisión, y comprobar regresiones en PIE antes de packaging. **Ni Camera Data Asset activo ni cambio entre presets ni colisión de UGC están todavía confirmados.**
@@ -191,6 +191,6 @@ No se desplegaron tipos/clases de elementos porque la lista está vacía.
 
 1. Usar **estos nombres literales del panel Details** y verificar en la versión instalada antes de proponer nodos o campos adicionales.
 2. No interpretar todos los valores de esta captura como “defaults del proveedor” ni asumir que cada opción visible funciona sin su modifier/spring arm.
-3. No volver a pedir capturas generales de este Data Asset: pedir únicamente el campo específico que se necesite confirmar (por ejemplo, el signo de Socket Offset Y o las curvas).
+3. No volver a pedir capturas generales de este Data Asset. El signo del Socket Offset Y ya está confirmado; si alguna precisión decimal del límite angular o contenido de una curva/feeler es imprescindible, consultar **solo ese campo**.
 4. Usar el registro arquitectónico en [camera-systems-comparison.md](camera-systems-comparison.md) y el estado del proyecto en [sandbox-prototype.md](../../projects/sandbox-prototype.md) como documentos complementarios.
-5. **Referencia histórica de imagen:** cinco fotografías del Details de `DA_Camera_Medium` compartidas en el chat del 2026-10-20. Las fotos no se copian al repositorio; esta referencia textual es la evidencia preservada.
+5. **Referencia histórica de imagen:** diez imágenes del Details de `DA_Camera_Medium` compartidas en el chat del 2026-10-20 (cinco fotografías y cinco capturas directas). Las imágenes no se copian al repositorio; esta referencia textual preserva la observación.
