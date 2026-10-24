@@ -2,7 +2,7 @@
 
 **Fecha:** 20 de octubre de 2026  
 **Proyecto:** Blank C++ + Third Person Feature Pack; `L_EnvironmentTest`  
-**Estado actual:** **Cambio entre presets Near / Medium / Far confirmado por el usuario en PIE mediante `Berta.UGC.Next` (dos cambios sucesivos informados).** No hay todavía confirmación del packaging Windows Development de **esta integración UGC**, ni backup de cámara posterior al número 06.
+**Estado actual (actualizado 2026-10-24):** presets Medium/Near/Far y UGC Dynamic Spring Arm validados visualmente en PIE; **Camera Focus probado por el usuario en aplicación empaquetada y reportado funcionando**. Backup 07 confirmado verbalmente (checkpoint anterior a la migración del Spring Arm; ruta/nombre local sin inspeccionar). Yaw Follow aislado no validado; abstracción reversible Exploración/Focus pendiente. Las secciones anteriores describen el estado histórico y las actualizaciones posteriores prevalecen.
 
 > **Procedencia:** reconstrucción de los pasos ejecutados y de los resultados expresamente comunicados en la conversación del 20-10-2026; contrastada con el código fuente de `BertaUltimateGameplayCameraExt` en `nbertoa/ue5-bertadevkit` y con la [investigación de cámaras](camera-systems-comparison.md). No se leyó el proyecto Unreal local, el `.uasset` ni el Output Log íntegro. La configuración exacta de los assets y la asignación final en el Editor deben tratarse como **reportadas o inferidas de la secuencia de pruebas**, no como inspección independiente. No atribuir un problema de la extensión a UGC sin evidencia.
 
@@ -371,3 +371,64 @@ After the user removed `CameraBoom`:
 
 **BertaDevKit documentation:** [`BertaUltimateGameplayCameraExt` MkDocs](https://github.com/nbertoa/ue5-bertadevkit/blob/main/docs/bertaultimategameplaycameraext/index.md) contains the portable setup notes. These steps configure the **vendor's native Spring Arm Blueprint**; they are **not** evidence of a new BertaDevKit runtime camera feature or a change to the extension's C++ code.
 
+
+---
+
+## Update — Camera Focus y Yaw/Pitch Follow, packaged smoke test (2026-10-24)
+
+**Proveniencia:** investigación reproducida en conversaciones 20–24 octubre 2026, capturas de Blueprints UGC 1.92/UE 5.8, e informe de viabilidad local aportado por Codex. No se recibieron archivos `.uasset` ni logs completos del Sandbox. Distinguir lo observado de lo propuesto; no atribuir nuevas funciones a BertaDevKit.
+
+### A. Pruebas de Yaw Movement Follow (sin validación)
+
+- Captura del `BP_SandboxUGCCameraManager` (hijo de `BP_UGCCameraManager`): array Default Modifiers de 13 elementos, incluyendo `UGC_YawFollowModifier`, `UGC_PitchFollowModifier`, `UGC_FocusCameraModifier`; distinto de `UGC_PitchToArmLengthAndFOVModifier`.
+- CharacterMovement: `Orient Rotation to Movement=true`, `Use Controller Desired Rotation=false`; Pawn `Use Controller Rotation Yaw=false`.
+- El usuario ensayó A/D y desplazamiento diagonal sin mover Look durante varios segundos; **no observó giro automático de cámara**. Activó Debug de Yaw, pero no obtuvo salida visible. Cambiar `Yaw Follow Time Threshold` de `2.0` a `0.0` no resolvió; se recomendó restaurar 2.0, pero no se inspeccionó su valor final.
+- `Berta.UGC.Dump` reportó `UGC=11 enabled / 0 disabled` y `External=3 enabled / 0 disabled` (contadores agregados; no demuestran cada modifier). **Yaw Follow automático permanece sin validar**.
+
+### B. Ejemplo de Focus y target
+
+`Camera Focus → Focus Target Method` ofrecía `None`, `BP_FocusTargetMethod_Test1`, `BP_FocusTargetMethod_Test2`. En la captura de `BP_FocusTargetMethod_Test1 → GetTargetLocation`, el Blueprint hace `Get All Actors with Tag` (`FocusTest1`), comprueba que el array no esté vacío, toma `GET 0`, obtiene la localización del actor y devuelve sus X/Y con **Out Target Location Z = 0.0 explícito** y el actor como `Return Value`. El comentario del proveedor indica **demo only**, y que una solución real pasaría la localización del objetivo para hard-lock/aim assist/conversaciones. Se propuso asignar **Actor Tag** `FocusTest1` a un cubo del Sandbox; no se confirmó qué target exacto se utilizó en el packaged test final.
+
+### C. Causa exacta del bloqueo Focus vs Follow
+
+Advertencia real de UGC: `Trying to focus the camera on a target while yaw/pitch follow modifiers are enabled. This is not allowed.`
+
+Captura de `UGC_FocusCameraModifier`: condición **`IsYawMovementFollowEnabled()` OR `IsPitchMovementFollowEnabled()`**. Las dos funciones del manager inspeccionadas leen **FollowSettings de las instancias internas**, no el enabled del `UCameraModifier`:
+
+| Consulta de UGC | Retorna true si… |
+| --- | --- |
+| `IsYawMovementFollowEnabled()` | `Enable Yaw Movement Follow` |
+| `IsPitchMovementFollowEnabled()` | `Enable Pitch Movement Follow` **OR** `Trigger when Falling` **OR** `Trigger on Slopes` |
+
+**Hallazgo crítico:** poner a false solo el flag principal de Pitch no desactiva Pitch Follow para el chequeo de Focus; hay otros dos booleanos. `Disable Modifier` y `Remove Camera Modifier` (este último devolvió true) **no resolvieron** el cartel; tampoco alcanzó con desactivar solo los principales desde Data Asset/`Set Settings`. Un `Set Settings` en Pitch podía hacer que una consulta inmediata devolviera false para el flag editado, pero Focus continuaba viendo otros flags Pitch activos. Al desactivar las **cuatro condiciones** efectivas desde Blueprint, el usuario logró hacer funcionar Focus. No afirmar que `Remove Camera Modifier` falló como API, solo que no cumplió el chequeo de Focus.
+
+### D. Solución nativa descubierta: `ToggleYawAndPitchFollow`
+
+En la categoría **Camera Follow** del **`BP_UGCCameraManager` original** el usuario encontró la función Blueprint heredada `ToggleYawAndPitchFollow`. La captura muestra `Sequence`, validación de referencias `UGCPitchFollowModifier`/`UGCYawFollowModifier`, y `Set Members in Camera Pitch Follow Settings` / `Set Members in Camera Yaw Follow Settings` **sobre las settings efectivas**.
+
+Sus **cuatro entradas exactas**, observadas en el graph:
+
+1. `Enable Pitch Movement Follow`
+2. `Trigger Pitch Follow when Falling`
+3. `Trigger Pitch Follow on Slopes`
+4. `Enable Yaw Movement Follow`
+
+**No es un toggle automático pese al nombre:** aplica los booleanos provistos. La llamada `ToggleYawAndPitchFollow(false, false, false, false)` suspende las cuatro condiciones necesarias para evitar el conflicto. **No guarda snapshot ni restaura** los valores previos por sí sola. Si se implementa Exploración ↔ Focus reversible, guardar la combinación original ANTES de la primera suspensión y restaurarla exactamente; las suspensiones repetidas no deben reemplazar el snapshot con cuatro `false`.
+
+Se discutieron funciones propias `SetPitchFollowSuspended`, `SuspendMovementFollow`, `RestoreMovementFollow`, `SetFocusActive`, `SetCameraMode` y un bool `bPitchFollowSuspended`, con imagen instructiva. **Su existencia/validación final en el Sandbox no se confirmó**. Tampoco se comprobó la implementación de un Data Asset exclusivo de Focus ni binding R3; no anunciar un sistema completo de lock-on.
+
+### E. Límite de `BertaUltimateGameplayCameraExt` C++ (informe de Codex)
+
+El usuario aportó control de viabilidad sobre **UGC 1.92 / UE 5.8**. En `Camera/Data/UGC_CameraData.h` existen `FCameraYawFollowSettings::bEnableYawMovementFollow` y `FCameraPitchFollowSettings::{bEnablePitchMovementFollow,bTriggerWhenFalling,bTriggerOnSlopes}`, pero son settings de Camera Data o estructuras, no accessors C++ tipados a **copias efectivas de modifiers Blueprint**. `UUGC_CameraModifier` no expone esos getters/setters; `AUGC_PlayerCameraManager` ofrece `GetCurrentCameraDataAsset`, `PushCameraData`, `PopCameraDataHead`, `FindCameraModifierOfClass`, y UE `ForEachCameraModifier` permite enumeración, pero no acceso tipado a settings internos. Las funciones `SetYawMovementFollowSettings`, `SetPitchMovementFollowSettings`, `IsYawMovementFollowEnabled`, `IsPitchMovementFollowEnabled` viven en Blueprint manager, y `OnCameraDataStackChanged` es `BlueprintNativeEvent`, no multicast suscribible para el componente propuesto.
+
+Codex **detuvo la implementación por contrato de viabilidad**: sin componente C++ nuevo, bridge externo, cambios a repo, build ni tests para esta feature. Se prefiere consumir `ToggleYawAndPitchFollow` desde el Blueprint heredado del Sandbox antes de construir un bridge frágil. No presentar funcionalidad runtime Follow como añadida a BertaDevKit.
+
+### F. Confirmación nueva: Focus en packaged build
+
+**2026-10-24: el usuario confirmó explícitamente «Ya probé en packaging el focus y funciona».** Registrar **UGC Camera Focus: smoke test exitoso en aplicación empaquetada, según usuario**. Esta declaración reemplaza el histórico «Focus pendiente», pero no detalla plataforma/configuración exacta de ese build, target method final, input, el mecanismo exacto de activación, logging, ni si el retorno al modo exploración con restauración de settings quedó validado. Tampoco constituye por sí sola prueba de colisión predictiva, regresión GAS/Interacción o ciclo de presets en ese build. Backup 07 fue creado antes de reemplazar el Spring Arm; **no se informó nuevo backup** tras los últimos experimentos.
+
+### G. Estado y próximos gates
+
+- **Confirmado:** presets Near/Medium/Far en PIE; Spring Arm UGC con respuesta visual a pared/esquina en PIE; lógica de validación Yaw/Pitch conocida; `ToggleYawAndPitchFollow` disponible en Blueprint UGC; Focus **funciona en packaging según el usuario**.
+- **No demostrado:** Yaw auto-follow; suspensión/restauración idéntica repetible; `SetCameraMode` completo o input target-lock; cambio de preset durante Focus; regreso a Look normal; automatización; nueva compilación o tests de BertaDevKit; nueva copia de respaldo.
+- **Próxima prueba aconsejada:** en `BP_SandboxUGCCameraManager`, usar la función heredada para apagar cuatro flags, activar/desactivar Focus y restaurar los cuatro originales; comprobar con `IsYawMovementFollowEnabled` / `IsPitchMovementFollowEnabled`. Luego revisar interacción con ciclo Medium/Near/Far, GAS, Nice Interaction, mouse/gamepad, Spring Arm y un packaged build que ejerza específicamente la transición Focus ON/OFF. No editar los Blueprints propietarios ni inventar API C++.
