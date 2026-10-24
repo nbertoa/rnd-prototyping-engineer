@@ -260,6 +260,24 @@ A **`BP_UGCSpringArmComponent`** from UGC was added as a sibling under `CapsuleC
 
 **Validation boundary:** earlier **Windows packaging and backup 07 were completed before this Spring Arm replacement**. **A new packaged build after this change has not yet been confirmed**; no post-change checkpoint is confirmed. No change to BertaDevKit C++ runtime code was made during this UI migration. Full procedure, screenshots provenance, hierarchy and socket details: [UGC integration report — Dynamic Spring Arm](../research/plugins/ultimate-gameplay-camera-sandbox-integration.md#update--dynamic-spring-arm-migration-and-predictive-collision-2026-10-20).
 
+
+### Ultimate Gameplay Camera — Camera Focus packaged, native Follow toggle identified (2026-10-24)
+
+**Confirmación del usuario:** probó **Camera Focus en el ejecutable empaquetado** y reportó «el focus funciona». Este avance supera el histórico **Focus pendiente**. No se adjuntó log ni checklist de build/configuración; no marca como pasada la transición completa Exploración ↔ Focus, su restauración, la selección de objetivo dinámico ni otras regresiones.
+
+**Hallazgos del prototipado (Blueprints proveedor UGC 1.92, UE 5.8):**
+
+- El error de Focus «Trying to focus the camera on a target while yaw/pitch follow modifiers are enabled. This is not allowed.» depende de `IsYawMovementFollowEnabled OR IsPitchMovementFollowEnabled`.
+- Yaw considera `Enable Yaw Movement Follow`. Pitch considera **tres flags OR**: `Enable Pitch Movement Follow`, `Trigger when Falling`, `Trigger on Slopes`. Desactivar solamente Pitch Enabled, o llamar `Disable Modifier` / `Remove Camera Modifier`, **no resolvió** la advertencia.
+- `BP_UGCCameraManager` **ya trae la función Blueprint heredable `ToggleYawAndPitchFollow`** con las cuatro entradas correspondientes. Su graph modifica las `FollowSettings` de las instancias internas, no solo el Data Asset. Para suspensión requiere cuatro `false`; para restauración habría que guardar los cuatro valores originales. La función **no guarda ni restaura** por sí sola aunque su nombre diga Toggle.
+- `BP_FocusTargetMethod_Test1` ejemplifica `GetAllActorsWithTag("FocusTest1")`, primer actor y localización para Focus (en la captura, X/Y del actor y Z=0); no prueba un sistema de selección de enemigos.
+- **Yaw Follow automático no validado:** movimiento lateral/diagonal no produjo giro perceptible; debug no dio salida visible; variar Time Threshold no resolvió. No confundir con el cambio exitoso de Focus.
+- Un informe de viabilidad Codex sobre UGC C++ indicó que los FollowSettings efectivos de los modifiers Blueprint **no tienen acceso C++ tipado público** en UGC 1.92. **No hubo** extensión/runtime bridge nuevo, commit, build ni tests de esa feature en BertaDevKit. Para Sandbox priorizar la función heredada del proveedor.
+
+**Estado de arquitectura:** persisten el único `BP_SandboxUGCCameraManager`, el ciclo de presets Medium/Near/Far y el UGC Spring Arm. Las funciones custom `SuspendMovementFollow`, `RestoreMovementFollow`, `SetFocusActive` y `SetCameraMode` son **propuestas pendientes**, no un sistema reversible validado. La investigación recomienda guardar la configuración de Follow original solo cuando exista necesidad de restaurarla; no sobreescribir el snapshot ante suspensiones repetidas. No existe nuevo backup confirmado después del backup 07, anterior al Spring Arm.
+
+**Próximo gate:** confirmar en PIE y packaged la transición Focus ON/OFF y restauración de los cuatro flags; después probar presets durante Focus, Look, collision, GAS/Nice Interaction y entradas de mouse/gamepad. Ver [informe cronológico y capturas descritas](../research/plugins/ultimate-gameplay-camera-sandbox-integration.md#update--camera-focus-y-yawpitch-follow-packaged-smoke-test-2026-10-24).
+
 ### Suggested progress states
 
 Track each plugin separately as **available / installed / enabled / smoke-tested / packaged-tested**, and record test date, version, integrations changed, issues and restore-point name. Do not mark a test passed merely because the editor opens.
