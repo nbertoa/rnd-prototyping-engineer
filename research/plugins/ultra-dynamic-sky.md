@@ -9,6 +9,16 @@
 
 **Version caveat:** The exact **installed UDS version is not recorded** for this Sandbox. UDS documentation is versioned (V6–V9). Do not assume that the 9.4 manual always matches the installed Blueprints; confirm in-editor names/tooltips before issuing step-by-step instructions. The 9.4 link records which documentation was consulted, not a verified installed version.
 
+## Current visual experiment — two authored sky levels (2026-10-26)
+
+**User objective:** build two **separate** levels from the tested `L_EnvironmentTest` baseline: `L_Sky_Sunset` (dramatic warm sunset) and `L_Sky_ClearNight` (clean dark sky with bright stars and restrained moonlight). These are **fixed environment looks**, not an automated day/night cycle. Keep the original baseline and current Chameleon level untouched.
+
+**Detailed implementation and validation plan:** [Sunset + Clear Night UDS level study](../../projects/uds-sunset-clear-night.md).
+
+**Source status:** the user reports an Ultra Dynamic Sky PDF uploaded to ChatGPT project sources; it **could not be accessed** as of 2026-10-26 in this session. The initial plan therefore uses the official UDS v9.4 site plus already recorded Sandbox tests **only**. Do not claim the PDF has been read. Reconcile the plan against the actual PDF when accessible, and check the version-matched manual via the UDS actor's Documentation button. Both levels and any final numeric preset values are **pending in Unreal**, not validated yet.
+
+**Built-in tools before custom development:** UDS already provides Time of Day, Stars, Moon, Sky Glow, Volumetric Clouds, Exposure, and a Configuration Manager for save/reapply of configurations. Prefer it to custom BertaDevKit sky-preset tooling for now. Compare SSFS as a complementary effect, not the sky source.
+
 ## Role in this Sandbox
 
 UDS supplies sky, lighting, clouds and controls for fog/atmospheric state. Screen Space Fog Scattering (SSFS) enhances scattering of the underlying fog; it is not a substitute for the fog provided by UDS' `Height Fog` component.
@@ -45,7 +55,7 @@ Procedure executed and user-confirmed:
 - The original packaged executable validates the **pre-environment Third Person baseline**.
 - **New packaged build (2026-10-19):** user reports it **worked perfectly** after the UDS/SSFS environment changes. Mark the packaged-build gate **passed by user report**; exact executable settings and SSFS on/off comparison in the packaged version are not separately documented.
 - `Project Settings → Maps & Modes → Game Default Map = L_EnvironmentTest` was requested as preparation, but the exact saved setting has not been separately confirmed.
-- **Next:** create a new full-project restore-point backup, suggested `02_Environment_UDS_SSFS`; not yet reported completed.
+- **Restore point:** the full-project backup `02_Environment_UDS_SSFS` was confirmed completed on 2026-10-19 (per later Sandbox project tracking). Keep it intact during the new sunset/night level experiment.
 - Profile performance/scalability before calling the look production-ready: the UDS manual warns that Unreal's low/medium Shadow Quality scalability may disable volumetric fog, which makes Editor vs packaged settings relevant.
 
 ## Workflow reminder
