@@ -54,6 +54,14 @@ The user confirms that **all original 21 items on the working list** (the 19 ori
 
 **Still not added:** all four Moonville systems — Menu System Pro V2, Inventory System Pro, Inspection System Pro, and Map System Pro. Keep the planned integration order one-at-a-time after confirming a usable current baseline.
 
+### Ultra Dynamic Sky visual showcase — planned 2026-10-26
+
+**Goal:** create two separate, static sky-focused Unreal maps from the preserved `L_EnvironmentTest` baseline: **`L_Sky_Sunset`** (dramatic warm sunset and large volumetric cloud forms) and **`L_Sky_ClearNight`** (clear starry night and restrained moon illumination). Keep `L_EnvironmentTest` and `L_ChameleonTest` untouched and do not implement a new day/night manager.
+
+**Plan and acceptance gates:** [UDS Sunset + Clear Night](uds-sunset-clear-night.md). **Plugin reference:** [Ultra Dynamic Sky notes](../research/plugins/ultra-dynamic-sky.md).
+
+**State:** repository plan documented, **Unreal levels not yet created/tested**. The user's reported UDS PDF in ChatGPT project sources was not readable in this session; settings currently derive from official UDS v9.4 web manual and existing sandbox evidence, with installed UDS version still to be confirmed.
+
 ### Third Person baseline and environment test — 2026-10-19
 
 **Stable baseline**
