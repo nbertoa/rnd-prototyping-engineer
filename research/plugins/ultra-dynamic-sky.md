@@ -3,11 +3,13 @@
 ## Authoritative documentation — start here
 
 - **Official documentation index, organized by UDS release:** https://www.ultradynamicsky.com/
-- **Official UDS 9.4 manual consulted for this integration:** https://www.ultradynamicsky.com/Documentation/V9/9-4
-- **In Unreal Editor:** select the `Ultra_Dynamic_Sky` actor and use the **UDS Documentation** button at the top of its Details panel to open the manual matching the installed asset, when available.
-- **Relevant manual sections:** `Sky → Sky Setup → Adding Ultra Dynamic Sky to Your Level`, `Basic Controls`, `Fog → Fog Density` and `Fog → Volumetric Fog`.
+- **Complete primary manual studied on 2026-10-26:** user-supplied `Ultra Dynamic Sky 9.7 Documentation.pdf`, **139 pages**. Technical coverage of all sections: [annotated version 9.7 reference with page numbers](ultra-dynamic-sky-9-7-complete-reference.md).
+- **Official 9.7 vendor manual to consult when accessible:** https://www.ultradynamicsky.com/Documentation/V9/9-7 (PDF supplied by user is the verified content source; web address not independently fetched for this update).
+- **Official 9.4 site previously used before receiving 9.7 PDF (historical only):** https://www.ultradynamicsky.com/Documentation/V9/9-4
+- **In Unreal Editor:** select the `Ultra_Dynamic_Sky` actor and use its **UDS Documentation** button to open version-matched docs; consult property tooltips.
+- **Core 9.7 pages for two showcase skies:** setup/modes pp.1–6, clouds pp.6–10, lights/exposure pp.10–14, time/sun/moon pp.14–20, fog/color pp.21–25, stars/sky glow pp.35–37, Configuration Manager pp.39–41, scalability pp.52–55, troubleshooting pp.120–130.
 
-**Version caveat:** The exact **installed UDS version is not recorded** for this Sandbox. UDS documentation is versioned (V6–V9). Do not assume that the 9.4 manual always matches the installed Blueprints; confirm in-editor names/tooltips before issuing step-by-step instructions. The 9.4 link records which documentation was consulted, not a verified installed version.
+**Version caveat:** the **PDF version is 9.7**, but the **actual installed UDS version remains unverified**. Confirm it in Unreal before assuming exact property names or compatibility; 9.4 is no longer the primary documented source.
 
 ## Current visual experiment — two authored sky levels (2026-10-26)
 
@@ -15,7 +17,7 @@
 
 **Detailed implementation and validation plan:** [Sunset + Clear Night UDS level study](../../projects/uds-sunset-clear-night.md).
 
-**Source status:** the user reports an Ultra Dynamic Sky PDF uploaded to ChatGPT project sources; it **could not be accessed** as of 2026-10-26 in this session. The initial plan therefore uses the official UDS v9.4 site plus already recorded Sandbox tests **only**. Do not claim the PDF has been read. Reconcile the plan against the actual PDF when accessible, and check the version-matched manual via the UDS actor's Documentation button. Both levels and any final numeric preset values are **pending in Unreal**, not validated yet.
+**Source status updated (2026-10-26):** the user's **entire 139-page 9.7 PDF has now been read/reviewed**, including UDS, UDW, troubleshooting and architecture. See [complete reference](ultra-dynamic-sky-9-7-complete-reference.md). The revised [sunset/night implementation plan](../../projects/uds-sunset-clear-night.md) is grounded in that manual. Installed asset version, final visual parameters and two maps are still **pending actual validation in Unreal**.
 
 **Built-in tools before custom development:** UDS already provides Time of Day, Stars, Moon, Sky Glow, Volumetric Clouds, Exposure, and a Configuration Manager for save/reapply of configurations. Prefer it to custom BertaDevKit sky-preset tooling for now. Compare SSFS as a complementary effect, not the sky source.
 
@@ -60,4 +62,4 @@ Procedure executed and user-confirmed:
 
 ## Workflow reminder
 
-When revisiting: open the official **version-matched** UDS documentation first, cross-check asset properties in this project, then propose **one change at a time**, validate and document actual result. Do not move straight to tuning SSFS intensity before the base fog is perceptible.
+When revisiting: use the **9.7 PDF-derived reference**, then confirm the **version-matched** in-editor UDS documentation, cross-check asset properties in this project, then propose **one change at a time**, validate and document actual result. Do not move straight to tuning SSFS intensity before the base fog is perceptible.
