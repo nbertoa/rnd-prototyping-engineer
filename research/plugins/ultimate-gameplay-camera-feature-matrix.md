@@ -92,3 +92,9 @@ El ejemplo real del Sandbox BP_FocusTargetMethod_Test1 buscaba GetAllActorsWithT
 - [Offsets](https://docs.superhuman.com/@aurora-devs/documentation-ultimate-gameplay-camera/arm-offset-modifier-21) (pp. 46–48).
 - [Dithering](https://docs.superhuman.com/@aurora-devs/documentation-ultimate-gameplay-camera/dithering-modifier-20) (pp. 49–56).
 - [FAQ](https://docs.superhuman.com/@aurora-devs/documentation-ultimate-gameplay-camera/faq-14) (pp. 57–65).
+
+## Progreso posterior al manual: Target Lock dinámico (2026-10-26)
+
+**Actualización sobre la fila histórica de Focus:** la selección de target dinámico por pulsación **ya fue completada y reportada funcional por el usuario en el Sandbox**: `GA_CameraFocusToggle` (GAS Companion) + input R3/Middle Mouse + `Sphere Overlap Actors` con ranking Dot Product + `Berta.ActorTag.Targeting.Focusable` en Actor Tags + UGC Focus Target Method/Camera Manager. Regla A→A / A→None: desactivar; A→B: cambiar; None→A: activar. El usuario reportó que también funciona retorno de cámara, target perdido y cambio A/B. La fila «No probado» arriba debe entenderse como **snapshot previo al 26-10**, no el estado vigente. Este reporte no equivale a inspección de los Blueprints finales ni prueba en build empaquetada.
+
+**Pendiente:** paquete Windows Development del nuevo lock-on, prueba sistemática de modos de input/gameplay y checkpoint del proyecto. Focus empaquetado anteriormente era una versión anterior (24-10). Ver [cronología actualizada](ultimate-gameplay-camera-sandbox-integration.md#update--camera-focus-target-lock-funcional-con-gas-companion-y-berta-actortag-2026-10-26).
