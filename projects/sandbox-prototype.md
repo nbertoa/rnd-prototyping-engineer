@@ -60,7 +60,7 @@ The user confirms that **all original 21 items on the working list** (the 19 ori
 
 **Plan and acceptance gates:** [UDS Sunset + Clear Night](uds-sunset-clear-night.md). **Plugin reference:** [Ultra Dynamic Sky notes](../research/plugins/ultra-dynamic-sky.md).
 
-**State:** repository plan documented, **Unreal levels not yet created/tested**. The user's reported UDS PDF in ChatGPT project sources was not readable in this session; settings currently derive from official UDS v9.4 web manual and existing sandbox evidence, with installed UDS version still to be confirmed.
+**State:** two-level plan **revised 2026-10-26 after reviewing entire uploaded UDS 9.7 PDF (139 pages)**: [complete manual reference](../research/plugins/ultra-dynamic-sky-9-7-complete-reference.md). **Unreal levels not yet created/tested**; installed asset version still to be confirmed. Prior preliminary 9.4-based advice is superseded for this visual experiment.
 
 ### Third Person baseline and environment test — 2026-10-19
 
@@ -84,7 +84,7 @@ The user confirms that **all original 21 items on the working list** (the 19 ori
 
 - [Ultra Dynamic Sky — our exact Sandbox setup and test notes](../research/plugins/ultra-dynamic-sky.md)
   - [Official UDS documentation index by release](https://www.ultradynamicsky.com/)
-  - [UDS 9.4 manual used for this research](https://www.ultradynamicsky.com/Documentation/V9/9-4)
+  - [9.7 PDF fully reviewed — annotated technical reference](../research/plugins/ultra-dynamic-sky-9-7-complete-reference.md) (previous 9.4 online manual was used before receiving the PDF)
   - The **actual installed UDS version remains unknown**; use the in-editor **UDS Documentation** button to select the version-matched manual before making further changes.
 - [Screen Space Fog Scattering — our Sandbox findings and CVars](../research/plugins/screen-space-fog-scattering.md)
   - [Official SSFS documentation](https://dmkarpukhin.com/docs/ssfs/)
