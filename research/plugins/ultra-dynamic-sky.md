@@ -4,7 +4,7 @@
 
 - **Official documentation index, organized by UDS release:** https://www.ultradynamicsky.com/
 - **Complete primary manual studied on 2026-10-26:** user-supplied `Ultra Dynamic Sky 9.7 Documentation.pdf`, **139 pages**. Technical coverage of all sections: [annotated version 9.7 reference with page numbers](ultra-dynamic-sky-9-7-complete-reference.md).
-- **Official 9.7 vendor manual to consult when accessible:** https://www.ultradynamicsky.com/Documentation/V9/9-7 (PDF supplied by user is the verified content source; web address not independently fetched for this update).
+- **Primary version 9.7 source:** the user-supplied original 139-page PDF; reference above. Official documentation index: https://www.ultradynamicsky.com/
 - **Official 9.4 site previously used before receiving 9.7 PDF (historical only):** https://www.ultradynamicsky.com/Documentation/V9/9-4
 - **In Unreal Editor:** select the `Ultra_Dynamic_Sky` actor and use its **UDS Documentation** button to open version-matched docs; consult property tooltips.
 - **Core 9.7 pages for two showcase skies:** setup/modes pp.1–6, clouds pp.6–10, lights/exposure pp.10–14, time/sun/moon pp.14–20, fog/color pp.21–25, stars/sky glow pp.35–37, Configuration Manager pp.39–41, scalability pp.52–55, troubleshooting pp.120–130.
