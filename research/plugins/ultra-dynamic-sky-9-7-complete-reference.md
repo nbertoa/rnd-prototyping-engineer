@@ -38,7 +38,7 @@
 - `Cloud Coverage` y `Fog` controlan el estado meteorológico básico en UDS **si UDW no está presente**. Con UDW, su `Weather State` puede tomar control de estos valores.
 - Para art direction global: `Saturation`, `Contrast`, `Overall Intensity`, `Night Brightness`, `Lighting Brightness` separadas para **Day**, **Dawn/Dusk**, **Night**.
 - `Dusk Time` y `Dawn Time` especifican en el modo básico el cruce del horizonte. **Son ignorados si `Simulate Real Sun` está activado.**
-- `Sky Mode` 9.7 tiene **siete** opciones: `Volumetric Clouds`, `Static Clouds`, `2D Dynamic Clouds`, `No Clouds`, `Volumetric Aurora`, `Space`, `Voxel Clouds`. Las dos opciones adicionales que faltaban en nuestra nota antigua eran `Volumetric Aurora`, `Space` y `Voxel Clouds` (son tres, no dos). `Space` quita nubes, atmósfera, suelo y color atmosférico y **no** corresponde a una noche terrestre.
+- `Sky Mode` 9.7 tiene **siete** opciones: `Volumetric Clouds`, `Static Clouds`, `2D Dynamic Clouds`, `No Clouds`, `Volumetric Aurora`, `Space`, `Voxel Clouds`. Las tres opciones ausentes de la nota preliminar eran `Volumetric Aurora`, `Space` y `Voxel Clouds`. `Space` quita nubes, atmósfera, suelo y color atmosférico y **no** corresponde a una noche terrestre.
 - `Color Mode`: `Sky Atmosphere` (scattering físico del motor) o `Simplified Color` (LUT y valores más editables, menor costo).
 - `Project Mode`: `Game / Real-time (Non VR)` para prototipos jugables; `Cinematic / Offline` **solo** para render offline, aplica calidad extra y puede degradar severamente el rendimiento interactivo; `Virtual Reality` si hay estéreo.
 - `Feature Level` debe coincidir con el target de rendering; opciones mobile de fallback y mapeo por platform name.
