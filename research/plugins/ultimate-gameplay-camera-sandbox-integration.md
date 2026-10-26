@@ -447,3 +447,26 @@ El usuario agregó a las fuentes del proyecto ChatGPT el manual combinado **`Ult
 **Cobertura incompleta:** el PDF no incluye el tutorial de System Setup ni la guía detallada del Dynamic Spring Arm; de este último hay una validación PIE del Sandbox independiente. Videos embebidos no preservados.
 
 **Continuidad:** la validación de Focus en packaged reportada el 24-10 sigue vigente. No agregar validaciones de Focus dinámico, regreso completo a exploración, packaged predictive collision, cambios al plugin BertaDevKit o nuevos backups que el usuario no confirmó.
+
+## Update — Camera Focus Target Lock funcional con GAS Companion y Berta ActorTag (2026-10-26)
+
+**User-confirmed en sesión actual:** el usuario terminó la integración de selección de objetivo dinámica en el Sandbox y reportó «Todo funciona». El prototipo implementado difiere de nuestra propuesta de Ability persistente: **`GA_CameraFocusToggle` se activa por pulsación, toma una decisión de target y termina**, mientras UGC/Character conservan el estado de Focus entre pulsaciones.
+
+**Input:** `IA_FocusToggle` mapeada a Middle Mouse Button y R3 del gamepad dentro de Input Mapping Context existente, conectada vía flujo GAS Companion a la Gameplay Ability. La Ability fue configurada por el usuario con tag de identidad (no se reconfirmó aquí el nombre exacto que eligió para Asset Tags; no inventarlo).
+
+**Detección:** el usuario probó `Multi Sphere Trace By Channel` y después prefirió **`Sphere Overlap Actors` + comparación angular `Dot Product`** para priorizar el actor más centrado en dirección de visión. Los candidatos se filtran mediante la nueva etiqueta exacta **`Berta.ActorTag.Targeting.Focusable`** introducida en el **plugin base** BertaDevKit y aplicada manualmente a `Actor → Tags`; la comparación nativa puede ser `FGameplayTag.GetTagName() → Actor Has Tag`. **No son Gameplay Tags almacenados en el actor**, ni se necesita ASC/interfaz/componente en el target. El usuario confirmó haber marcado actores y haber configurado la Ability para seleccionar un candidato válido; no hay un grafo final publicado, por lo que orden/radio/canal/valor exacto de umbral **no están independientemente inspeccionados**.
+
+**Toggle final implementado, según descripción del usuario:**
+
+| Objetivo actual | Resultado de nueva búsqueda | Acción |
+| --- | --- | --- |
+| Ninguno | A | Activar Focus en A |
+| A | Ninguno | Quitar Focus anterior |
+| A | A | Quitar Focus anterior |
+| A | B, diferente | Cambiar Focus a B |
+
+El usuario dijo además que **funcionan** el regreso a cámara normal/restauración de Yaw/Pitch Follow, la pérdida o destrucción de objetivo y el cambio entre objetivos sin comportamiento problemático, respondiendo al checklist de revisión. Esto se registra **como validación funcional informada por el usuario**, no como auditoría de nodos/código, traza de logs ni prueba de red.
+
+**UGC:** integración apoyada en la clase propia **`BP_SandboxFocusTargetMethod`** derivada de `UGC_IFocusTargetMethod` y los métodos del vendor Camera Manager para activar/desactivar Focus; `GetTargetLocation` recibe `In Owner = BP_ThirdPersonCharacter` (observado por el usuario en breakpoint). El sistema aprovecha las funciones nativas `Toggle Camera Focus` y `ToggleYawAndPitchFollow`; este último necesita cuatro flags `false` durante Focus y restauración de originales para evitar incompatibilidad. No afirmar que existe extensión C++ nueva ni copiar al repositorio fuente comercial de UGC.
+
+**Alcance del hito:** funcional en el test local del usuario. **No se confirmó todavía un nuevo packaged build con `GA_CameraFocusToggle`, ni un nuevo backup posterior al checkpoint 07**. El packaged Focus anterior de 2026-10-24 correspondía a una etapa previa y **no verifica** automáticamente este Target Lock nuevo. **Próximo gate:** probar package Windows Development la secuencia A → None, A → A, A → B, target destruido y restauración de Follow, y después tomar nuevo restore point.
