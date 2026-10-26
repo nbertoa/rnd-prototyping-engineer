@@ -347,3 +347,12 @@ Do not treat a plugin as fully integrated merely because it compiles or opens in
 For each system, verify its minimum runtime workflow and record any project settings, input mappings, components, interfaces, cross-plugin assumptions, troubleshooting results, and packaged-build requirements needed to reproduce the setup.
 
 The detailed Moonville record should be updated at each validated milestone so integration knowledge does not remain only in chat history.
+
+
+### Ultimate Gameplay Camera — official PDF reviewed; documented Focus helpers (2026-10-26)
+
+El usuario incorporó a las fuentes del proyecto ChatGPT **`Ultimate Gameplay Camera Documentation.pdf` (65 páginas)**. Se revisó el documento completo (texto y páginas de diagramas). Matriz de capítulos, funciones Blueprint, estado de experimentos y pruebas siguientes: [UGC feature matrix](../research/plugins/ultimate-gameplay-camera-feature-matrix.md).
+
+El manual muestra **`Toggle Camera Focus`**, **`Set Camera Focus Settings`**, **`Set Camera Focus Targeting Method`** en el manager (PDF p. 20); para elegir target usa Blueprint hijo de **`UGC_IFocusTargetMethod`** y override **`GetTargetLocation`**, **llamando al Parent obligatoriamente** (pp. 21–23). El target method retorna posición y opcionalmente referencia al actor, usada para Line of Sight. Esto reemplaza la idea de replicar el sistema de Focus; **la selección de un actor explícito durante gameplay continúa pendiente**. El nodo general real de debug se llama **`Toggle All UGCModifiers Debug`** (FAQ p. 57), no el nombre inferido previamente.
+
+El manual ensamblado **no incluye System Setup ni la guía de Advanced/Dynamic Spring Arm**; esos temas siguen con fuentes aparte. Persisten las confirmaciones anteriores de Focus empaquetado y colisión predictiva observada en PIE; no se declara nuevas verificaciones de gameplay, packaging o backup por leer el manual.
