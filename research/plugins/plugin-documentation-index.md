@@ -32,7 +32,7 @@
 | 20 | **BertaDevKit** | [Abrir](https://github.com/nbertoa/ue5-bertadevkit) | [Abrir](https://github.com/nbertoa/ue5-bertadevkit/blob/main/README.md) | V |
 | 21 | **Nice Interaction System V2** | [Abrir](https://niceshadow.gitbook.io/nice-interaction-system/integration-in-your-project) | [Abrir](https://niceshadow.gitbook.io/nice-interaction-system/llms.txt) | V |
 | 22 | **Chameleon Post Process** | [Getting Started oficial](https://sumfx.net/docs/chameleon/general-chameleon/getting-started/) | [Changelog / compatibilidad](https://sumfx.net/docs/chameleon/general-chameleon/changelog/) / [Nota interna](chameleon-post-process.md) | V |
-| 23 | **Ultra Dynamic Sky** | [Abrir](https://www.ultradynamicsky.com/) | [Nota interna](ultra-dynamic-sky.md) | V |
+| 23 | **Ultra Dynamic Sky** | **PDF completo 9.7 (139 páginas, fuente del proyecto)**; [sitio oficial](https://www.ultradynamicsky.com/) | [Referencia 9.7](ultra-dynamic-sky-9-7-complete-reference.md) · [integración](ultra-dynamic-sky.md) · [dos niveles](../../projects/uds-sunset-clear-night.md) | **PDF leído 2026-10-26; instalada sin confirmar** |
 | 24 | **Menu System Pro V2 (Moonville)** | [Abrir](https://docs.google.com/document/d/1t620HabwpmJ3j1maY2d80kn2S--YwJhn54Ji3jEbeqI/edit) | [Abrir](https://www.fab.com/listings/899d8fd6-ce40-4c4e-aa82-3fce041fe3ce) | V |
 | 25 | **Inventory System Pro (Moonville)** | [Abrir](https://docs.google.com/document/d/1kVBGdLoGC5TSId-vMn4MVcGxwhZMgGMi-1zH08NgvwU/edit) | [Abrir](https://www.fab.com/listings/17bbe89c-45d0-43d4-aa6d-e030771a0f13) | V |
 | 26 | **Inspection System Pro (Moonville)** | [Abrir](https://docs.google.com/document/d/188R1G433CJhiO46xAHg66-ePD4vGgZw7yf1sjsG53p0/edit) | [Abrir](https://www.fab.com/listings/26d11592-c261-4c4f-be68-30f25f0d837d) | V |
@@ -84,7 +84,7 @@
 
 **22. Chameleon Post Process.** Documentación oficial SUMFX (enlace verificado al changelog; raíz del manual puede redirigir) y [nuestras notas](chameleon-post-process.md). **Fuente:** **Manual o fuente oficial identificado**.
 
-**23. Ultra Dynamic Sky.** Sitio oficial con manuales por versión. Usar botón UDS Documentation en Unreal; [nuestra integración](ultra-dynamic-sky.md). **Fuente:** **Manual o fuente oficial identificado**.
+**23. Ultra Dynamic Sky.** **ACTUALIZACIÓN 2026-10-26:** se leyó completo y se inspeccionó visualmente el PDF original del usuario `Ultra Dynamic Sky 9.7 Documentation.pdf` (139 páginas). Además de Sky abarca UDW, Common Issues y Technical Notes. **[Referencia temática 9.7 con paginación, advertencias y arquitectura](ultra-dynamic-sky-9-7-complete-reference.md)**; [experimento de atardecer/noche clara](../../projects/uds-sunset-clear-night.md); [setup validado en Sandbox](ultra-dynamic-sky.md). Distinguir versión del **manual 9.7** de **versión instalada en Editor aún no confirmada**. Usar botón `UDS Documentation` para manual version-matched y tooltips. **Fuente:** **PDF oficial suministrado por el usuario, revisado íntegramente.** No copiar PDF de terceros al repo público.
 
 **24. Menu System Pro V2 (Moonville).** Google Doc oficial, enlazado desde Fab. PDF ya compartido: `Menu System Pro V2 Common UI Documentation UE5.pdf`. Usar la **versión Common UI**, no documentación Legacy. **Fuente:** **Manual o fuente oficial identificado**.
 
