@@ -432,3 +432,18 @@ Codex **detuvo la implementación por contrato de viabilidad**: sin componente C
 - **Confirmado:** presets Near/Medium/Far en PIE; Spring Arm UGC con respuesta visual a pared/esquina en PIE; lógica de validación Yaw/Pitch conocida; `ToggleYawAndPitchFollow` disponible en Blueprint UGC; Focus **funciona en packaging según el usuario**.
 - **No demostrado:** Yaw auto-follow; suspensión/restauración idéntica repetible; `SetCameraMode` completo o input target-lock; cambio de preset durante Focus; regreso a Look normal; automatización; nueva compilación o tests de BertaDevKit; nueva copia de respaldo.
 - **Próxima prueba aconsejada:** en `BP_SandboxUGCCameraManager`, usar la función heredada para apagar cuatro flags, activar/desactivar Focus y restaurar los cuatro originales; comprobar con `IsYawMovementFollowEnabled` / `IsPitchMovementFollowEnabled`. Luego revisar interacción con ciclo Medium/Near/Far, GAS, Nice Interaction, mouse/gamepad, Spring Arm y un packaged build que ejerza específicamente la transición Focus ON/OFF. No editar los Blueprints propietarios ni inventar API C++.
+
+
+---
+
+## Update — reviewed official UGC PDF and confirmed Blueprint helpers (2026-10-26)
+
+El usuario agregó a las fuentes del proyecto ChatGPT el manual combinado **`Ultimate Gameplay Camera Documentation.pdf`**, 65 páginas, elaborado mediante exportación de páginas oficiales Aurora Devs; se revisaron texto completo y capturas principales. **Fuente no incluida en GitHub público** por su licencia. Lectura original por secciones, nombres de los nodos, matriz, prioridades y límites: [Ultimate Gameplay Camera — manual y feature matrix](ultimate-gameplay-camera-feature-matrix.md).
+
+**Revisión importante del diseño de Focus:** la captura oficial de p. 20 documenta los nodos de **BP_UGCCameraManager** `Set Camera Focus Settings`, **`Toggle Camera Focus`** (bool Enabled) y **`Set Camera Focus Targeting Method`** (Focus Method Class, Targeting Method Ref). No crear funciones propias para replicar el toggle ni asumir que Focus requiere siempre un Data Asset extra. La clase target-method debe **heredar de `UGC_IFocusTargetMethod`**, sobrescribir `GetTargetLocation` y **llamar al Parent: Get Target Location** (p. 22). El método retorna ubicación y opcionalmente actor enfocado, que se usa para line of sight. Esto permite definir un objetivo dinámico **si el proyecto entrega explícitamente su actor a la estrategia**, paso aún no implementado/probado: el PDF no describe un setter directo de `AActor*` en `BP_UGCCameraManager`. Probar dos actores y cambio de foco sin `GetAllActorsWithTag` antes de diseñar un sistema de lock-on completo.
+
+**Otro hallazgo:** FAQ p. 57 contiene el nodo Blueprint real `Toggle All UGCModifiers Debug` (bool Enabled) en el manager, distinto del nombre de debug que buscamos erróneamente en una sesión anterior. No confundir el `Berta.UGC.Dump` C++ (agregado) con el debug detallado del proveedor.
+
+**Cobertura incompleta:** el PDF no incluye el tutorial de System Setup ni la guía detallada del Dynamic Spring Arm; de este último hay una validación PIE del Sandbox independiente. Videos embebidos no preservados.
+
+**Continuidad:** la validación de Focus en packaged reportada el 24-10 sigue vigente. No agregar validaciones de Focus dinámico, regreso completo a exploración, packaged predictive collision, cambios al plugin BertaDevKit o nuevos backups que el usuario no confirmó.
