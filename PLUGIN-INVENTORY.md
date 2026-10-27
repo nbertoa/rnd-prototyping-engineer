@@ -4,11 +4,20 @@ This file tracks the current Unreal Engine plugin / asset stack relevant to R&D 
 
 The goal is to prevent duplicate research and purchases, make capability gaps visible, and distinguish **owned tools**, **immediate test candidates**, and **wishlist candidates**.
 
-Last updated: 2026-10-16.
+Last updated: 2026-10-27.
 
 ---
 
 # Owned
+
+## Procedural generation
+
+### PCGEx (PCG Extended Toolkit)
+**Status:** owned — confirmed by the user on 2026-10-27.
+
+Role: open-source procedural generation extension with advanced PCG graph, spatial algorithms, and reusable custom-node patterns. Treat as part of the owned R&D stack. Do not recommend purchasing or adding it as a new acquisition.
+
+---
 
 ## Reusable R&D / diagnostics / AI
 
