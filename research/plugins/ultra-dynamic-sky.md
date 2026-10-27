@@ -21,6 +21,10 @@
 
 **Built-in tools before custom development:** UDS already provides Time of Day, Stars, Moon, Sky Glow, Volumetric Clouds, Exposure, and a Configuration Manager for save/reapply of configurations. Prefer it to custom BertaDevKit sky-preset tooling for now. Compare SSFS as a complementary effect, not the sky source.
 
+## Blue Dawn sky — user-approved look (2026-10-27)
+
+A third authored static sky look was configured and **visually approved by the user**: `L_Sky_BlueDawn`, a cool early-morning blue hour. The final confirmed adjustment was `Lighting Brightness → Dawn/Dusk = 0.85`, up from the earlier proposed 0.65. The other proposed values, review caveats and validation status are recorded in [Blue Dawn R&D preset](../../projects/uds-blue-dawn.md). This does **not** prove packaged-build or FPS performance and the native UDS config asset has not been confirmed saved.
+
 ## Role in this Sandbox
 
 UDS supplies sky, lighting, clouds and controls for fog/atmospheric state. Screen Space Fog Scattering (SSFS) enhances scattering of the underlying fog; it is not a substitute for the fog provided by UDS' `Height Fog` component.
