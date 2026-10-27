@@ -54,6 +54,10 @@ The user confirms that **all original 21 items on the working list** (the 19 ori
 
 **Still not added:** all four Moonville systems — Menu System Pro V2, Inventory System Pro, Inspection System Pro, and Map System Pro. Keep the planned integration order one-at-a-time after confirming a usable current baseline.
 
+### Blue Dawn sky approved visually — 2026-10-27
+
+**New look:** `L_Sky_BlueDawn`, early blue-hour/dawn (cool blue/violet sky), proposed 05:40 time with Volumetric Clouds. The user confirmed that increasing **`Lighting Brightness → Dawn/Dusk` from `0.65` to `0.85`** delivered the desired brighter appearance and that the look is satisfactory. **All proposed color/lighting/movement values and their evidence status are recorded in [Blue Dawn sky preset](uds-blue-dawn.md).** This is a **user-approved Editor visual outcome**, not a verified UDS config asset, project-file inspection, performance test, or packaged build.
+
 ### Ultra Dynamic Sky visual showcase — planned 2026-10-26
 
 **Goal:** create two separate, static sky-focused Unreal maps from the preserved `L_EnvironmentTest` baseline: **`L_Sky_Sunset`** (dramatic warm sunset and large volumetric cloud forms) and **`L_Sky_ClearNight`** (clear starry night and restrained moon illumination). Keep `L_EnvironmentTest` and `L_ChameleonTest` untouched and do not implement a new day/night manager.
