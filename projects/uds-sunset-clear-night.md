@@ -4,6 +4,8 @@
 **Sandbox:** UE 5.8 Blank C++, Third Person; UDS + SSFS verificados en `L_EnvironmentTest`, incluidos checkpoint de packaged build y backup `02_Environment_UDS_SSFS` reportados por el usuario. **UDS instalado: versión todavía no comprobada.**  
 **Referencia técnica completa:** [índice anotado de la documentación 9.7, página a página](../research/plugins/ultra-dynamic-sky-9-7-complete-reference.md). La documentación oficial 9.7 es la fuente de los nombres/behaviors; **no define parámetros numéricos universales de look** para nuestro escenario.
 
+> **Actualización 2026-10-27:** además de los dos looks originalmente planificados, se configuró y **aprobó visualmente** el look de amanecer azul `L_Sky_BlueDawn`. Valores propuestos y ajuste final de iluminación `Dawn/Dusk = 0.85` en el [registro de Blue Dawn](uds-blue-dawn.md). Este documento conserva el alcance original de sunset + clear night; no confundir con que `L_Sky_ClearNight` esté listo.
+
 ## Diseño de la investigación
 
 Construir **dos mapas separados**, con **hora fija y apariencia persistente** (no un ciclo día/noche). Ambos duplicados **independientes** de `L_EnvironmentTest`. Preservar `L_EnvironmentTest`, `L_ChameleonTest` y el backup.
