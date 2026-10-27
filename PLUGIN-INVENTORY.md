@@ -10,6 +10,15 @@ Last updated: 2026-10-27.
 
 # Owned
 
+## Blueprint utilities
+
+### LE Extended Standard Library (Low Entry)
+**Status:** owned — confirmed by the user on 2026-10-27.
+
+Role: extended Blueprint utilities and standard-library functions for rapid R&D and prototyping. Compare against native Unreal APIs and BertaDevKit before duplicating functions.
+
+---
+
 ## Procedural generation
 
 ### PCGEx (PCG Extended Toolkit)
