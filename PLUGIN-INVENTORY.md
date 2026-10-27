@@ -226,6 +226,18 @@ The most valuable R&D test is an A/B scene with an existing spatial sound source
 
 These are not missing requirements. They are candidates with enough potential value to monitor, but purchasing should wait for a stronger discount or a real prototype requirement.
 
+## Shader World — Procedural Terrain
+
+**Status:** wishlist — added 2026-10-27 by user request. Not owned.
+
+Fab: https://www.fab.com/listings/ee4bcbaf-36ea-4dd9-aade-068e1a8a4794
+
+Potential role: GPU-driven procedural terrain / world generation and vegetation; relevant to R&D experiments involving large or procedural environments.
+
+Decision: evaluate only against a concrete procedural-world prototype. Compare against native Landscape, PCG and already-owned PCGEx; verify current UE 5.8 compatibility, vendor support, licensing and performance before purchase. Do not treat the Fab rating observed in prior research as a substitute for a hands-on test.
+
+---
+
 ## SteamCore PRO
 
 **Status:** wishlist — wait for sale. Unreal Engine 5.8 support verified on Fab by the user in October 2026.
