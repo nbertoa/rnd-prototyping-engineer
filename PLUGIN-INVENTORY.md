@@ -85,6 +85,17 @@ Role: reusable menus, CommonUI-based UI infrastructure, settings, navigation, an
 
 Role: map-driven navigation, POIs, minimap and marker workflows when a prototype needs them.
 
+### Objective Path Guide
+**Status:** owned — user confirmed purchase on 2026-10-27; project installation, Unreal version compatibility, PIE and packaging not yet verified.
+
+Fab: https://www.fab.com/listings/1621772d-0a63-4415-841c-0ccd0c1d82c8
+
+Role: temporary, aesthetically polished **in-world** route guidance using NavMesh, a Niagara-rendered spline, and an optional moving Orb/Ground guide. Includes path updates when player deviates, waypoint routing, arrival cleanup and configurable linear/fade reveal/disappear.
+
+Use it when the player should see a glowing trail through the 3D world rather than only a map route or POI marker. It complements Map System Pro; direct integration between them is not established. Arbitrary custom Niagara asset replacement is **not documented as plug-and-play**.
+
+Technical reference (from the user's complete 10-page vendor PDF): [`research/plugins/objective-path-guide.md`](research/plugins/objective-path-guide.md)
+
 ---
 
 ## Environment / atmosphere / world presentation
