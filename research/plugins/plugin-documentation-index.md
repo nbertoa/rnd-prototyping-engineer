@@ -153,7 +153,7 @@ La documentación primaria es la versión **Common UI** de Menu System Pro y los
 
 ## Additional acquired source — Objective Path Guide (2026-10-27)
 
-This is **outside the original 27-item Sandbox survey of 2026-10-19**. Ownership is confirmed by the user; installation in a specific Unreal project remains unverified.
+This is **outside the original 27-item Sandbox survey of 2026-10-19**. Ownership and integration into the user's **current Unreal project** were confirmed on 2026-10-27 and 2026-10-28 respectively. The exact project name, UE version and packaged-build status are not yet verified; startup navigation works with a reported ~0.2 s delay, but initial Niagara-before-path visuals and a `PathSpline` initialization issue are still open. See the technical reference for reproduction details.
 
 - **Product:** [Objective Path Guide on Fab](https://www.fab.com/listings/1621772d-0a63-4415-841c-0ccd0c1d82c8)
 - **Primary manual:** vendor-authored **`ObjectivePathGuide.pdf`**, 10 pages, uploaded to this project's sources on 2026-10-27 and read fully. The PDF is a supplied source, not a checked-in binary.
