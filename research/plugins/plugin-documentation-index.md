@@ -148,3 +148,18 @@ La documentación primaria es la versión **Common UI** de Menu System Pro y los
 - **UDS + SSFS:** validados visualmente en `L_EnvironmentTest` en Editor. **Nueva build ambiental reportada como funcionando perfectamente por el usuario (2026-10-19)**; sin A/B específico de SSFS dentro del ejecutable documentado.
 - **Moonville:** cuatro sistemas pendientes.
 - **Próxima acción:** crear un **nuevo backup completo** del Sandbox tras el packaged build exitoso (nombre sugerido `02_Environment_UDS_SSFS`), y confirmar su realización antes de integrar nuevos sistemas.
+
+---
+
+## Additional acquired source — Objective Path Guide (2026-10-27)
+
+This is **outside the original 27-item Sandbox survey of 2026-10-19**. Ownership is confirmed by the user; installation in a specific Unreal project remains unverified.
+
+- **Product:** [Objective Path Guide on Fab](https://www.fab.com/listings/1621772d-0a63-4415-841c-0ccd0c1d82c8)
+- **Primary manual:** vendor-authored **`ObjectivePathGuide.pdf`**, 10 pages, uploaded to this project's sources on 2026-10-27 and read fully. The PDF is a supplied source, not a checked-in binary.
+- **Vendor demonstration:** https://youtu.be/W8LFTMxudrs
+- **Extracted reference:** [Objective Path Guide — Technical Reference and R&D Integration Notes](objective-path-guide.md)
+- **Documentation-backed:** `Guide Component`, NavMesh preparation, `Start Guidance To`/`Start Guidance To Via`/`Stop Guidance`, spline + Orb + Ground Niagara architecture, deviation updates, arrival handling, reveal/disappear modes, and client-side multiplayer navigation instructions.
+- **Not established by documentation:** arbitrary replacement with an entirely custom Niagara asset, UE 5.8/editor/packaging validation, performance benchmarks, or official integration with Map System Pro.
+
+Follow the source PDF and inspect the actual installed asset version before giving exact integration instructions.
