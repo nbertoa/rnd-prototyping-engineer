@@ -103,6 +103,16 @@ Do not add another save framework until a real prototype demonstrates that the e
 
 Do not enable a map by default. Environmental navigation may be the better design for short or strongly authored experiences.
 
+### Objective Path Guide — owned, not yet validated in project
+
+**Role:** world-space visual route guidance for an identified destination, using NavMesh and Niagara-rendered spline / moving orb / ground effects. Ideal for an occasional, temporary hint that appears, guides and fades out. Distinct from the map/minimap UI.
+
+**Documented:** `Guide Component` on player; `Start Guidance To`, `Start Guidance To Via`, `Stop Guidance`; `Orb Guide` / `Spline Guide` / `Both`; NavMesh-dependent paths, deviation-based updates, reveal/fade controls, optional arrival disappearance.
+
+**Integration rule:** start with its built-in Niagara effects; add a project-controlled timer only if temporary hint behavior is required. Do not claim arbitrary custom Niagara replacement, UE 5.8 compatibility, packaged-build behavior or Map System Pro interoperability until independently tested. No need for an automatic BertaDevKit wrapper.
+
+**Source and implementation guide:** [Objective Path Guide technical reference](research/plugins/objective-path-guide.md).
+
 ---
 
 ## 5. Environment / Atmosphere
