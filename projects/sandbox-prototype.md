@@ -382,3 +382,24 @@ La selección se alimenta de `Sphere Overlap Actors` con criterio de alineación
 **User-confirmed:** al finalizar la integración de `GA_CameraFocusToggle` y solicitar una prueba del flujo completo en el ejecutable empaquetado, el usuario informó «funciona». **Estado actual: smoke test de Target Lock dinámico exitoso también en build empaquetada**. Este resultado actualiza los apartados anteriores que decían «empaquetado pendiente» y es distinto de la prueba anterior de Focus básico del 24-10. No hay logs ni cobertura pormenorizada por caso del paquete, por lo que evitar afirmar verificaciones no reportadas de red/performance/los casos individuales en el ejecutable.
 
 **Único cierre administrativo del hito pendiente:** crear y confirmar un **nuevo backup del Sandbox**; último checkpoint anteriormente confirmado: 07, antes de la migración de Spring Arm. [Registro completo del hito](../research/plugins/ultimate-gameplay-camera-sandbox-integration.md#update--target-lock-empaquetado-confirmado-2026-10-26).
+
+### Combo Graph + GAS Companion — Light/Heavy y stamina por nodo validados (2026-10-28)
+
+**Estado: hito funcional cerrado por confirmación explícita del usuario** («Ya funcionó todo correctamente. Así podemos dar por cerrado esto»). La prueba se desarrolló sobre el mismo personaje del Sandbox con **GAS Companion**, **Enhanced Input**, **Combo Graph** y el atributo **`GSCAttributeSet.Stamina`** que ya se usaba para Jump/Sprint.
+
+**Preparación de animaciones:** se descargaron dos animaciones de **Mixamo** y se retargetearon satisfactoriamente a **UE5 Manny mediante el retargeting nativo de Unreal 5.8**; no fue necesario comprar Retarget Guru ni Mixamo Animation Retargeting 2. La animación Light contiene cuatro puñetazos alternados izquierda/derecha; la Heavy, un cross izquierdo y un uppercut. Se optó por Animation Montages con secciones para reproducir un golpe por pulsación, en vez de ejecutar automáticamente la secuencia de varios impactos.
+
+**Integración confirmada por el usuario:**
+- **Light Attack:** secuencia de cuatro golpes independientes, avanzando por input y Combo Windows de Combo Graph.
+- **Heavy Attack:** secuencia de dos golpes independientes (cross/uppercut).
+- Dos **Input Actions**, dos **Gameplay Abilities** integradas con GAS Companion y sus respectivos grafos de Combo Graph; los nombres de assets y mappings definitivos no fueron inspeccionados aquí, por lo que se conservan como referencias conceptuales y no como manifest exacto.
+- **Cost Gameplay Effects por nodo:** Gameplay Effects instantáneos que reducen `GSCAttributeSet.Stamina`, configurados en el **Cost Gameplay Effect de cada nodo Combo Graph**, no como cobro único en `GA_LightAttack`/`GA_HeavyAttack`. El usuario confirmó que funcionan los costos y la lógica de no ejecutar el siguiente golpe cuando la stamina es insuficiente. Como referencia de la guía se propusieron `GE_LightAttack_StaminaCost` (−5) y `GE_HeavyAttack_StaminaCost` (−15); comprobar nombres/valores reales en el proyecto antes de documentarlos como definitivos.
+- **Commit / doble cobro:** evitar duplicar un Cost Gameplay Effect en la Gameplay Ability si Combo Graph ya aplica el costo por cada nodo. `Commit Ability` solo verifica/aplica los costos de la propia Ability y sus restricciones configuradas, no sustituye el costo interno de los nodos.
+
+**Detalle observado y aceptado para este prototipo:** el Montage de Light requirió `Blend In = 0` y `Blend Out = 0` para encadenar golpes muy próximos; la vuelta al estado de locomoción al salir del último golpe es visualmente abrupta. El usuario aceptó esa limitación para la validación R&D; no se añadió un framework de animación ni una recuperación especial.
+
+**Decisión deliberada de alcance:** posponer **Combo Collision**, sockets y hit traces, daño y Gameplay Effects sobre enemigos, Gameplay Cues, branching Light→Heavy, ataques cargados e IA hasta que aparezca un caso de uso. El sistema de combos y costo por nodo ya demostró integración suficiente con GAS Companion para cerrar esta fase. No crear todavía una extensión nueva de BertaDevKit: no hay evidencia de glue reutilizable repetido.
+
+**Evidencia y límites:** prueba funcional confirmada por el usuario; no se inspeccionaron los Blueprint graphs finales ni se aportó confirmación específica de una **build empaquetada posterior a Combo Graph**. Tampoco se confirmó un nuevo backup posterior al último checkpoint anterior. Estos controles quedan como tareas operativas pendientes si se desea congelar una baseline de distribución; **no bloquean el cierre del experimento funcional**.
+
+**Siguiente candidato sugerido:** Dragon IK, para un smoke test de adaptación procedural de pies en terreno irregular, comparando con soluciones nativas y preservando la integración actual.
