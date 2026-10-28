@@ -103,13 +103,15 @@ Do not add another save framework until a real prototype demonstrates that the e
 
 Do not enable a map by default. Environmental navigation may be the better design for short or strongly authored experiences.
 
-### Objective Path Guide — owned, not yet validated in project
+### Objective Path Guide — owned and integrated in an active project (startup issue pending)
 
 **Role:** world-space visual route guidance for an identified destination, using NavMesh and Niagara-rendered spline / moving orb / ground effects. Ideal for an occasional, temporary hint that appears, guides and fades out. Distinct from the map/minimap UI.
 
 **Documented:** `Guide Component` on player; `Start Guidance To`, `Start Guidance To Via`, `Stop Guidance`; `Orb Guide` / `Spline Guide` / `Both`; NavMesh-dependent paths, deviation-based updates, reveal/fade controls, optional arrival disappearance.
 
 **Integration rule:** start with its built-in Niagara effects; add a project-controlled timer only if temporary hint behavior is required. Do not claim arbitrary custom Niagara replacement, UE 5.8 compatibility, packaged-build behavior or Map System Pro interoperability until independently tested. No need for an automatic BertaDevKit wrapper.
+
+**Observed integration (user report 2026-10-28):** Guide Component added to the player, `Guiding Mode = Both`, target actor in the level, and automatic `Start Guidance To` from BeginPlay. Navigation works after a ~0.2 s delay, but `PathSpline` is initially `None` without it, and Niagara is briefly visible without a valid path. Treat this as integrated with a startup visual defect, not a finished or packaged-validated implementation. The user also observed that disabling Blueprint **Context Sensitive** revealed the native seconds-based `Delay` when LE Extended Standard Library affected node discovery; root cause unverified. Project identity and UE version still unconfirmed.
 
 **Source and implementation guide:** [Objective Path Guide technical reference](research/plugins/objective-path-guide.md).
 
