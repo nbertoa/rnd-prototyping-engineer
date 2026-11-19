@@ -321,7 +321,7 @@ The purpose is not to create a giant node library speculatively. Nodes should em
 
 # Current Storytelling / Prototyping R&D Stack
 
-For the detailed capability map, overlaps, gaps, and suggested experiments, see [UNREAL-RND-TOOLKIT.md](UNREAL-RND-TOOLKIT.md).
+For the detailed capability map, overlaps, gaps, and suggested experiments, see [UNREAL-RND-TOOLKIT.md](../toolkit/capability-map.md).
 
 ## Already Available / Owned
 

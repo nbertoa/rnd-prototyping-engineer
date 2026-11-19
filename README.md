@@ -1,91 +1,53 @@
-# R&D / Prototyping Engineer
+# Nicolás Bertoa — R&D / Prototyping Engineer (Unreal Engine)
 
-This repository tracks my development as an **R&D / Prototyping Engineer**, with a focus on turning technical uncertainty into working prototypes, tools, validated solutions, and well-reasoned recommendations.
+I turn ambiguous technical questions into **working prototypes, measured evidence and clear recommendations**, in Unreal Engine (C++ / Blueprints), using AI agents as a daily engineering tool.
 
-My working style combines **Unreal Engine, C++, Blueprints, BertaDevKit, third-party plugins, and AI as a constant engineering companion** for research, exploration, implementation, debugging, documentation, and communication.
+This repository is my private R&D workspace and the source of truth for everything I publish. Every unit of work is a short **R&D Brief**: one question, one small prototype, one measured answer, one short video and one reusable artifact I keep using afterwards. Finished briefs are published on [nbertoa.com](https://nbertoa.com).
 
-> See [ROLE.md](ROLE.md) for the operational definition of the role, the R&D workflow, public evidence strategy, and the relationship between professional work, BertaDevKit, and personal R&D projects.
->
-> See [RND-LAB-ARCHITECTURE.md](RND-LAB-ARCHITECTURE.md) for the current architecture connecting client R&D, BertaDevKit, Logic Driver as a potential orchestration layer, and the personal storytelling R&D laboratory.
->
-> See [UNREAL-RND-TOOLKIT.md](UNREAL-RND-TOOLKIT.md) for the current reusable Unreal toolkit, plugin responsibilities, overlaps, gaps, and near-term integration experiments.
->
-> See [PLUGIN-INVENTORY.md](PLUGIN-INVENTORY.md) for the current owned plugin stack, wishlist candidates, purchase status, and the role each tool is expected to play in R&D.
->
-> See [projects/sandbox-prototype.md](projects/sandbox-prototype.md) for the Unreal Engine 5.8 plugin integration sandbox and its current validation state.
->
-> See [research/plugins/moonville-stack-integration.md](research/plugins/moonville-stack-integration.md) for the reproducible Moonville Menu + Inventory + Inspection + Map integration record, including project settings, Blueprint integration, input unification, troubleshooting, runtime validation, and packaged-build evidence.
->
-> See [projects/biblical-sanctuary-prototype.md](projects/biblical-sanctuary-prototype.md) for the current candidate first biblical storytelling prototype: a compact first-person Sanctuary reconstruction experience designed to validate plugin integration, exploration, inspection, narrative progression, map guidance, atmosphere, and Steam-ready production constraints.
+- Portfolio and write-ups: [nbertoa.com](https://nbertoa.com)
+- Main reusable toolset: [BertaDevKit](https://github.com/nbertoa/ue5-bertadevkit)
+- How I work: [METHOD.md](METHOD.md)
 
-## Core Positioning
+---
 
-I want to be the engineer who can take an unclear technical problem, understand the requirements, context, constraints, and expected timeline, and quickly turn it into useful evidence and, when appropriate, a working Unreal Engine prototype.
+## Current focus: agentic Unreal prototyping, with evidence
 
-The work does not end with implementation. I also want to be able to explain:
+Unreal Engine is moving fast towards AI-assisted development (Unreal MCP and Unreal Assistant in UE 5.9, AI as a pillar of UE6). There is a lot of hype and very little measured evidence about what agents actually do well inside a real Unreal project.
 
-- what was investigated or built
-- how it works
-- why the approach was chosen
-- what problem it solves
-- what evidence supports the conclusion
-- what its limitations are
-- what should happen next
+My briefs answer concrete questions like:
 
-## Central Toolset: BertaDevKit
+- Which Unreal tasks can an agent complete from a written spec, and how many interventions does it need?
+- How can an agent **verify its own work** in the editor instead of just claiming success?
+- When does it still make sense to buy a plugin, and when is it cheaper to have an agent build it?
+- Which orchestration approach (StateTree, Logic Driver, plain Blueprints) stays maintainable when requirements change?
 
-**BertaDevKit is my primary Unreal Engine R&D toolset and one of the main pieces of public evidence for this profile.**
+## R&D Briefs
 
-It is not just a single utility plugin. It is an evolving development toolbox and plugin ecosystem that supports prototyping, diagnostics, editor workflows, integrations, runtime utilities, hardware/software interaction, and reusable experimentation.
+| # | Question | Status | Video | Post |
+|---|----------|--------|-------|------|
+| [001](briefs/001-ue59-mcp-field-report/BRIEF.md) | What can an agent rebuild from a spec in UE 5.9 with Unreal MCP? | Planned | — | — |
+| [002](briefs/002-plugins-in-the-ai-era/BRIEF.md) | Buy, build or let an agent build it: how should plugin decisions change? | Planned | — | — |
+| [003](briefs/003-agent-self-validation/BRIEF.md) | Can BertaDevKit diagnostics let an agent validate its own editor changes? | Planned | — | — |
+| [004](briefs/004-experience-orchestration/BRIEF.md) | StateTree vs Logic Driver vs agent-generated graph for cross-plugin orchestration | Planned | — | — |
 
-Repository: https://github.com/nbertoa/ue5-bertadevkit
+Full index and status rules: [briefs/README.md](briefs/README.md).
 
-BertaDevKit should evolve alongside my R&D practice: when repeated friction, diagnostics, validation, integration work, or prototype infrastructure can be made reusable, the useful part should become tooling rather than remain one-off project code.
+## Repository map
 
-## Focus
+| Folder | What it is | Audience |
+|--------|------------|----------|
+| [`briefs/`](briefs/) | Finished and planned R&D Briefs | Source of published posts |
+| [`playbooks/`](playbooks/) | How a brief is run, recorded and published | Process |
+| [`toolkit/`](toolkit/) | The Unreal stack I prototype with and how I decide what to buy | Reference |
+| [`METHOD.md`](METHOD.md) | My R&D method: understand → research → prototype → validate → tool → explain → reuse | Reference |
+| [`ROADMAP.md`](ROADMAP.md) | What I am investigating next and why | Planning |
+| [`lab/`](lab/) | Raw working notebook: integration logs, plugin manuals, drafts | Working notes, not curated |
 
-- Unreal Engine
-- C++
-- Rapid prototyping
-- BertaDevKit
-- Tool and plugin development
-- Gameplay systems
-- Technical research
-- Systems experimentation
-- AI-assisted engineering workflows
-- New technologies and workflows
+## Ground rules
 
-## What I want to get better at
-
-- Exploring unfamiliar technical problems quickly
-- Understanding requirements, constraints, context, and expected timelines
-- Building prototypes to validate ideas
-- Comparing possible technical approaches
-- Identifying risks early
-- Turning research into practical implementations
-- Designing cleaner Unreal C++ architecture
-- Building reusable tools and plugins through BertaDevKit
-- Deepening GAS and gameplay-system knowledge
-- Improving UI / CommonUI workflows
-- Improving VR / XR prototyping capability
-- Documenting technical decisions and lessons learned
-- Explaining how something works, why it was built that way, and what it is useful for
-- Communicating results through technical notes, presentations, and demo videos
-
-## Evidence
-
-This repository will gradually collect:
-
-- Experiments
-- Prototypes
-- BertaDevKit improvements
-- Research notes
-- Technical investigations
-- Plugin evaluations and buy/integrate/build decisions
-- Case studies
-- Lessons learned from real problems
-- Presentations and demo material
-
-Most client R&D work cannot be published directly. Public evidence should therefore come from generic reusable tooling, independent investigations, personal prototypes, and case studies that contain no proprietary or confidential information.
-
-The goal is not to collect theory, but to build a visible record of **how I investigate, prototype, validate, solve, tool, explain, and reuse technical knowledge**.
+- **Evidence over claims.** Results say what was measured, how, and with which limits. Uncertain results are given as ranges.
+- **Small and finished beats big and pending.** A brief is sized to fit in one or two weeks of spare time.
+- **Every brief leaves something reusable**: a BertaDevKit feature, a template, a prompt spec, a decision rule.
+- **Personal work only.** Done outside client hours, on personal hardware, with no client code, assets or requirements.
+- **Rhythm:** one brief every 2–4 weeks, built around alternating build / write weeks ([playbooks/iteration-cycle.md](playbooks/iteration-cycle.md)).
+- **Every brief must also make me better at my day job.** Each one ends with a section on how the result applies to real client prototyping.
