@@ -1,0 +1,112 @@
+<p>This post documents the Unreal Engine 5.8 plugin stack I use for R&amp;D prototyping and, more importantly, the criteria behind every entry. Each system was integrated one at a time into a dedicated Sandbox project, validated in Play-In-Editor and in a packaged Windows build, and backed up before the next one went in. The goal is not to collect plugins: it is to shorten the path from an ambiguous requirement to a testable prototype, and to spend custom engineering time only where it creates real value. The last section covers what AI coding agents change in these decisions.</p>
+
+<hr />
+
+<p>The <strong>decision rule</strong> applied before any system enters the stack:</p>
+<ul>
+  <li>Unreal native first: if the engine solves the problem well enough, no plugin is added</li>
+  <li>Mature existing plugin second: maintained, documented, version-current, used in real projects</li>
+  <li>Integrate or extend third: adapters and diagnostics go into BertaDevKit, never forks of commercial code</li>
+  <li>Custom development last, only when requirements, ownership, performance or reuse justify it</li>
+  <li>A discount times a purchase; it never justifies one. A plugin needs a concrete experiment or a recurring problem</li>
+</ul>
+
+<hr />
+
+<p>The <strong>interaction, narrative and items</strong> layer covers how the player acts on the world and how story progresses:</p>
+<ul>
+  <li><strong>Nice Interaction System V2</strong> for generic player-to-world interaction (doors, pickups, contextual actions), attached to the existing PlayerController and GameState rather than replacing them</li>
+  <li><strong>Inspection System Pro</strong> for examining objects, documents and discoveries: a different problem from generic interaction</li>
+  <li><strong>Narrative Tales</strong> for dialogue, branching and quests; interactables react to player choices through the <code>Dialogue Option Selected</code> delegate</li>
+  <li><strong>Inventory System Pro</strong> for items, equipment and containers, only when a prototype actually needs ownership of items</li>
+  <li><strong>Menu System Pro</strong> as the CommonUI and Enhanced Input foundation for menus, settings and basic save support</li>
+  <li><strong>Map System Pro</strong> and <strong>Objective Path Guide</strong> for map-based navigation and temporary in-world route guidance, enabled only when the design needs them</li>
+</ul>
+
+<hr />
+
+<p>The <strong>camera</strong> layer separates gameplay cameras from cinematic presentation:</p>
+<ul>
+  <li><strong>Ultimate Gameplay Camera</strong> as the default gameplay camera: data-driven presets (near / medium / far as Camera Data Assets), dynamic spring arm with predictive collision, and Camera Focus driving a GAS-based target lock</li>
+  <li><strong>Black Eye Camera</strong> kept for projects whose presentation model fits it, not enabled by default</li>
+  <li>Native <strong>Sequencer</strong> for authored cinematic timing, rather than forcing it into runtime camera logic</li>
+</ul>
+
+<hr />
+
+<p>The <strong>atmosphere and visual presentation</strong> layer is split by what each tool changes:</p>
+<ul>
+  <li><strong>Ultra Dynamic Sky</strong> changes the environment: sky, time of day, clouds, weather and fog, with looks stored as native configuration assets instead of custom presets</li>
+  <li><strong>Screen Space Fog Scattering</strong> adds light scattering on top of the existing height fog; a lightweight complement, not a weather system</li>
+  <li><strong>Chameleon Post Process</strong> changes how the player perceives the scene: memories, visions, damage states, stylization. Its value is lower in forward-rendering and VR setups because many effects rely on deferred buffers</li>
+  <li><strong>Fluid Ninja VFX Tools</strong> for simulated and baked fluid effects ahead of runtime</li>
+</ul>
+
+<hr />
+
+<p>The <strong>gameplay and character</strong> layer is enabled only when the mechanics call for it:</p>
+<ul>
+  <li><strong>GAS Companion</strong> to accelerate Gameplay Ability System setup: abilities, stamina costs and regeneration through Gameplay Effects, and the built-in attribute HUD</li>
+  <li><strong>Combo Graph</strong> for combo-driven combat, and <strong>Ninja Input</strong> only when input orchestration becomes complex enough to justify another layer over Enhanced Input</li>
+  <li><strong>State Tree Tools</strong> on top of native StateTree, which remains the baseline for state-driven behaviour</li>
+  <li><strong>Dragon IK</strong> for procedural IK when it measurably shortens implementation compared with native IK Rig and Control Rig</li>
+  <li><strong>PCGEx</strong> to extend native PCG graphs, and <strong>Runtime Audio Importer</strong> for runtime audio and voice experiments</li>
+</ul>
+
+<hr />
+
+<p>The <strong>diagnostics, AI and editor productivity</strong> layer keeps iteration fast and observable:</p>
+<ul>
+  <li><strong>BertaDevKit</strong>, my own open-source toolkit, holds reusable diagnostics, audits and optional integrations with third-party systems (for example console dumps and editor audits for camera setups, and a shared Gameplay Tag catalog)</li>
+  <li><strong>Advanced Game Logging</strong> for logging in packaged builds, outside the editor</li>
+  <li><strong>NWIRO AI Integration Kit</strong> for agent and MCP experiments inside the editor, judged by whether it removes real friction rather than by novelty</li>
+  <li><strong>Blueprint Assist</strong>, <strong>Electronic Nodes</strong>, <strong>Auto Size Comments</strong>, <strong>Global Search Pro</strong> and <strong>LE Extended Standard Library</strong> for faster, more readable Blueprint work and navigation</li>
+</ul>
+
+<hr />
+
+<p>The <strong>overlaps</strong> in the stack are resolved by responsibility, not by picking a winner:</p>
+<ul>
+  <li>Ultra Dynamic Sky changes the physical atmosphere; Chameleon changes perception. Combined, they produce narrative mood transitions</li>
+  <li>Nice Interaction handles acting on objects, Inspection handles discovering them, Inventory handles owning them</li>
+  <li>Dragon IK and native IK genuinely overlap: the cheaper native option is the default, Dragon IK is used when it saves time</li>
+  <li>StateTree versus Logic Driver Pro is still open and will be measured on a real cross-plugin orchestration flow</li>
+</ul>
+
+<hr />
+
+<p>The <strong>integration lessons</strong> are where most of the value of this exercise came from:</p>
+<ul>
+  <li>One system at a time: integrate, test in PIE, package, back up. Installed and enabled does not mean validated</li>
+  <li>Ultimate Gameplay Camera preset cycling only worked reliably after creating a child camera manager with its own <code>Default Camera Data</code>, set to one of the presets in the cycle</li>
+  <li>A native <code>SpringArmComponent</code> left next to the UGC spring arm made the camera hug the character and hid the preset differences; removing the old boom fixed it</li>
+  <li>UGC Camera Focus refuses to start while yaw or pitch follow is active, and pitch follow is enabled by three separate flags; disabling only one is not enough</li>
+  <li>In GAS, an Activation Blocked Tag driven by CharacterMovement state (<code>InAir</code>) is a cleaner fix for mid-air re-activation than extra checks inside the ability</li>
+  <li>Plugins that need their own PlayerController or GameState components integrate better into the existing classes than into new ones created per plugin</li>
+</ul>
+
+<hr />
+
+<p>The <strong>plugins I did not buy</strong> say as much about the criteria as the ones I did:</p>
+<ul>
+  <li><strong>Easy Multi Save</strong>: native <code>SaveGame</code> and Menu System Pro cover the persistence small prototypes need; it becomes relevant with real world-state complexity</li>
+  <li><strong>Blockout Tools</strong>: prototypes start from existing levels, PCG or empty maps, so greyboxing is rarely the bottleneck</li>
+  <li><strong>MeshBlend</strong> and <strong>MeshPack</strong>: strong tools for environment art and very large inherited scenes, neither of which is a current need</li>
+  <li><strong>Fluid Ninja LIVE</strong> and <strong>Shader World</strong>: genuinely new capabilities, but expensive and with a learning cost; they wait for a prototype that needs interactive fluids or GPU terrain beyond PCG</li>
+  <li><strong>VR Hands Procedural Grab</strong> and <strong>Steam integration</strong>: no active XR or Steam-bound project, so buying now would be speculative</li>
+  <li><strong>Logic Driver Pro</strong> is the strongest remaining candidate because it would add an orchestration layer across existing systems rather than duplicate one of them</li>
+</ul>
+
+<hr />
+
+<p>The <strong>impact of AI coding agents</strong> on these decisions is a working hypothesis, to be measured in upcoming posts on UE 5.8 with its official MCP plugin:</p>
+<ul>
+  <li>Wrappers and glue (simple save systems, platform wrappers, localization automation) are now much cheaper to build on demand, so they are harder to justify buying</li>
+  <li>Deep, battle-tested technology (camera systems, sky and weather, fluids, terrain) keeps its value: what you pay for is years of edge cases</li>
+  <li>A new criterion appears: how well an agent can work with the plugin. Plain C++ APIs, data assets and console commands are agent-friendly; custom graph types are only friendly if the vendor exposes them, as Logic Driver now does with its experimental MCP companion, Logic Driver Assist</li>
+  <li>Diagnostics matter more than before: an agent that can run an audit and read a structured result can verify its own changes instead of just reporting success</li>
+</ul>
+
+<hr />
+
+<p><a href="https://github.com/nbertoa/ue5-bertadevkit">BertaDevKit on GitHub</a></p>

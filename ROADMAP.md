@@ -6,7 +6,7 @@ Previous roadmap (October 2026): [lab/archive/roadmap-2026-10.md](lab/archive/ro
 
 ## Main thread: agentic Unreal prototyping, with evidence
 
-**Why this thread:** UE 5.9 Preview ships Unreal MCP, Unreal Assistant and expanded agent toolsets, and UE6 (early access targeted around the end of 2027) is planned around AI integration. Engineers who can show **measured** results about agents in real Unreal projects are rare. This thread also makes my daily work faster, which is the point.
+**Why this thread:** UE 5.8 ships an official MCP plugin, UE 5.9 Preview adds Unreal Assistant and expanded agent toolsets, and UE6 (early access targeted around the end of 2027) is planned around AI integration. Work happens on **UE 5.8**, the version real projects (including my own work) use today. Engineers who can show **measured** results about agents in real Unreal projects are rare. This thread also makes my daily work faster, which is the point.
 
 Supporting skills (GAS, CommonUI, cameras, orchestration, XR) are used as the test material for this thread rather than as separate study goals.
 
@@ -14,8 +14,8 @@ Supporting skills (GAS, CommonUI, cameras, orchestration, XR) are used as the te
 
 | Order | Brief | Why this order |
 |-------|-------|----------------|
-| 1 | [002 — Plugins in the AI era](briefs/002-plugins-in-the-ai-era/BRIEF.md) | Shortest brief, mostly analysis: a quick first publication that gets the cycle going |
-| 2 | [001 — UE 5.9 MCP field report](briefs/001-ue59-mcp-field-report/BRIEF.md) | Timely while 5.9 is new; reuses tasks already solved by hand |
+| 1 | [002 — My plugin stack and how I choose](briefs/002-plugins-in-the-ai-era/BRIEF.md) | Doubles as the post presenting my stack; mostly writing, fits a write week |
+| 2 | [001 — Agent-from-spec field report (UE 5.8)](briefs/001-agent-from-spec-field-report/BRIEF.md) | Reuses tasks already solved by hand in the 5.8 Sandbox; directly useful for upcoming UE 5.8 work with agents |
 | 3 | [003 — Agent self-validation](briefs/003-agent-self-validation/BRIEF.md) | Builds on 001's failure modes; strengthens BertaDevKit |
 | 4 | [004 — Experience orchestration](briefs/004-experience-orchestration/BRIEF.md) | Closes the Logic Driver question with a reusable orchestration slice |
 
@@ -25,14 +25,14 @@ Small brief = 1 build week + 1 write week (2 weeks). Medium brief = 2 build week
 
 | Period | Brief | Evidence |
 |--------|-------|----------|
-| Dec 2026 | 002 — Plugins in the AI era (small) | First post + video; updated purchase rule |
-| Jan 2027 | 001 — UE 5.9 MCP field report (medium) | Delegation table + spec templates |
+| Dec 2026 | 002 — My plugin stack and how I choose (small) | First post + video; updated purchase rule |
+| Jan 2027 | 001 — Agent-from-spec field report (UE 5.8) (medium) | Delegation table + spec templates |
 | Feb 2027 | 003 — Agent self-validation (medium) | Agent-callable BertaDevKit diagnostics |
 | Mar 2027 | 004 — Experience orchestration (medium) | Orchestration decision + reusable vertical slice |
 | Q2 2027 | 3–4 briefs from the candidates list | Picked with the scoring in `briefs/README.md` |
 | Q3 2027 | Consolidated write-up: "A year of agentic Unreal prototyping" | Long-form post + talk-ready deck |
 
-If UE 5.9 ships its full release during this period, re-run the key tasks of brief 001 on it and publish a short follow-up.
+When UE 5.9 has its full release, re-run the key tasks of brief 001 on it and publish a short follow-up (5.8 vs 5.9 agent tooling).
 
 ## Candidate briefs (not started)
 

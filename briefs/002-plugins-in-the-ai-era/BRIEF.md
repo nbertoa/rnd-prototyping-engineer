@@ -1,18 +1,20 @@
-# Brief 002 — Buy, build or let an agent build it: how should plugin decisions change?
+# Brief 002 — My Unreal R&D plugin stack: how I choose, and what agents change
 
 | | |
 |---|---|
-| **Status** | Planned |
-| **Engine** | UE 5.8 / 5.9 |
+| **Status** | Recording (post drafted; agent spike pending) |
+| **Engine** | UE 5.8 |
 | **Size** | Small (1 build week; mostly analysis, writing can start in a write week) |
 | **Time spent** | — |
 | **Video** | — |
-| **Post** | — |
-| **Reusable output** | A buy / build / agent-build decision rule, applied to my own plugin inventory |
+| **Post** | Draft: [post.html](post.html) (WordPress HTML) |
+| **Reusable output** | Public decision framework + stack map by responsibility + integration lessons |
 
 ## 1. Question
 
-With agents that can write C++ and edit Blueprints, which kinds of Unreal plugins are still worth paying for, and which have become cheaper to build on demand?
+How do I decide which Unreal plugins enter my R&D stack, what does that stack look like by responsibility, and how should those decisions change now that agents can write C++ and edit Blueprints?
+
+This brief doubles as the post that presents my stack. It is deliberately a decision record, not a catalogue.
 
 ## 2. Why it matters
 

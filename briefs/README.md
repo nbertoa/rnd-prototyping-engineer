@@ -8,8 +8,8 @@ Template: [_TEMPLATE.md](_TEMPLATE.md). How a brief is run: [../playbooks/iterat
 
 | # | Question | Status | Started | Published |
 |---|----------|--------|---------|-----------|
-| [001](001-ue59-mcp-field-report/BRIEF.md) | What can an agent rebuild from a spec in UE 5.9 with Unreal MCP? | Planned | — | — |
-| [002](002-plugins-in-the-ai-era/BRIEF.md) | Buy, build or let an agent build it: how should plugin decisions change? | Planned | — | — |
+| [001](001-agent-from-spec-field-report/BRIEF.md) | What can an agent rebuild from a spec in a real UE 5.8 project? | Planned | — | — |
+| [002](002-plugins-in-the-ai-era/BRIEF.md) | My Unreal R&D plugin stack: how I choose, and what agents change | Recording | — | — |
 | [003](003-agent-self-validation/BRIEF.md) | Can BertaDevKit diagnostics let an agent validate its own editor changes? | Planned | — | — |
 | [004](004-experience-orchestration/BRIEF.md) | StateTree vs Logic Driver vs agent-generated graph for cross-plugin orchestration | Planned | — | — |
 

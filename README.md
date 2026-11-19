@@ -12,7 +12,7 @@ This repository is my private R&D workspace and the source of truth for everythi
 
 ## Current focus: agentic Unreal prototyping, with evidence
 
-Unreal Engine is moving fast towards AI-assisted development (Unreal MCP and Unreal Assistant in UE 5.9, AI as a pillar of UE6). There is a lot of hype and very little measured evidence about what agents actually do well inside a real Unreal project.
+Unreal Engine is moving fast towards AI-assisted development (an official MCP plugin in UE 5.8, Unreal Assistant and expanded agent toolsets in UE 5.9, AI as a pillar of UE6). There is a lot of hype and very little measured evidence about what agents actually do well inside a real Unreal project.
 
 My briefs answer concrete questions like:
 
@@ -25,8 +25,8 @@ My briefs answer concrete questions like:
 
 | # | Question | Status | Video | Post |
 |---|----------|--------|-------|------|
-| [001](briefs/001-ue59-mcp-field-report/BRIEF.md) | What can an agent rebuild from a spec in UE 5.9 with Unreal MCP? | Planned | — | — |
-| [002](briefs/002-plugins-in-the-ai-era/BRIEF.md) | Buy, build or let an agent build it: how should plugin decisions change? | Planned | — | — |
+| [001](briefs/001-agent-from-spec-field-report/BRIEF.md) | What can an agent rebuild from a spec in a real UE 5.8 project? | Planned | — | — |
+| [002](briefs/002-plugins-in-the-ai-era/BRIEF.md) | My Unreal R&D plugin stack: how I choose, and what agents change | Recording | — | — |
 | [003](briefs/003-agent-self-validation/BRIEF.md) | Can BertaDevKit diagnostics let an agent validate its own editor changes? | Planned | — | — |
 | [004](briefs/004-experience-orchestration/BRIEF.md) | StateTree vs Logic Driver vs agent-generated graph for cross-plugin orchestration | Planned | — | — |
 

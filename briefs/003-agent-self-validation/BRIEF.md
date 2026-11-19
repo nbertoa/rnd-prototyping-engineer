@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | **Status** | Planned |
-| **Engine** | UE 5.9 Preview (agent side) — BertaDevKit diagnostics already exist for 5.8 |
+| **Engine** | UE 5.8 Sandbox (BertaDevKit diagnostics already exist there), official Unreal MCP plugin |
 | **Size** | Medium (2 build weeks) |
 | **Time spent** | — |
 | **Video** | — |
@@ -27,11 +27,11 @@ A validation layer for agents is rare and directly reusable in client prototypin
 
 ## 4. Setup
 
-Engine track: UE 5.9 Preview, lean project (see `toolkit/engine-versions.md`).
+Engine track: UE 5.8 stable stack (see `toolkit/engine-versions.md`).
 
 
 - Pick 2–3 existing BertaDevKit diagnostics (UGC dump and audit first).
-- Expose them to the agent: through Unreal MCP / Python toolsets if possible, otherwise as console commands with structured output.
+- Expose them to the agent: through the official Unreal MCP plugin / Python if possible, otherwise as console commands with structured output.
 - Seed known faults in a copy of the camera setup (default camera data outside `CameraPresets`, duplicate spring arm, missing manager class).
 
 ## 5. Method and metrics

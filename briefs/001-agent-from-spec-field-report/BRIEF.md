@@ -1,9 +1,9 @@
-# Brief 001 — What can an agent rebuild from a spec in UE 5.9 with Unreal MCP?
+# Brief 001 — What can an agent rebuild from a spec in a real UE 5.8 project?
 
 | | |
 |---|---|
 | **Status** | Planned |
-| **Engine** | UE 5.9 Preview (separate copy; the validated UE 5.8 Sandbox stays untouched) |
+| **Engine** | UE 5.8 (copy of the validated Sandbox), official Unreal MCP plugin |
 | **Size** | Medium (2 build weeks) |
 | **Time spent** | — |
 | **Video** | — |
@@ -12,13 +12,13 @@
 
 ## 1. Question
 
-Given a written spec, which Unreal tasks can a coding agent (Claude Code / Codex through Unreal MCP and Unreal Assistant) complete inside the editor, and how much human correction does each one need?
+Given a written spec, which Unreal tasks can a coding agent (Claude Code / Codex through the official Unreal MCP plugin) complete inside a real UE 5.8 project with a commercial plugin stack, and how much human correction does each one need?
 
 ## 2. Why it matters
 
-UE 5.9 Preview is the first release where Epic exposes large editor toolsets to agents (Blueprints, editor actions, files, console, etc.), and UE6 is planned around AI integration. Studios need to know what to delegate today. Most public material is demos, not measurements.
+UE 5.8 ships an official MCP plugin, UE 5.9 expands the agent toolsets and UE6 is planned around AI integration. Most studios, though, will run agents on **existing UE 5.x projects full of third-party plugins**, not on clean samples. Most public material is demos on empty projects, not measurements on real ones.
 
-For me: it decides which parts of client prototyping I can delegate during real work.
+For me: it decides which parts of real prototyping work (including an upcoming work project on UE 5.8 with Claude / Codex) I can delegate.
 
 ## 3. Hypothesis
 
@@ -28,7 +28,7 @@ For me: it decides which parts of client prototyping I can delegate during real 
 
 ## 4. Setup
 
-Engine track: UE 5.9 Preview, lean project (see `toolkit/engine-versions.md`).
+Engine track: UE 5.8 stable stack (see `toolkit/engine-versions.md`). A short UE 5.9 follow-up is planned once 5.9 has its full release.
 
 
 Reuse tasks I already solved by hand in the UE 5.8 Sandbox, so there is a known-good reference and a real time baseline (see `lab/projects/sandbox-prototype.md`):
@@ -64,11 +64,11 @@ Metrics per task: success (yes / partial / no), number of interventions, wall-cl
 
 ## 8. Verdict and recommendation
 
-Expected output: a table classifying task types as **delegate**, **delegate with supervision** or **do it myself**, for UE 5.9.
+Expected output: a table classifying task types as **delegate**, **delegate with supervision** or **do it myself**, for UE 5.8.
 
 ## 9. Limits
 
-Preview engine build, one project, one person, a handful of tasks. The results describe this setup in late 2026, not agents in general.
+One project, one person, a handful of tasks, UE 5.8 tooling. The results describe this setup in late 2026, not agents in general; UE 5.9 tooling may change them.
 
 ## 10. Reusable output
 
