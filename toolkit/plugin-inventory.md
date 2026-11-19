@@ -94,7 +94,7 @@ Role: temporary, aesthetically polished **in-world** route guidance using NavMes
 
 Use it when the player should see a glowing trail through the 3D world rather than only a map route or POI marker. It complements Map System Pro; direct integration between them is not established. Arbitrary custom Niagara asset replacement is **not documented as plug-and-play**.
 
-Technical reference (from the user's complete 10-page vendor PDF): [`research/plugins/objective-path-guide.md`](research/plugins/objective-path-guide.md)
+Technical reference (from the user's complete 10-page vendor PDF): [`research/plugins/objective-path-guide.md`](../lab/research/plugins/objective-path-guide.md)
 
 ---
 
@@ -110,7 +110,7 @@ Role: sky, weather, time-of-day and rapid atmospheric setup.
 
 Role: enhance Unreal Exponential Height Fog with screen-space light scattering. Intended as a lightweight complement to Unreal fog / UDS rather than a replacement weather system.
 
-R&D notes: [`research/plugins/screen-space-fog-scattering.md`](research/plugins/screen-space-fog-scattering.md)
+R&D notes: [`research/plugins/screen-space-fog-scattering.md`](../lab/research/plugins/screen-space-fog-scattering.md)
 
 ### Fluid Ninja VFX Tools
 **Status:** owned.
@@ -128,7 +128,7 @@ Key distinction: use **VFX Tools** when the result can be simulated / baked ahea
 
 Role: rapid experimentation with post-process states, stylization, interaction feedback, memories, visions, damage states, CCTV / monitor looks, transitions and visual language.
 
-R&D notes: [`research/plugins/chameleon-post-process.md`](research/plugins/chameleon-post-process.md)
+R&D notes: [`research/plugins/chameleon-post-process.md`](../lab/research/plugins/chameleon-post-process.md)
 
 ### Black Eye Camera
 **Status:** owned.

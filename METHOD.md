@@ -1,4 +1,4 @@
-# What an R&D / Prototyping Engineer Does
+# Method — how I do R&D / prototyping
 
 ## Definition
 
@@ -169,3 +169,7 @@ Progress in this profile should be demonstrated primarily through evidence such 
 - completed personal experiments or products.
 
 The objective is to become increasingly effective at taking an unclear technical problem and producing **clarity, evidence, a working prototype, and a well-reasoned recommendation**.
+
+## In practice: R&D Briefs
+
+This method is applied in small, finished units called **R&D Briefs** (see [briefs/](briefs/README.md)). Each brief goes through the loop above in one or two weeks of spare time and ends with a measured answer, a short video and a reusable artifact. The operational cycle is described in [playbooks/iteration-cycle.md](playbooks/iteration-cycle.md).

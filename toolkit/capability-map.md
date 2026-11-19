@@ -113,7 +113,7 @@ Do not enable a map by default. Environmental navigation may be the better desig
 
 **Observed integration (user report 2026-10-28):** Guide Component added to the player, `Guiding Mode = Both`, target actor in the level, and automatic `Start Guidance To` from BeginPlay. Navigation works after a ~0.2 s delay, but `PathSpline` is initially `None` without it, and Niagara is briefly visible without a valid path. Treat this as integrated with a startup visual defect, not a finished or packaged-validated implementation. The user also observed that disabling Blueprint **Context Sensitive** revealed the native seconds-based `Delay` when LE Extended Standard Library affected node discovery; root cause unverified. Project identity and UE version still unconfirmed.
 
-**Source and implementation guide:** [Objective Path Guide technical reference](research/plugins/objective-path-guide.md).
+**Source and implementation guide:** [Objective Path Guide technical reference](../lab/research/plugins/objective-path-guide.md).
 
 ---
 
@@ -155,7 +155,7 @@ It is best treated as a prototyping and presentation accelerator rather than fou
 
 Important constraint: many effects depend on deferred-rendering buffers, so its value may be lower in Forward Rendering / VR scenarios.
 
-Detailed R&D notes, architecture, priority effects, Recipes, and integration decisions: [`research/plugins/chameleon-post-process.md`](research/plugins/chameleon-post-process.md).
+Detailed R&D notes, architecture, priority effects, Recipes, and integration decisions: [`research/plugins/chameleon-post-process.md`](../lab/research/plugins/chameleon-post-process.md).
 
 ### Black Eye Camera
 
