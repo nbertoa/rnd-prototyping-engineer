@@ -6,8 +6,8 @@
 | **Engine** | UE 5.8 |
 | **Size** | Small (1 build week; mostly analysis, writing can start in a write week) |
 | **Time spent** | — |
-| **Video** | — |
-| **Post** | Draft: [post.html](post.html) (WordPress HTML) |
+| **Video** | Pending — shot list: [assets/video-shotlist.md](assets/video-shotlist.md) |
+| **Post** | WordPress draft: https://nbertoa.com/?p=9856 — source: [post.html](post.html) |
 | **Reusable output** | Public decision framework + stack map by responsibility + integration lessons |
 
 ## 1. Question
