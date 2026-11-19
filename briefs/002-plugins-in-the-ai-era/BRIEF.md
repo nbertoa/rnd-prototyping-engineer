@@ -4,7 +4,7 @@
 |---|---|
 | **Status** | Planned |
 | **Engine** | UE 5.8 / 5.9 |
-| **Time box** | 4–6 hours (analysis brief, little or no prototyping) |
+| **Size** | Small (1 build week; mostly analysis, writing can start in a write week) |
 | **Time spent** | — |
 | **Video** | — |
 | **Post** | — |
@@ -50,7 +50,7 @@ A fourth axis matters: **how well agents can work with the plugin**. Plugins bui
 
 —
 
-## 8. Decision
+## 8. Verdict and recommendation
 
 Expected output: an updated purchase rule in `toolkit/plugin-inventory.md`.
 
@@ -62,7 +62,11 @@ Opinion-heavy by nature. The spike covers one feature only; a commercial plugin'
 
 The decision rule and the classified inventory.
 
-## 11. Next question
+## 11. Applying it at work
+
+Apply the decision rule before proposing any plugin purchase on a project, and state in proposals which parts an agent can build instead.
+
+## 12. Next question
 
 Which owned plugins expose APIs that agents can actually call? That feeds brief 003.
 

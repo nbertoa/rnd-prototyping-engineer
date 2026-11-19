@@ -4,7 +4,7 @@
 |---|---|
 | **Status** | Planned |
 | **Engine** | UE 5.9 Preview (agent side) — BertaDevKit diagnostics already exist for 5.8 |
-| **Time box** | 12–20 hours over 2 weeks |
+| **Size** | Medium (2 build weeks) |
 | **Time spent** | — |
 | **Video** | — |
 | **Post** | — |
@@ -45,7 +45,7 @@ Metrics: faults found, faults fixed correctly, false "done" reports, interventio
 
 —
 
-## 8. Decision
+## 8. Verdict and recommendation
 
 Expected outcome: decide whether "agent-callable diagnostics" becomes a standard BertaDevKit design rule (every new diagnostic ships with structured output).
 
@@ -58,7 +58,11 @@ Seeded faults are easier than real ones. A small number of runs; agent behaviour
 - Structured-output contract for BertaDevKit diagnostics
 - The MCP / console bridge, committed to BertaDevKit as an optional module
 
-## 11. Next question
+## 11. Applying it at work
+
+Ship every new BertaDevKit diagnostic with structured output, so agents can check their own work on real projects.
+
+## 12. Next question
 
 Can the same diagnostics run as a reproducible test flow (setup → run → assert → report)? That links to the Experiment Runner idea in brief 004.
 

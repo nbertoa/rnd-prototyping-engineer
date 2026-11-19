@@ -1,33 +1,55 @@
-# Iteration cycle — one brief in 1–2 weeks of spare time
+# Iteration cycle — one brief every two weeks, built around alternating weeks
 
-R&D work here happens in the gaps of client work. The cycle is designed so that a brief can be paused at any step without losing progress, and so that something publishable comes out even if the result is "not worth it".
+R&D here is personal work, done outside client hours. The Unreal machine is available **every other week**, so the cycle alternates between a **build week** (machine available) and a **write week** (no machine).
 
 **Rule: one active brief at a time.** New ideas go to the candidates list in [../ROADMAP.md](../ROADMAP.md).
 
-## The six steps
+## The two-week cycle
 
-| Step | Output | Typical time |
-|------|--------|--------------|
-| 1. Frame | `BRIEF.md` sections 1–5 filled: question, hypothesis, setup, metrics, time box | 1 h |
-| 2. Baseline | Clean project copy or restore point, reference version if one exists | 0.5–1 h |
-| 3. Build | The smallest prototype that can answer the question | 50–60% of the box |
-| 4. Measure | Numbers and observations written into sections 6–7 while still fresh | 1–2 h |
-| 5. Decide | Sections 8–11: decision, limits, reusable output, next question | 1 h |
-| 6. Ship | Video, post, README tables updated (see [publishing.md](publishing.md)) | 2–3 h |
+```text
+ BUILD WEEK (Unreal machine)            WRITE WEEK (no Unreal machine)
+ ───────────────────────────            ──────────────────────────────
+ Baseline → Build → Measure → Record    Decide → Write → Edit video → Publish
+                                        + frame the NEXT brief
+```
+
+### Build week — everything that needs Unreal
+
+| Step | Output |
+|------|--------|
+| 1. Baseline | Clean project copy or restore point; reference version if one exists |
+| 2. Build | The smallest prototype that answers the question (Claude Code / Codex + Unreal) |
+| 3. Measure | Numbers and observations written into brief sections 6–7 **the same day** |
+| 4. Record | Clean takes of the final result + raw clips captured along the way |
+
+**Before the build week ends:** everything that needs the machine must be captured (clips, screenshots, numbers, logs). The write week cannot go back for a missing shot.
+
+### Write week — everything that does not need Unreal
+
+| Step | Output |
+|------|--------|
+| 5. Decide | Brief sections 8–12: verdict, limits, reusable output, applying it at work, next question |
+| 6. Ship | Video edited, post published, README tables updated (see [publishing.md](publishing.md)) |
+| 7. Frame next | Next brief's sections 1–5 written, specs and prompts prepared in `assets/` |
+
+Step 7 is what makes the next build week productive from the first hour: you sit at the machine with the question, the spec and the metrics already decided.
+
+## Cadence
+
+| Brief size | Cycle | Publication rhythm |
+|------------|-------|--------------------|
+| Small (fits one build week) | 2 weeks | 1 post every 2 weeks |
+| Medium (needs two build weeks) | 4 weeks | 1 post per month |
+
+Mixing both sizes gives roughly **one post every 2–4 weeks**. The minimum to keep the habit: **one post per month**.
+
+If a build week is lost (illness, family, deadlines), the cycle simply shifts. Do not compress two cycles into one.
 
 ## Time box rules
 
-- Set the time box in step 1 and track the time actually spent.
-- At 100% of the box, stop building. Either measure what exists or extend **once**, writing down why.
-- At 150%, park the brief with a written reason. A parked brief is still a valid entry.
-
-## Recording as you go
-
-Recording at the end is where most briefs die. Instead:
-
-- Capture short clips during step 3 whenever something works for the first time (OBS replay buffer, or ShadowPlay / Instant Replay).
-- Save them into `briefs/NNN/media/raw/` (git-ignored) with a one-line note of what they show.
-- Step 6 then becomes editing, not re-creating.
+- A small brief gets **one build week**; a medium brief gets **two**. Decide in the framing step.
+- If the build week ends without an answer: measure what exists and publish a partial result, or extend by one build week **once**, writing down why.
+- If it still does not converge: park it with a written reason. A parked brief is still valid evidence.
 
 ## Where things live
 
@@ -35,14 +57,15 @@ Recording at the end is where most briefs die. Instead:
 |-------|----------|
 | Public write-up | `briefs/NNN/BRIEF.md` |
 | Specs, prompts, small scripts | `briefs/NNN/assets/` |
-| Raw notes, chat-derived logs, failed attempts | `lab/` |
+| Raw notes, logs, failed attempts | `lab/` |
 | Reusable code | BertaDevKit (or the project repo), linked from the brief |
 
 ## Done means
 
-- [ ] All 11 sections of the brief are filled (or explicitly marked N/A)
+- [ ] All sections of the brief are filled (or explicitly marked N/A)
 - [ ] Time spent recorded
 - [ ] 60–90 s video uploaded and linked
 - [ ] Post published on nbertoa.com and linked
 - [ ] Reusable output committed and linked
+- [ ] Next brief framed (sections 1–5)
 - [ ] Status updated in `README.md` and `briefs/README.md`

@@ -4,7 +4,7 @@
 |---|---|
 | **Status** | Planned / Active / Recording / Published / Parked |
 | **Engine** | UE x.y (exact version) |
-| **Time box** | e.g. 10–15 hours over 2 weeks |
+| **Size** | Small (1 build week) / Medium (2 build weeks) |
 | **Time spent** | fill in at the end |
 | **Video** | link |
 | **Post** | link |
@@ -47,9 +47,9 @@ What happened, with the numbers. Screenshots or GIFs from `media/`.
 
 Two short lists. Include surprises and failure modes.
 
-## 8. Decision
+## 8. Verdict and recommendation
 
-What I will do differently because of this result. Possible outcomes: adopt, adopt with conditions, build into BertaDevKit, buy, keep as project-local, park.
+My engineering opinion, stated clearly: what I recommend, for whom, and under which conditions. Possible outcomes: adopt, adopt with conditions, build into BertaDevKit, buy, keep as project-local, park. The opinion must follow from the evidence above, and say how confident it is.
 
 ## 9. Limits
 
@@ -59,7 +59,11 @@ What this experiment does **not** prove. Sample size, engine preview builds, sin
 
 What I keep using after this brief (tool, template, prompt spec, checklist), and where it lives.
 
-## 11. Next question
+## 11. Applying it at work
+
+How this changes the way I prototype on real projects: what I will now delegate, check, reuse or avoid. Keep it generic (no client details).
+
+## 12. Next question
 
 The follow-up question this result raises, if any.
 

@@ -4,7 +4,7 @@
 |---|---|
 | **Status** | Planned |
 | **Engine** | UE 5.9 Preview (separate copy; the validated UE 5.8 Sandbox stays untouched) |
-| **Time box** | 10–15 hours over 2 weeks |
+| **Size** | Medium (2 build weeks) |
 | **Time spent** | — |
 | **Video** | — |
 | **Post** | — |
@@ -59,7 +59,7 @@ Metrics per task: success (yes / partial / no), number of interventions, wall-cl
 
 —
 
-## 8. Decision
+## 8. Verdict and recommendation
 
 Expected output: a table classifying task types as **delegate**, **delegate with supervision** or **do it myself**, for UE 5.9.
 
@@ -72,7 +72,11 @@ Preview engine build, one project, one person, a handful of tasks. The results d
 - `assets/specs/` — spec format that worked best, reusable for client work
 - Delegation table, reused in brief 003 and in daily work
 
-## 11. Next question
+## 11. Applying it at work
+
+Use the delegation table in client prototyping: hand data/config tasks to the agent with a spec, supervise graph logic, keep cross-asset wiring manual until brief 003 proves otherwise.
+
+## 12. Next question
 
 If the agent fails mostly at verification, can it check its own work? → Brief 003.
 

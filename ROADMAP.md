@@ -19,14 +19,20 @@ Supporting skills (GAS, CommonUI, cameras, orchestration, XR) are used as the te
 | 3 | [003 — Agent self-validation](briefs/003-agent-self-validation/BRIEF.md) | Builds on 001's failure modes; strengthens BertaDevKit |
 | 4 | [004 — Experience orchestration](briefs/004-experience-orchestration/BRIEF.md) | Closes the Logic Driver question and produces the Sanctuary vertical slice |
 
-## Quarter view
+## Calendar (alternating build / write weeks)
 
-| Period | Goal | Evidence |
-|--------|------|----------|
-| Dec 2026 – Jan 2027 | Briefs 002 and 001 published | 2 posts, 2 videos, delegation table |
-| Feb – Mar 2027 | Briefs 003 and 004 published | BertaDevKit agent-callable diagnostics, orchestration decision, vertical slice |
-| Q2 2027 | 3–4 more briefs from the candidates list | Picked using the scoring in `briefs/README.md` |
+Small brief = 1 build week + 1 write week (2 weeks). Medium brief = 2 build weeks + 2 write weeks (4 weeks).
+
+| Period | Brief | Evidence |
+|--------|-------|----------|
+| Dec 2026 | 002 — Plugins in the AI era (small) | First post + video; updated purchase rule |
+| Jan 2027 | 001 — UE 5.9 MCP field report (medium) | Delegation table + spec templates |
+| Feb 2027 | 003 — Agent self-validation (medium) | Agent-callable BertaDevKit diagnostics |
+| Mar 2027 | 004 — Experience orchestration (medium) | Orchestration decision + Sanctuary vertical slice |
+| Q2 2027 | 3–4 briefs from the candidates list | Picked with the scoring in `briefs/README.md` |
 | Q3 2027 | Consolidated write-up: "A year of agentic Unreal prototyping" | Long-form post + talk-ready deck |
+
+If UE 5.9 ships its full release during this period, re-run the key tasks of brief 001 on it and publish a short follow-up.
 
 ## Candidate briefs (not started)
 

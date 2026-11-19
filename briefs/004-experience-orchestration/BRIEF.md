@@ -4,7 +4,7 @@
 |---|---|
 | **Status** | Planned |
 | **Engine** | UE 5.8 Sandbox (plugins already validated there) |
-| **Time box** | 15–20 hours over 2 weeks |
+| **Size** | Medium (2 build weeks) |
 | **Time spent** | — |
 | **Video** | — |
 | **Post** | — |
@@ -53,7 +53,7 @@ Explore → Interact (Nice Interaction) → Inspect / Dialogue (Narrative Tales)
 
 —
 
-## 8. Decision
+## 8. Verdict and recommendation
 
 Adopt Logic Driver as the orchestration layer, keep StateTree as the default, or use each for a defined kind of flow.
 
@@ -66,7 +66,11 @@ One flow, one developer who already knows the plugins. Learning time for Logic D
 - The vertical slice (reused by the Sanctuary prototype)
 - Reusable orchestration nodes or tasks, only if they appear in more than one version
 
-## 11. Next question
+## 11. Applying it at work
+
+Choose the orchestration layer at the start of multi-system prototypes instead of growing a manager Blueprint.
+
+## 12. Next question
 
 Can the same graphs run reproducible test scenarios (an "Experiment Runner")?
 

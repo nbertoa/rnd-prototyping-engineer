@@ -2,7 +2,7 @@
 
 I turn ambiguous technical questions into **working prototypes, measured evidence and clear recommendations**, in Unreal Engine (C++ / Blueprints), using AI agents as a daily engineering tool.
 
-This repository is my public R&D log. Every entry is a short **R&D Brief**: one question, one small prototype, one measured answer, one short video and one reusable artifact I keep using afterwards.
+This repository is my private R&D workspace and the source of truth for everything I publish. Every unit of work is a short **R&D Brief**: one question, one small prototype, one measured answer, one short video and one reusable artifact I keep using afterwards. Finished briefs are published on [nbertoa.com](https://nbertoa.com).
 
 - Portfolio and write-ups: [nbertoa.com](https://nbertoa.com)
 - Main reusable toolset: [BertaDevKit](https://github.com/nbertoa/ue5-bertadevkit)
@@ -36,11 +36,11 @@ Full index and status rules: [briefs/README.md](briefs/README.md).
 
 | Folder | What it is | Audience |
 |--------|------------|----------|
-| [`briefs/`](briefs/) | Finished and planned R&D Briefs | Public, curated |
-| [`playbooks/`](playbooks/) | How a brief is run, recorded and published | Public |
-| [`toolkit/`](toolkit/) | The Unreal stack I prototype with and how I decide what to buy | Public |
-| [`METHOD.md`](METHOD.md) | My R&D method: understand → research → prototype → validate → tool → explain → reuse | Public |
-| [`ROADMAP.md`](ROADMAP.md) | What I am investigating next and why | Public |
+| [`briefs/`](briefs/) | Finished and planned R&D Briefs | Source of published posts |
+| [`playbooks/`](playbooks/) | How a brief is run, recorded and published | Process |
+| [`toolkit/`](toolkit/) | The Unreal stack I prototype with and how I decide what to buy | Reference |
+| [`METHOD.md`](METHOD.md) | My R&D method: understand → research → prototype → validate → tool → explain → reuse | Reference |
+| [`ROADMAP.md`](ROADMAP.md) | What I am investigating next and why | Planning |
 | [`lab/`](lab/) | Raw working notebook: integration logs, plugin manuals, drafts | Working notes, not curated |
 
 ## Ground rules
@@ -48,4 +48,6 @@ Full index and status rules: [briefs/README.md](briefs/README.md).
 - **Evidence over claims.** Results say what was measured, how, and with which limits. Uncertain results are given as ranges.
 - **Small and finished beats big and pending.** A brief is sized to fit in one or two weeks of spare time.
 - **Every brief leaves something reusable**: a BertaDevKit feature, a template, a prompt spec, a decision rule.
-- **No client material.** Client work stays private. Everything here comes from personal prototypes, generic tooling and public technology.
+- **Personal work only.** Done outside client hours, on personal hardware, with no client code, assets or requirements.
+- **Rhythm:** one brief every 2–4 weeks, built around alternating build / write weeks ([playbooks/iteration-cycle.md](playbooks/iteration-cycle.md)).
+- **Every brief must also make me better at my day job.** Each one ends with a section on how the result applies to real client prototyping.

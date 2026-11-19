@@ -33,7 +33,7 @@ Category on nbertoa.com: **R&D Briefs**. Tags: engine version, main systems invo
 
 ## Cadence
 
-Target: **one published brief every two weeks**, or at least one every month. A short, finished brief beats a long, pending one.
+Target: **one published brief every 2–4 weeks**, with **one per month as the minimum** to keep the habit. Publishing happens in write weeks, so it never competes with build time. A short, finished brief beats a long, pending one.
 
 ## Before publishing
 
