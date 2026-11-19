@@ -27,6 +27,9 @@ A validation layer for agents is rare and directly reusable in client prototypin
 
 ## 4. Setup
 
+Engine track: UE 5.9 Preview, lean project (see `toolkit/engine-versions.md`).
+
+
 - Pick 2–3 existing BertaDevKit diagnostics (UGC dump and audit first).
 - Expose them to the agent: through Unreal MCP / Python toolsets if possible, otherwise as console commands with structured output.
 - Seed known faults in a copy of the camera setup (default camera data outside `CameraPresets`, duplicate spring arm, missing manager class).

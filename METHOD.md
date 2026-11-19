@@ -106,7 +106,7 @@ Personal projects provide a place to investigate freely and create publishable e
 
 They do not need to be pure technology demos. A real product or creative experience can become an R&D laboratory when it contains meaningful technical uncertainty that is deliberately investigated.
 
-For example, an interactive or audiovisual biblical experience can be used to investigate:
+For example, a small interactive narrative experience can be used to investigate:
 
 - rapid interactive-narrative prototyping;
 - cinematic camera systems;

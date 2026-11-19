@@ -7,7 +7,6 @@ Finished, readable work lives in [`../briefs/`](../briefs/).
 | Path | Content |
 |------|---------|
 | [projects/sandbox-prototype.md](projects/sandbox-prototype.md) | UE 5.8 plugin integration sandbox: chronological validation log |
-| [projects/biblical-sanctuary-prototype.md](projects/biblical-sanctuary-prototype.md) | Candidate storytelling prototype; its vertical slice is brief 004 |
 | [projects/uds-blue-dawn.md](projects/uds-blue-dawn.md), [projects/uds-sunset-clear-night.md](projects/uds-sunset-clear-night.md) | Ultra Dynamic Sky look experiments |
 | [research/plugins/](research/plugins/) | Annotated vendor manuals and integration records |
 | [lab-architecture.md](lab-architecture.md) | How client work, BertaDevKit and personal experiments relate; Logic Driver orchestration hypothesis |

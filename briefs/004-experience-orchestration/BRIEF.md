@@ -18,7 +18,7 @@ To sequence an interactive experience across several plugins, which approach is 
 
 Prototypes that combine several systems tend to end up with a giant "manager" Blueprint. Choosing the orchestration layer early saves time on every later prototype. The hypothesis behind it is documented in `lab/lab-architecture.md`.
 
-For me: it closes the open Logic Driver question in my toolkit, and the slice is the vertical slice of the Sanctuary prototype (`lab/projects/biblical-sanctuary-prototype.md`).
+For me: it closes the open Logic Driver question in my toolkit and leaves a reusable orchestration slice for future prototypes.
 
 ## 3. Hypothesis
 
@@ -28,16 +28,16 @@ For me: it closes the open Logic Driver question in my toolkit, and the slice is
 
 ## 4. Setup
 
-The same flow, built three times, using systems already validated in the Sandbox:
+The same flow, built three times, using systems already validated in the Sandbox. The scene uses neutral, freely available content (Third Person template, Epic samples or free Fab content) so the experiment is reproducible:
 
 ```text
 Explore → Interact (Nice Interaction) → Inspect / Dialogue (Narrative Tales)
-        → Atmosphere change (Ultra Dynamic Sky + Chameleon) → Reconstruct element → Next phase
+        → Atmosphere change (Ultra Dynamic Sky + Chameleon) → World changes (object appears / door opens) → Next phase
 ```
 
 1. StateTree (+ State Tree Tools).
 2. Logic Driver Pro (requires purchase; decision rule in `toolkit/plugin-inventory.md`).
-3. Agent-generated version from a written spec, in whichever of the two tools the agent handles better.
+3. Agent-generated version from a written spec. Logic Driver 2.11+ has an experimental, free companion plugin (Logic Driver Assist, MCP-based) that lets an agent build and edit state machines; compare it with an agent building the StateTree version.
 
 ## 5. Method and metrics
 
@@ -63,7 +63,7 @@ One flow, one developer who already knows the plugins. Learning time for Logic D
 
 ## 10. Reusable output
 
-- The vertical slice (reused by the Sanctuary prototype)
+- The vertical slice, reusable as a starting point for future narrative / interaction prototypes
 - Reusable orchestration nodes or tasks, only if they appear in more than one version
 
 ## 11. Applying it at work

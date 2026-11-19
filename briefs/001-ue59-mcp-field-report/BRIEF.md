@@ -28,6 +28,9 @@ For me: it decides which parts of client prototyping I can delegate during real 
 
 ## 4. Setup
 
+Engine track: UE 5.9 Preview, lean project (see `toolkit/engine-versions.md`).
+
+
 Reuse tasks I already solved by hand in the UE 5.8 Sandbox, so there is a known-good reference and a real time baseline (see `lab/projects/sandbox-prototype.md`):
 
 | Task | Reference I already built by hand |

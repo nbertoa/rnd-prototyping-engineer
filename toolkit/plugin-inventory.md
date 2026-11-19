@@ -267,6 +267,8 @@ Potential role: cross-system orchestration across narrative, cameras, UI, intera
 
 Primary validation question: does it materially outperform StateTree / normal Blueprint orchestration for the kinds of cross-system prototypes we build?
 
+Checked on Fab 2026-11-19: 70% off during the Fab Friday sale (USD 44.99, ends 2026-12-01); listed engine versions 4.19–4.27 and 5.0–5.8. Version 2.11 adds **Logic Driver Assist**, a free, separate, experimental companion plugin (GitHub) that lets an AI agent build and edit state machines through MCP. Relevant to brief 004.
+
 ---
 
 ## MeshBlend
