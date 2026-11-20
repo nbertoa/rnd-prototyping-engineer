@@ -74,7 +74,7 @@ Personal experiments can safely act as proving grounds for reusable tooling befo
 
 # Logic Driver as a Potential Orchestration Layer
 
-Logic Driver Pro is not currently owned and is not considered a replacement for StateTree, Narrative Tales, GAS, or any other domain-specific system.
+Logic Driver Pro was purchased on 2026-11-20 and is not yet integrated. It is not considered a replacement for StateTree, Narrative Tales, GAS, or any other domain-specific system.
 
 Its potentially valuable role is different:
 

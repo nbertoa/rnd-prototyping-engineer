@@ -168,6 +168,20 @@ Role: combo / combat flow for projects that genuinely need combo-driven gameplay
 
 Role: additional tooling around Unreal StateTree workflows.
 
+### Logic Driver Pro
+**Status:** owned — purchased by the user on 2026-11-20 during the Fab Friday sale (listed at USD 44.99, 70% off). Not yet installed or validated in the Sandbox.
+
+Role: visual state machine framework (custom nodes in Blueprint or C++) evaluated as a **cross-system orchestration layer** across narrative, cameras, UI, interaction, visual states and gameplay phases — not as a replacement for StateTree or domain-specific systems.
+
+Primary validation question (brief 004): does it materially outperform StateTree / normal Blueprint orchestration for the cross-system prototypes we build, especially when the flow changes?
+
+Notes:
+- Fab lists engine versions 4.19–4.27 and 5.0–5.8 (checked 2026-11-19); supported on the UE 5.8 Sandbox.
+- Licensed per seat on Fab, for individual developers or small teams; studio / project licensing is separate.
+- Version 2.11 adds **Logic Driver Assist**, a free, separate, experimental companion plugin (GitHub, requires Pro 2.11+ and a C++ compiler) that lets an AI agent build and edit state machines through MCP. Relevant to briefs 003 and 004.
+- A free Lite version exists; uninstall Lite before installing Pro.
+- Integration order: install in a copy of the Sandbox, open the content samples, then build the brief 004 flow; package before treating it as validated.
+
 ### Ninja Input
 **Status:** owned.
 
@@ -256,18 +270,6 @@ Decision: evaluate only against a concrete procedural-world prototype. Compare a
 Potential role: mature Steamworks integration for future PC/Steam projects, including achievements, statistics, friends, lobbies/matchmaking, Workshop, inventory, cloud, networking and related Steam platform services.
 
 Decision: do not purchase while no active Steam integration work is required. Keep as the mature reference candidate and buy when a meaningful sale aligns with an actual Steam-bound prototype or game.
-
----
-
-## Logic Driver Pro
-
-**Status:** wishlist — waiting for price reduction.
-
-Potential role: cross-system orchestration across narrative, cameras, UI, interaction, visual states and gameplay phases.
-
-Primary validation question: does it materially outperform StateTree / normal Blueprint orchestration for the kinds of cross-system prototypes we build?
-
-Checked on Fab 2026-11-19: 70% off during the Fab Friday sale (USD 44.99, ends 2026-12-01); listed engine versions 4.19–4.27 and 5.0–5.8. Version 2.11 adds **Logic Driver Assist**, a free, separate, experimental companion plugin (GitHub) that lets an AI agent build and edit state machines through MCP. Relevant to brief 004.
 
 ---
 

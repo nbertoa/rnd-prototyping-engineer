@@ -38,7 +38,7 @@ Use it when the problem is fundamentally narrative rather than trying to recreat
 
 It complements generic interaction rather than replacing it.
 
-### Logic Driver Pro — not owned yet
+### Logic Driver Pro — owned (purchased 2026-11-20), not yet integrated
 
 **Potential role:** high-level visual orchestration across otherwise independent systems.
 
@@ -49,7 +49,7 @@ Possible uses:
 - author reproducible R&D / validation workflows;
 - build designer-facing orchestration without giant manager Blueprints.
 
-Logic Driver is still a candidate, not part of the current owned stack. Its value should be validated against StateTree and existing Unreal-native approaches before treating it as infrastructure.
+Logic Driver is now owned but not yet validated. Its value should be measured against StateTree and existing Unreal-native approaches (brief 004) before treating it as infrastructure.
 
 ---
 
@@ -262,7 +262,7 @@ System       System Pro
 UI / Navigation: Menu System Pro + Map / Minimap / Markers
 Gameplay: GAS Companion + Combo Graph
 State logic: StateTree + State Tree Tools
-Future orchestration candidate: Logic Driver Pro
+Orchestration (owned, under evaluation): Logic Driver Pro
 ```
 
 ---
@@ -346,7 +346,7 @@ Suggested experiments:
 
 5. **Cross-system orchestration experiment**
    - Build once with StateTree / normal Blueprint orchestration.
-   - Later compare the same problem with Logic Driver if purchased.
+   - Compare the same problem with Logic Driver Pro (owned since 2026-11-20) — brief 004.
 
 The purpose of these experiments is not to demonstrate every feature of every plugin. It is to learn where each tool saves time, where integrations become fragile, and which repeated glue should eventually become reusable BertaDevKit adapters or diagnostics.
 

@@ -36,7 +36,7 @@ Explore → Interact (Nice Interaction) → Inspect / Dialogue (Narrative Tales)
 ```
 
 1. StateTree (+ State Tree Tools).
-2. Logic Driver Pro (requires purchase; decision rule in `toolkit/plugin-inventory.md`).
+2. Logic Driver Pro (owned since 2026-11-20; see `toolkit/plugin-inventory.md`).
 3. Agent-generated version from a written spec. Logic Driver 2.11+ has an experimental, free companion plugin (Logic Driver Assist, MCP-based) that lets an agent build and edit state machines; compare it with an agent building the StateTree version.
 
 ## 5. Method and metrics
